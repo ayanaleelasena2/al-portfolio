@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AL — Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="nav">
+    <a href="/" class="nav__logo" aria-label="Home">
+      <img src="assets/logo.png" alt="AL logo" class="nav__logo-img" />
+    </a>
+
+    <nav class="nav__links" aria-label="Primary navigation">
+      <a href="#work" class="nav__link">Work</a>
+      <a href="about.html" class="nav__link">About</a>
+      <a href="playground.html" class="nav__link">Vibes</a>
+      <a href="https://drive.google.com/file/d/1g7gjROStxXxsRz4DX33tyKrAW1EHBNSM/view?usp=sharing" class="nav__link nav__link--resume" target="_blank" rel="noopener">
+        <span class="resume-bubbles">
+          <span class="bubble bubble--lg"></span>
+          <span class="bubble bubble--sm"></span>
+        </span>
+        Resume
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <span class="theme-toggle__thumb"></span>
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero__content">
+        <h1 class="hero__greeting animate animate--1"><span class="hero__text-sweep">Hi I'm Ayana </span><span class="hero__dot animate animate--smiley">ヽ(•‿•)ノ</span></h1>
+        <p class="hero__tagline animate animate--2">Driven by <span class="hero__emphasis">data informed decision making</span>, <span class="hero__emphasis">creative interaction</span> in my work, and a love for <span style="white-space:nowrap"><span class="hero__emphasis">thoughtful design</span>. <svg class="hero__heart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 30" aria-hidden="true"><path d="M16 27S2 18.5 2 9.5A7.5 7.5 0 0 1 16 5.93 7.5 7.5 0 0 1 30 9.5C30 18.5 16 27 16 27z" fill="#89b4d4"/><ellipse cx="10" cy="9" rx="3" ry="2" fill="white" opacity="0.3" transform="rotate(-30 10 9)"/></svg></span></p>
+        <p class="hero__bio animate animate--3">Currently doing contracted design work with <span class="hero__highlight">Oh Hi, Hello <img src="assets/ohhilogo.png" alt="" class="bio-logo" /></span>, graduated from the <span class="hero__highlight">University of Michigan <img src="assets/um_logo.jpg" alt="" class="bio-logo" /></span> in HCI and UX Design/Research, and was a <span class="hero__highlight">Figma Campus Leader <img src="assets/Figma-logo.png" alt="" class="bio-logo" /></span>.</p>
+      </div>
+    </section>
+
+    <section id="work" class="work">
+      <div class="work__header animate animate--4">
+        <h2 class="work__label">Selected Work</h2>
+      </div>
+
+      <div class="work__grid animate animate--5">
+      <article class="project-card">
+        <div class="project-card__media">
+          <img src="assets/newhero_stackeval.png" alt="StackEval" class="project-card__cover project-card__cover--contain" />
+        </div>
+        <div class="project-card__info">
+          <div class="project-card__meta">
+            <span class="project-card__client">
+              <img src="assets/backboard_io_logo.jpeg" alt="Backboard.io" class="project-card__client-logo" />
+              Backboard.io
+            </span>
+          </div>
+          <h3 class="project-card__title">StackEval</h3>
+          <p class="project-card__desc">An LLM evaluation tool built for developers, helping teams systematically test, compare, and improve their AI stack through structured research and intuitive design.</p>
+          <a href="stackeval.html" class="project-card__link">View Case Study <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-card__media">
+          <img src="assets/newhero_ufinance.png" alt="UFinance" class="project-card__cover" />
+        </div>
+        <div class="project-card__info">
+          <div class="project-card__meta">
+            <span class="project-card__client">
+              <img src="assets/ufinance_logo.png" alt="UFinance" class="project-card__client-logo" />
+              UFinance
+            </span>
+          </div>
+          <h3 class="project-card__title">UFinance</h3>
+          <p class="project-card__desc">A fintech iOS application designed to help students manage and budget their finances in school, built on a foundation of user research and intuitive design.</p>
+          <a href="ufinance.html" class="project-card__link">View Case Study <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+      </div>
+
+      <div class="work__grid animate animate--5">
+      <article class="project-card">
+        <div class="project-card__media">
+          <img src="assets/newhero_glide.png" alt="GLIDE" class="project-card__cover" />
+        </div>
+        <div class="project-card__info">
+          <div class="project-card__meta">
+            <span class="project-card__client">
+              <img src="assets/glide_logo.png" alt="GLIDE" class="project-card__client-logo" />
+              GLIDE
+            </span>
+          </div>
+          <h3 class="project-card__title">GLIDE</h3>
+          <p class="project-card__desc">An iOS travel application designed to give you a calm, predictable travel experience — built on market research and intuitive design.</p>
+          <a href="glide.html" class="project-card__link">View Case Study <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-card__media project-card__media--promega">
+          <img src="assets/B01%20384%20Plate%20map%20creator%20fit.jpg" alt="ProNect" class="project-card__cover project-card__cover--contain" />
+        </div>
+        <div class="project-card__info">
+          <div class="project-card__meta">
+            <span class="project-card__client">
+              <img src="assets/promega_logo.png" alt="Promega" class="project-card__client-logo" />
+              Promega
+            </span>
+          </div>
+          <h3 class="project-card__title">384-Well Plate Map on the ProNect™ Data Platform</h3>
+          <p class="project-card__desc">Optimized cell assay workflows for life science researchers by designing an intuitive 384-well plate map experience within the ProNect™ Data Platform.</p>
+          <a href="promega.html" class="project-card__link">View Case Study <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="cursor-label" id="cursorLabel">[view project]</div>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      const html = document.documentElement;
+      html.setAttribute('data-theme', html.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
+    });
+
+const sections = document.querySelectorAll('main section[id]');
+    const navLinks = document.querySelectorAll('.nav__link[href^="#"]');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+          });
+        }
+      });
+    }, { threshold: 0.4 });
+
+    sections.forEach(s => observer.observe(s));
+
+    const cursorLabel = document.getElementById('cursorLabel');
+    const cards = document.querySelectorAll('.project-card');
+
+    document.addEventListener('mousemove', (e) => {
+      cursorLabel.style.left = e.clientX + 'px';
+      cursorLabel.style.top = e.clientY + 'px';
+    });
+
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', () => cursorLabel.style.opacity = '1');
+      card.addEventListener('mouseleave', () => cursorLabel.style.opacity = '0');
+    });
+  </script>
+  <footer class="footer">
+    <p class="footer__tagline">Yay! Thanks for checking out my work. Say hi! <span style="color:#89b4d4">(＊๑˘◡˘)</span></p>
+    <div class="footer__links">
+      <a href="mailto:ayanal@umich.edu" class="footer__link">ayanal@umich.edu</a>
+      <a href="https://www.linkedin.com/in/ayana-leelasena/" target="_blank" rel="noopener" class="footer__link">LinkedIn ↗</a>
+      <p class="footer__copy">© 2026 Ayana Leelasena</p>
+    </div>
+  </footer>
+</body>
+</html>

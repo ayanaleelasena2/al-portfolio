@@ -1,0 +1,206 @@
+/* ── Playground — Music Mood Board ───────────────────────────── */
+
+.mood-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 100px 120px;
+}
+
+.mood__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 80px;
+  position: relative;
+  z-index: 2;
+}
+
+.mood__text {
+  flex: 1;
+}
+
+.mood__num {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.mood__title {
+  font-size: clamp(52px, 6.5vw, 96px);
+  font-weight: 500;
+  line-height: 1.0;
+  margin: 0 0 28px;
+  letter-spacing: -0.02em;
+}
+
+.mood__desc {
+  font-size: 16px;
+  line-height: 1.65;
+  opacity: 0.65;
+  max-width: 360px;
+}
+
+.mood__player {
+  flex-shrink: 0;
+}
+
+/* Large background number */
+.mood__bg-text {
+  position: absolute;
+  bottom: -0.12em;
+  right: -0.04em;
+  font-size: clamp(220px, 28vw, 400px);
+  font-weight: 700;
+  line-height: 1;
+  opacity: 0.045;
+  pointer-events: none;
+  z-index: 1;
+  user-select: none;
+}
+
+/* ── Dot navigation ─────────────────────────────────────────── */
+.mood-dot-nav {
+  position: fixed;
+  right: 36px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 200;
+}
+
+.mood-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.mood-dot.active {
+  background: #ffffff;
+  transform: scale(1.5);
+}
+
+/* ── Beach ──────────────────────────────────────────────────── */
+[data-mood="beach"] {
+  background: linear-gradient(135deg,
+    #0d0221 0%,
+    #1c0a38 30%,
+    #7b2060 65%,
+    #d4582a 100%
+  );
+  color: #ffffff;
+}
+
+[data-mood="beach"] .mood__num  { color: #f0a070; opacity: 1; }
+[data-mood="beach"] .mood__bg-text { color: #ffffff; }
+
+/* ── Late Night Designing ────────────────────────────────────── */
+[data-mood="designing"] {
+  background: #07080f;
+  color: #ffffff;
+}
+
+[data-mood="designing"] .mood__num { color: #89b4d4; opacity: 1; }
+[data-mood="designing"] .mood__bg-text { color: #89b4d4; opacity: 0.035; }
+
+.mood__glow {
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(137, 180, 212, 0.07) 0%, transparent 70%);
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Sunday Reset ───────────────────────────────────────────── */
+[data-mood="sunday"] {
+  background: linear-gradient(160deg,
+    #ff6a00 0%,
+    #ee9b00 30%,
+    #f7c948 60%,
+    #fff0a0 100%
+  );
+  color: #2a1000;
+}
+
+[data-mood="sunday"] .mood__num    { color: #9e4200; opacity: 1; }
+[data-mood="sunday"] .mood__bg-text { color: #2a1000; }
+
+/* Dot nav adapts to Sunday Reset (light section) */
+#moodDotNav[data-mood="sunday"] .mood-dot         { background: rgba(42, 28, 16, 0.25); }
+#moodDotNav[data-mood="sunday"] .mood-dot.active  { background: #2a1c10; }
+
+/* ── Running & Skiing ───────────────────────────────────────── */
+[data-mood="running"] {
+  background: linear-gradient(135deg,
+    #060e1c 0%,
+    #0b2a52 45%,
+    #0066bb 100%
+  );
+  color: #ffffff;
+}
+
+[data-mood="running"] .mood__num  { color: #5bc8f5; opacity: 1; }
+[data-mood="running"] .mood__bg-text { color: #ffffff; }
+
+/* ── Crisp Autumn Drive ─────────────────────────────────────── */
+[data-mood="autumn"] {
+  background: linear-gradient(150deg,
+    #1a0a00 0%,
+    #5c2200 30%,
+    #a04010 60%,
+    #c8720a 100%
+  );
+  color: #ffffff;
+}
+
+[data-mood="autumn"] .mood__num   { color: #e8a855; opacity: 1; }
+[data-mood="autumn"] .mood__bg-text { color: #ffffff; }
+
+/* ── Disco Under the Stars ──────────────────────────────────── */
+[data-mood="disco"] {
+  background: linear-gradient(135deg,
+    #020008 0%,
+    #0e0028 30%,
+    #3a0060 60%,
+    #7a0070 80%,
+    #b8006a 100%
+  );
+  color: #ffffff;
+}
+
+[data-mood="disco"] .mood__num    { color: #e07fff; opacity: 1; }
+[data-mood="disco"] .mood__bg-text { color: #ffffff; }
+
+/* ── First Taste of Spring ──────────────────────────────────── */
+[data-mood="spring"] {
+  background: linear-gradient(150deg,
+    #1b4332 0%,
+    #40916c 35%,
+    #95d5b2 65%,
+    #fce4ec 100%
+  );
+  color: #ffffff;
+}
+
+[data-mood="spring"] .mood__num    { color: #d4f5c4; opacity: 1; }
+[data-mood="spring"] .mood__bg-text { color: #ffffff; }

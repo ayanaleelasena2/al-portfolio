@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Promega ProNect™ — Ayana Leelasena</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="case-study.css" />
+</head>
+<body>
+
+  <header class="nav">
+    <a href="index.html" class="nav__logo" aria-label="Home">
+      <img src="assets/logo.png" alt="AL logo" class="nav__logo-img" />
+    </a>
+    <nav class="nav__links" aria-label="Primary navigation">
+      <a href="index.html#work" class="nav__link">Work</a>
+      <a href="playground.html" class="nav__link">Vibes</a>
+      <a href="index.html#about" class="nav__link">About</a>
+      <a href="https://drive.google.com/file/d/1g7gjROStxXxsRz4DX33tyKrAW1EHBNSM/view?usp=sharing" class="nav__link nav__link--resume" target="_blank" rel="noopener">
+        <span class="resume-bubbles">
+          <span class="bubble bubble--lg"></span>
+          <span class="bubble bubble--sm"></span>
+        </span>
+        Resume
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <span class="theme-toggle__thumb"></span>
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <main class="case-study">
+
+    <nav class="cs-stepper" aria-label="Case study navigation">
+      <ol class="cs-stepper__list">
+        <li class="cs-stepper__item" data-target="s-overview">
+          <a href="#s-overview" class="cs-stepper__link">
+            <span class="cs-stepper__num">01</span>
+            <span class="cs-stepper__label">Overview</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-project-overview">
+          <a href="#s-project-overview" class="cs-stepper__link">
+            <span class="cs-stepper__num">02</span>
+            <span class="cs-stepper__label">Project Overview</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-platform">
+          <a href="#s-platform" class="cs-stepper__link">
+            <span class="cs-stepper__num">03</span>
+            <span class="cs-stepper__label">ProNect Platform</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-persona">
+          <a href="#s-persona" class="cs-stepper__link">
+            <span class="cs-stepper__num">04</span>
+            <span class="cs-stepper__label">User Persona</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-research">
+          <a href="#s-research" class="cs-stepper__link">
+            <span class="cs-stepper__num">05</span>
+            <span class="cs-stepper__label">User Research</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-insights">
+          <a href="#s-insights" class="cs-stepper__link">
+            <span class="cs-stepper__num">06</span>
+            <span class="cs-stepper__label">Insights</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-solution1">
+          <a href="#s-solution1" class="cs-stepper__link">
+            <span class="cs-stepper__num">07</span>
+            <span class="cs-stepper__label">Design Solution #1</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-solution2">
+          <a href="#s-solution2" class="cs-stepper__link">
+            <span class="cs-stepper__num">08</span>
+            <span class="cs-stepper__label">Design Solution #2</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-solution3">
+          <a href="#s-solution3" class="cs-stepper__link">
+            <span class="cs-stepper__num">09</span>
+            <span class="cs-stepper__label">Design Solution #3</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-solution4">
+          <a href="#s-solution4" class="cs-stepper__link">
+            <span class="cs-stepper__num">10</span>
+            <span class="cs-stepper__label">Design Solution #4</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-solution5">
+          <a href="#s-solution5" class="cs-stepper__link">
+            <span class="cs-stepper__num">11</span>
+            <span class="cs-stepper__label">Design Solution #5</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-demo">
+          <a href="#s-demo" class="cs-stepper__link">
+            <span class="cs-stepper__num">12</span>
+            <span class="cs-stepper__label">Client Demo</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-outcome">
+          <a href="#s-outcome" class="cs-stepper__link">
+            <span class="cs-stepper__num">13</span>
+            <span class="cs-stepper__label">Outcome</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-learnings">
+          <a href="#s-learnings" class="cs-stepper__link">
+            <span class="cs-stepper__num">14</span>
+            <span class="cs-stepper__label">Key Learnings</span>
+          </a>
+        </li>
+      </ol>
+    </nav>
+
+    <section class="cs-hero" id="s-overview">
+      <div class="cs-hero__content">
+        <h1 class="cs-hero__title animate animate--1">384-Well Plate Map</h1>
+        <p class="cs-hero__subtitle animate animate--3">Optimizing Cell Assay Workflows on the ProNect™ Data Platform</p>
+<div class="cs-hero__proto-wrap animate animate--3">
+          <a href="https://www.promega.com/" target="_blank" rel="noopener" class="cs-hero__proto">
+            Promega <span aria-hidden="true">↗</span>
+          </a>
+          <a href="https://login.promega.com/u/login?state=hKFo2SBkbUYwQ3VIVVhpWXhwYW5jQlU5Q1VLcGxBQUhRYTBtRKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIGpKYXhmZnV5T3MySkUxaTNWcGRKeWZNcUZFSEU1VnRlo2NpZNkgOGFIYmdMYVhDWEJDdW15eTRONm9WNWNCYVhXaTRXU24" target="_blank" rel="noopener" class="cs-hero__proto cs-hero__proto--secondary">
+            ProNect™ Data Platform <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+      <div class="cs-hero__media animate animate--3">
+        <img src="assets/newhero_pronect.png" alt="ProNect 384-Well Plate Map interface" class="cs-hero__video" />
+      </div>
+    </section>
+
+    <hr class="cs-hero__rule" />
+
+    <div class="cs-hero__details-wrap">
+      <div class="cs-hero__details animate animate--3">
+        <div class="cs-detail">
+          <span class="cs-detail__label">Company</span>
+          <span class="cs-detail__value">
+            <a href="https://www.promega.com/" target="_blank" rel="noopener" class="cs-detail__link">Promega Corporation</a>
+          </span>
+        </div>
+        <div class="cs-detail">
+          <span class="cs-detail__label">Role</span>
+          <span class="cs-detail__value">UX Design Intern</span>
+        </div>
+        <div class="cs-detail">
+          <span class="cs-detail__label">Timeline</span>
+          <span class="cs-detail__value">Summer 2025</span>
+        </div>
+        <div class="cs-detail">
+          <span class="cs-detail__label">Team</span>
+          <span class="cs-detail__value">Solo Project</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="cs-phase cs-phase--tight" id="s-project-overview">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Context</span>
+        <h2 class="cs-section-title">Project Overview</h2>
+        <p class="cs-phase__intro cs-phase__intro--wide">Optimizing Cell Assay Workflows from expanding 96-Well Plate Map Setup design to 384-Well Plate Map design on the Promega ProNect™ Data Platform.</p>
+      </div>
+      <div class="cs-realization-block">
+        <p class="cs-realization-block__body">Promega is a global biotechnology company that provides innovative solutions for life sciences. <span class="cs-accent">CellTiter-Glo</span> is one of its flagship assays used to measure cell viability, and <span class="cs-accent">ProNect</span> is a digital platform designed to streamline <span class="cs-accent">assay setup and data management workflows</span>.</p>
+        <p class="cs-realization-block__body">As part of a cross-functional initiative at Promega, I led UX design research to reimagine digital tools for <span class="cs-accent">384-well plate mapping</span>. Our goal was to improve workflows for scientists working in high-throughput areas like <span class="cs-accent">genomics, drug discovery, and cell-based assays</span> by making plate setup more intuitive, accurate, and scalable. I built off the existing 96-well plate design to introduce <span class="cs-accent">dual-compatibility for more complex 384-well plate maps</span>.</p>
+        <p class="cs-realization-block__body" style="font-size: 13px;"><span style="color: #89b4d4; font-weight: 500;">Note: </span>This feature has not been published on the platform since my internship ended in December but is planning to be rolled out later this year.</p>
+        <div class="cs-ia-block cs-ia-block--row" style="max-width: 900px;">
+          <img src="assets/promega1.jpg" alt="Promega 384-well plate" class="cs-ia__img" style="max-height: 240px; object-fit: cover; background: none; padding: 0; flex: 1; min-width: 0;" />
+          <img src="assets/promega2.jpg" alt="Promega lab context" class="cs-ia__img" style="max-height: 240px; object-fit: cover; background: none; padding: 0; flex: 1; min-width: 0;" />
+        </div>
+        <div>
+          <p class="cs-section-label" style="display: block; margin-bottom: 12px;">Problem Statement</p>
+          <div class="cs-hmw" id="s-problem">
+            <p class="cs-hmw__text">How might we extend the ProNect Data Platform to support both <span class="cs-accent">96-well and 384-well plate formats</span> so that scientists can <span class="cs-accent">seamlessly analyze experimental data</span> across different plate types?</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-phase" id="s-platform">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Background</span>
+        <h2 class="cs-section-title">What is the ProNect™ Data Platform?</h2>
+      </div>
+      <a href="https://www.youtube.com/watch?v=PhXsZ7E7rao&t=1s" target="_blank" rel="noopener" class="cs-yt-thumb">
+        <img src="https://img.youtube.com/vi/PhXsZ7E7rao/maxresdefault.jpg" alt="ProNect Data Platform — Introducing the ProNect Data Platform" class="cs-yt-thumb__img" />
+        <div class="cs-yt-thumb__overlay">
+          <div class="cs-yt-thumb__play">
+            <svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#ff0000"/><path d="M45 24 27 14v20" fill="#fff"/></svg>
+          </div>
+          <span class="cs-yt-thumb__label">Watch on YouTube ↗</span>
+        </div>
+      </a>
+
+      <div class="cs-ia-block">
+        <h4 class="cs-variations__subtitle">Current 96 Well Plate Workflow</h4>
+        <video src="assets/96wellplate.mp4" autoplay loop muted playsinline style="width: auto; max-width: 50%; border-radius: 12px; border: 1px solid #3a3a3a; display: block;"></video>
+      </div>
+    </section>
+
+    <section class="cs-phase" id="s-persona">
+      <div class="cs-section-header">
+        <span class="cs-section-label">User Persona</span>
+        <h2 class="cs-section-title">Who are we designing for?</h2>
+      </div>
+
+      <div class="cs-persona-card">
+        <!-- Header -->
+        <div class="cs-persona-card__header">
+          <div class="cs-persona-card__avatar">ER</div>
+          <div>
+            <h3 class="cs-persona-card__name">Ellie Roberts</h3>
+            <p class="cs-persona-card__role">Research Scientist — High-Throughput Screening</p>
+            <p class="cs-persona-card__quote">"I thrive on precision and efficiency"</p>
+          </div>
+        </div>
+
+        <!-- Details row -->
+        <div class="cs-persona-card__details">
+          <div class="cs-persona-card__detail">
+            <span class="cs-persona-card__detail-label">Age</span>
+            <span class="cs-persona-card__detail-value">29</span>
+          </div>
+          <div class="cs-persona-card__detail">
+            <span class="cs-persona-card__detail-label">Location</span>
+            <span class="cs-persona-card__detail-value">Madison, WI</span>
+          </div>
+          <div class="cs-persona-card__detail">
+            <span class="cs-persona-card__detail-label">Gender</span>
+            <span class="cs-persona-card__detail-value">Female</span>
+          </div>
+          <div class="cs-persona-card__detail">
+            <span class="cs-persona-card__detail-label">Tech Proficiency</span>
+            <span class="cs-persona-card__detail-value">Moderate</span>
+          </div>
+        </div>
+
+        <!-- Goals & Frustrations -->
+        <div class="cs-persona-card__body">
+          <div class="cs-persona-card__col">
+            <h4 class="cs-persona-card__col-title cs-persona-card__col-title--goals">Goals</h4>
+            <ul class="cs-persona-card__list">
+              <li>
+                <span class="cs-persona-card__item-title">Throughput & Scale</span>
+                <span class="cs-persona-card__item-desc">Handle large sample volumes without sacrificing accuracy.</span>
+              </li>
+              <li>
+                <span class="cs-persona-card__item-title">Reproducibility</span>
+                <span class="cs-persona-card__item-desc">Ensure results are consistent across runs and operators.</span>
+              </li>
+              <li>
+                <span class="cs-persona-card__item-title">Design Experiments</span>
+                <span class="cs-persona-card__item-desc">Set up hundreds of conditions in parallel to test hypotheses quickly.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="cs-persona-card__col">
+            <h4 class="cs-persona-card__col-title cs-persona-card__col-title--frustrations">Frustrations</h4>
+            <ul class="cs-persona-card__list">
+              <li>
+                <span class="cs-persona-card__item-desc">Manual setup bottlenecks in large-scale experiments.</span>
+              </li>
+              <li>
+                <span class="cs-persona-card__item-desc">Setup complexity — higher density means more chances for human or robotic error.</span>
+              </li>
+              <li>
+                <span class="cs-persona-card__item-desc">Poor scalability: tools aren't optimized for handling large plate volumes or repeated layouts.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-phase" id="s-research">
+      <div class="cs-section-header">
+        <span class="cs-section-label">User Research</span>
+        <h2 class="cs-section-title">Understanding how scientists actually work.</h2>
+        <p class="cs-phase__intro">To build a foundational understanding of user workflows and preferences, we adopted a two-phase approach that began with qualitative discovery and transitioned into broader quantitative validation.</p>
+      </div>
+
+      <div class="cs-realization-steps">
+        <div class="cs-realization-step">
+          <span class="cs-realization-step__num">01</span>
+          <div class="cs-realization-step__content">
+            <h4 class="cs-realization-step__title">Internal Scientist Interview</h4>
+            <p class="cs-realization-step__desc">We conducted a one-on-one interview with a Promega scientist deeply familiar with high-throughput workflows and 384-well plate usage. This session helped us map out the typical end-to-end process: from designing plate layouts to integrating with instruments and analyzing outputs.</p>
+          </div>
+        </div>
+        <div class="cs-realization-step">
+          <span class="cs-realization-step__num">02</span>
+          <div class="cs-realization-step__content">
+            <h4 class="cs-realization-step__title">Survey Design & Client Outreach</h4>
+            <p class="cs-realization-step__desc">Building on our interview findings, I drafted a set of 15 potential survey questions to probe deeper into user roles, throughput levels, software habits, and pain points. After refining the content with our team, we distilled the survey down to 5 essential questions to reduce friction and increase response rate.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-ia-block">
+        <img src="assets/promega_usersurvey.webp" alt="Promega user survey" class="cs-ia__img" style="background: none; padding: 0;" />
+      </div>
+
+      <div class="cs-section-header" style="gap: 0;">
+        <span class="cs-section-label">Key Constraint</span>
+        <h3 class="cs-section-title" style="font-size: clamp(20px, 2.5vw, 28px);">Biggest constraint was 4× Data Density</h3>
+      </div>
+
+      <div class="cs-ia-block" style="max-width: 900px; gap: 20px;">
+        <p class="cs-realization-block__body">When we expanded from 96 wells to 384 wells, the total number of cells increased from 96 to 384 — an increase of <span class="cs-accent">288 additional wells</span>.</p>
+        <p class="cs-realization-block__body">Mathematically, both the rows and columns doubled — from <span class="cs-accent">8×12 to 16×24</span> — which means the total number of wells quadrupled. So we had <span class="cs-accent">four times the data density</span> in the same visual space.</p>
+        <p class="cs-realization-block__body">At 96 wells, users could comfortably scan the grid and visually detect inconsistencies. At 384 wells, each individual cell becomes significantly smaller. Scanning becomes more difficult. Errors become less obvious at a glance. Interaction targets shrink.</p>
+        <div class="cs-hmw" style="padding: 20px 24px;">
+          <p class="cs-hmw__text">The interaction patterns that worked at 96 did not scale proportionally. So the core design question became: <span class="cs-accent">How do we maintain clarity and confidence while increasing density by four times?</span></p>
+        </div>
+        <img src="assets/promega96to384.png" alt="96 to 384 well plate comparison" class="cs-ia__img" style="background: #ffffff; padding: 32px; width: 100%;" />
+      </div>
+    </section>
+
+    <section class="cs-phase" id="s-insights">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Research Findings</span>
+        <h2 class="cs-section-title">Insights</h2>
+        <p class="cs-phase__intro">We received initial feedback from scientists with varying levels of plate throughput (1–10 plates per week).</p>
+      </div>
+
+      <div class="cs-glide-stats" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="cs-glide-stat">
+          <p class="cs-glide-stat__label" style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #f5c842; font-weight: 600; margin-bottom: 12px;">Tools Used</p>
+          <p class="cs-glide-stat__number" style="font-size: clamp(15px, 1.5vw, 18px); color: #ffffff; margin-bottom: 8px;">Excel & GraphPad Prism</p>
+          <p class="cs-glide-stat__desc">The most common tools among respondents. Excel is accessible and easy to edit — a familiar baseline for most scientists.</p>
+        </div>
+        <div class="cs-glide-stat">
+          <p class="cs-glide-stat__label" style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #e07070; font-weight: 600; margin-bottom: 12px;">Pain Points</p>
+          <p class="cs-glide-stat__number" style="font-size: clamp(15px, 1.5vw, 18px); color: #ffffff; margin-bottom: 8px;">Extremely Manual Setup</p>
+          <p class="cs-glide-stat__desc">Excel setup is especially burdensome for 384-well formats — users must build 16×24 grids and label every well by hand.</p>
+        </div>
+        <div class="cs-glide-stat">
+          <p class="cs-glide-stat__label" style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #89b4d4; font-weight: 600; margin-bottom: 12px;">Engagement</p>
+          <p class="cs-glide-stat__number" style="font-size: clamp(15px, 1.5vw, 18px); color: #ffffff; margin-bottom: 8px;">High Interest</p>
+          <p class="cs-glide-stat__desc">Both respondents expressed interest in participating in future research — a strong signal for continued co-design opportunities.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-phase" id="s-solution1">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Design Solution #1</span>
+        <h2 class="cs-section-title">Zoom Navigation for Dense Grids</h2>
+        <p class="cs-phase__intro">One of the first pain points identified was the difficulty of navigating large 384-well plate layouts in Excel. Users often struggled to manually manage 16×24 well grids, making it hard to locate, edit, or review well-level data.</p>
+      </div>
+
+      <div class="cs-ia-block" style="max-width: 900px; gap: 20px;">
+        <p class="cs-realization-block__body">To address this, I introduced a <span class="cs-accent">zoom and quadrant-based navigation system</span> to break the grid into manageable sections. This allowed users to:</p>
+        <div class="cs-realization-items">
+          <div class="cs-realization-item">
+            <p class="cs-realization-item__desc"><span class="cs-realization-item__label" style="display: inline;">Zoom out</span> to see the entire plate for a quick overview.</p>
+          </div>
+          <div class="cs-realization-item">
+            <p class="cs-realization-item__desc"><span class="cs-realization-item__label" style="display: inline;">Zoom into individual quadrants (A–D)</span> for focused editing.</p>
+          </div>
+          <div class="cs-realization-item">
+            <p class="cs-realization-item__desc"><span class="cs-realization-item__label" style="display: inline;">Navigate through quadrants</span> using labeled tabs for clarity and speed.</p>
+          </div>
+        </div>
+        <p class="cs-realization-block__body">This model dramatically reduced cognitive load while maintaining flexibility for users working at different scales.</p>
+      </div>
+
+      <div class="cs-ia-block" style="max-width: 900px; gap: 24px;">
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <img src="assets/promega_iteration1.png" alt="Zoom navigation iteration 1" class="cs-ia__img" style="background: #ffffff; padding: 24px; width: 100%;" />
+          <p style="text-align: center; font-size: 13px; color: #aaaaaa;">Iteration 1</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <video src="assets/promega_iteration2vid.mov" autoplay loop muted playsinline class="cs-ia__img" style="background: #ffffff; padding: 24px; width: 100%;"></video>
+          <p style="text-align: center; font-size: 13px; color: #aaaaaa;">Iteration 2</p>
+        </div>
+        <div class="cs-realization-items">
+          <div class="cs-realization-item">
+            <span class="cs-realization-item__label">Simplified zoom controls</span>
+            <p class="cs-realization-item__desc">Removed plus/minus zoom controls after feedback showed they added complexity without value. Focused the system on structured quadrant-based navigation for clearer, more intentional interaction.</p>
+          </div>
+          <div class="cs-realization-item">
+            <span class="cs-realization-item__label">Stronger selection state</span>
+            <p class="cs-realization-item__desc">Early versions only highlighted the selected quadrant border — too subtle at scale. Switched to a full color fill on the active quadrant, making the selected area immediately obvious.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-phase" id="s-solution2">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Design Solution #2</span>
+        <h2 class="cs-section-title">Plate Type Flexibility</h2>
+        <p class="cs-phase__intro">Dual compatibility for 96-well and 384-well plates. Users can now toggle between modes using a simple selector, ensuring the tool supports both high-throughput and standard lab workflows.</p>
+      </div>
+
+      <div class="cs-ia-block" style="max-width: 900px; gap: 20px;">
+        <p class="cs-realization-block__body">A <span class="cs-accent">toggle was chosen intentionally</span> — with only two possible modes, a toggle is the clearest and most efficient control. It avoids the overhead of dropdowns or radio buttons and makes switching feel immediate and low-effort.</p>
+        <img src="assets/promega_toggle.png" alt="Plate type toggle between 96 and 384 wells" class="cs-ia__img" style="background: #ffffff; padding: 32px; width: 100%;" />
+      </div>
+    </section>
+
+    <section class="cs-phase" id="s-solution3">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Design Solution #3</span>
+        <h2 class="cs-section-title">Enhancing Grid Legibility</h2>
+      </div>
+
+      <div class="cs-ia-block" style="max-width: 900px; gap: 20px;">
+        <div class="cs-realization-items">
+          <div class="cs-realization-item">
+            <span class="cs-realization-item__label">Visual quadrant dividers</span>
+            <p class="cs-realization-item__desc">Added yellow dividing lines to segment the 384-well grid into four logical sections (A–D), helping users quickly orient themselves and reduce cognitive load when scanning or editing dense data layouts.</p>
+          </div>
+          <div class="cs-realization-item">
+            <span class="cs-realization-item__label">Quadrant carousel navigation</span>
+            <p class="cs-realization-item__desc">Introduced a carousel at the bottom of the interface, allowing users to instantly recognize which grid section they're viewing and jump forward or backward between plate sections without losing their place.</p>
+          </div>
+        </div>
+        <img src="assets/promega_gridlegibility.png" alt="Grid legibility with quadrant dividers" class="cs-ia__img" style="background: #ffffff; padding: 32px; width: 100%;" />
+      </div>
+    </section>
+
+    <section class="cs-phase" id="s-solution4">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Design Solution #4</span>
+        <h2 class="cs-section-title">Hover Preview in Fit Mode</h2>
+        <p class="cs-phase__intro">To enhance usability in the Fit (full plate) view, I introduced a hover-to-preview feature. When users hover over a cell, a tooltip appears showing the well's full metadata — compound, concentration, cell type, and more.</p>
+      </div>
+
+      <div class="cs-ia-block" style="max-width: 900px;">
+        <video src="assets/promega_hover.mov" autoplay loop muted playsinline class="cs-ia__img" style="background: #ffffff; padding: 24px; width: 100%;"></video>
+      </div>
+    </section>
+
+    <section class="cs-phase" id="s-solution5">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Design Solution #5</span>
+        <h2 class="cs-section-title">Flexible Zoom Levels & Mini Map</h2>
+        <p class="cs-phase__intro">Added flexible zoom levels to better support different user workflows — from full plate overview down to high-precision single-column editing.</p>
+      </div>
+
+      <div class="cs-ia-block" style="max-width: 900px; gap: 20px;">
+        <div class="cs-realization-items">
+          <div class="cs-realization-item">
+            <span class="cs-realization-item__label">Dual-quadrant view</span>
+            <p class="cs-realization-item__desc">Zoom into two quadrants at once (A+B or C+D) for improved context when reviewing or editing adjacent regions.</p>
+          </div>
+          <div class="cs-realization-item">
+            <span class="cs-realization-item__label">High-precision zoom</span>
+            <p class="cs-realization-item__desc">Zoom further into a single quadrant displaying only six columns at a time — ideal for dose-response curves or replicates where detail and accuracy are critical.</p>
+          </div>
+          <div class="cs-realization-item">
+            <span class="cs-realization-item__label">Mini map orientation anchor</span>
+            <p class="cs-realization-item__desc">A persistent mini toggle map stays visible when zoomed in, showing the full 384 layout with the active section highlighted. Users can jump between quadrants directly from the map, reducing disorientation and improving navigation efficiency.</p>
+          </div>
+        </div>
+        <p class="cs-realization-block__body">This tiered zoom system helped users maintain both <span class="cs-accent">spatial orientation</span> and <span class="cs-accent">fine-grained control</span> without overwhelming the interface.</p>
+        <video src="assets/promega_flexiblezoom.mov" autoplay loop muted playsinline class="cs-ia__img" style="background: #ffffff; padding: 24px; width: 100%;"></video>
+      </div>
+    </section>
+
+    <section class="cs-phase" id="s-demo">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Final Design</span>
+        <h2 class="cs-section-title">Client Demo</h2>
+      </div>
+      <div class="cs-ia-block" style="max-width: 900px;">
+        <video src="assets/promega_fulldemo.mov" autoplay loop muted playsinline class="cs-ia__img" style="background: #ffffff; padding: 24px; width: 100%;"></video>
+      </div>
+    </section>
+
+    <section class="cs-phase" id="s-outcome">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Results</span>
+        <h2 class="cs-section-title">Outcome</h2>
+      </div>
+      <div class="cs-glide-stats">
+        <div class="cs-glide-stat">
+          <p class="cs-glide-stat__number">75%</p>
+          <p class="cs-glide-stat__label">Faster setup</p>
+          <p class="cs-glide-stat__desc">Reduced setup times by streamlining experimental configuration for life sciences researchers.</p>
+        </div>
+        <div class="cs-glide-stat">
+          <p class="cs-glide-stat__number">15/15</p>
+          <p class="cs-glide-stat__label">Client satisfaction</p>
+          <p class="cs-glide-stat__desc">All clients were satisfied with the demo and rated both concepts highly.</p>
+        </div>
+        <div class="cs-glide-stat">
+          <p class="cs-glide-stat__number">2026</p>
+          <p class="cs-glide-stat__label">Planned launch</p>
+          <p class="cs-glide-stat__desc">Iterations are still being made and will publicly be launched in 2026 on the ProNect™ Data Platform.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-phase" id="s-learnings">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Reflection</span>
+        <h2 class="cs-section-title">Key Learnings</h2>
+      </div>
+      <div class="cs-learnings">
+        <div class="cs-learning">
+          <h4 class="cs-learning__title">Simplifying complex workflows through design</h4>
+          <p class="cs-learning__body">Working with high-throughput 384-well plate mapping taught me how essential it is to create tools that balance precision with ease of use. Many scientists rely on general-purpose software that does not fully meet their needs, so thoughtful design can significantly improve their workflows.</p>
+        </div>
+        <div class="cs-learning">
+          <h4 class="cs-learning__title">Progressive disclosure and usability</h4>
+          <p class="cs-learning__body">I learned the importance of progressive disclosure in interface design. Features like zooming into plate sections and navigating at different levels of detail helped reduce cognitive load, making the experience less overwhelming and more efficient for users.</p>
+        </div>
+        <div class="cs-learning">
+          <h4 class="cs-learning__title">Turning insights into practical solutions</h4>
+          <p class="cs-learning__body">By translating qualitative feedback from scientists into features like quadrant navigation and hover previews, I developed solutions grounded in real needs. This process highlighted the value of collaboration with cross-functional teams and showed me how small, incremental improvements can meaningfully support scientific work.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      const html = document.documentElement;
+      html.setAttribute('data-theme', html.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
+    });
+
+    // Stepper scroll-spy
+    const stepperItems = document.querySelectorAll('.cs-stepper__item');
+    const targets = Array.from(stepperItems).map(item => {
+      const id = item.dataset.target;
+      return document.getElementById(id);
+    });
+
+    function updateStepper() {
+      let activeIndex = 0;
+      targets.forEach((el, i) => {
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= window.innerHeight * 0.4) activeIndex = i;
+      });
+      stepperItems.forEach((item, i) => {
+        item.classList.toggle('cs-stepper__item--active', i === activeIndex);
+        item.classList.toggle('cs-stepper__item--visited', i < activeIndex);
+      });
+    }
+
+    window.addEventListener('scroll', updateStepper, { passive: true });
+    updateStepper();
+
+    // Smooth scroll on click
+    const NAV_HEIGHT = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 64;
+    document.querySelectorAll('.cs-stepper__link').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const id = link.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.getBoundingClientRect().top + window.scrollY - NAV_HEIGHT;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+  <footer class="footer">
+    <p class="footer__tagline">Yay! Thanks for checking out my work. Say hi! <span style="color:#89b4d4">(＊๑˘◡˘)</span></p>
+    <div class="footer__links">
+      <a href="mailto:ayanal@umich.edu" class="footer__link">ayanal@umich.edu</a>
+      <a href="https://www.linkedin.com/in/ayana-leelasena/" target="_blank" rel="noopener" class="footer__link">LinkedIn ↗</a>
+      <p class="footer__copy">© 2026 Ayana Leelasena</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UFinance — Ayana Leelasena</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="case-study.css" />
+</head>
+<body>
+
+  <header class="nav">
+    <a href="index.html" class="nav__logo" aria-label="Home">
+      <img src="assets/logo.png" alt="AL logo" class="nav__logo-img" />
+    </a>
+    <nav class="nav__links" aria-label="Primary navigation">
+      <a href="index.html#work" class="nav__link">Work</a>
+      <a href="playground.html" class="nav__link">Vibes</a>
+      <a href="index.html#about" class="nav__link">About</a>
+      <a href="https://drive.google.com/file/d/1g7gjROStxXxsRz4DX33tyKrAW1EHBNSM/view?usp=sharing" class="nav__link nav__link--resume" target="_blank" rel="noopener">
+        <span class="resume-bubbles">
+          <span class="bubble bubble--lg"></span>
+          <span class="bubble bubble--sm"></span>
+        </span>
+        Resume
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <span class="theme-toggle__thumb"></span>
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <main class="case-study">
+
+    <nav class="cs-stepper" aria-label="Case study navigation">
+      <ol class="cs-stepper__list">
+        <li class="cs-stepper__item" data-target="s-overview">
+          <a href="#s-overview" class="cs-stepper__link">
+            <span class="cs-stepper__num">01</span>
+            <span class="cs-stepper__label">Overview</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-problem">
+          <a href="#s-problem" class="cs-stepper__link">
+            <span class="cs-stepper__num">02</span>
+            <span class="cs-stepper__label">Problem Statement</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-research">
+          <a href="#s-research" class="cs-stepper__link">
+            <span class="cs-stepper__num">03</span>
+            <span class="cs-stepper__label">User Research</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-personas">
+          <a href="#s-personas" class="cs-stepper__link">
+            <span class="cs-stepper__num">04</span>
+            <span class="cs-stepper__label">Personas</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-flows">
+          <a href="#s-flows" class="cs-stepper__link">
+            <span class="cs-stepper__num">05</span>
+            <span class="cs-stepper__label">User Flows & IA</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-wireframes">
+          <a href="#s-wireframes" class="cs-stepper__link">
+            <span class="cs-stepper__num">06</span>
+            <span class="cs-stepper__label">Wireframes</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-usability">
+          <a href="#s-usability" class="cs-stepper__link">
+            <span class="cs-stepper__num">07</span>
+            <span class="cs-stepper__label">Usability Testing</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-iteration">
+          <a href="#s-iteration" class="cs-stepper__link">
+            <span class="cs-stepper__num">08</span>
+            <span class="cs-stepper__label">Design Iteration</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-design-system">
+          <a href="#s-design-system" class="cs-stepper__link">
+            <span class="cs-stepper__num">09</span>
+            <span class="cs-stepper__label">Design System</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-prototype">
+          <a href="#s-prototype" class="cs-stepper__link">
+            <span class="cs-stepper__num">10</span>
+            <span class="cs-stepper__label">Live Prototype</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-outcome">
+          <a href="#s-outcome" class="cs-stepper__link">
+            <span class="cs-stepper__num">11</span>
+            <span class="cs-stepper__label">Outcome & Impact</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-learnings">
+          <a href="#s-learnings" class="cs-stepper__link">
+            <span class="cs-stepper__num">12</span>
+            <span class="cs-stepper__label">Key Learnings</span>
+          </a>
+        </li>
+      </ol>
+    </nav>
+
+    <section class="cs-hero" id="s-overview">
+      <div class="cs-hero__content">
+        <h1 class="cs-hero__title animate animate--1">UFinance</h1>
+        <p class="cs-hero__subtitle animate animate--3">Student Budgeting App</p>
+        <p class="cs-hero__blurb animate animate--3">UFinance aims to empower students with the tools they need to manage their personal finances efficiently, reduce financial stress, and build better spending habits for the future.</p>
+        <div class="cs-hero__proto-wrap animate animate--3">
+          <a href="https://www.figma.com/design/fJgNuq54wsSmV9mAwrsCrK/SI-582-Group-Project?node-id=232-2&t=GZC06Ef92DpY8osA-1" target="_blank" rel="noopener" class="cs-hero__proto">
+            Figma File <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+      <div class="cs-hero__media animate animate--3">
+        <img src="assets/newhero_ufinance.png" alt="UFinance interface" class="cs-hero__video" />
+      </div>
+    </section>
+
+    <hr class="cs-hero__rule" />
+
+    <div class="cs-hero__details-wrap">
+      <div class="cs-hero__details animate animate--3">
+        <div class="cs-detail">
+          <span class="cs-detail__label">Institution</span>
+          <span class="cs-detail__value">University of Michigan, School of Information</span>
+        </div>
+        <div class="cs-detail">
+          <span class="cs-detail__label">Course</span>
+          <span class="cs-detail__value">SI 582: Interaction Design</span>
+        </div>
+        <div class="cs-detail">
+          <span class="cs-detail__label">Timeline</span>
+          <span class="cs-detail__value">Fall 2024</span>
+        </div>
+        <div class="cs-detail">
+          <span class="cs-detail__label">Team</span>
+          <span class="cs-detail__value">4 Members</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="cs-phase" id="s-problem">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Problem Statement</span>
+        <h2 class="cs-section-title">Students often lack clear visibility into their spending.</h2>
+        <p class="cs-phase__intro">Without intuitive tools, they fall into habits of overspending, forgetting due payments, and mismanaging money across multiple platforms (e.g., Venmo, Cash App, credit cards).</p>
+      </div>
+      <div class="cs-hmw">
+        <p class="cs-hmw__text">How might we help students easily <span class="cs-accent">track daily spending across categories</span> like food, transportation, and entertainment to <span class="cs-accent">plan expenses and identify areas to save?</span></p>
+      </div>
+    </section>
+
+    <section class="cs-phase" id="s-research">
+      <div class="cs-section-header">
+        <span class="cs-section-label">User Research</span>
+        <h2 class="cs-section-title">User Interviews</h2>
+        <p class="cs-phase__intro">We interviewed <span class="cs-accent">10 college students (ages 18–26)</span> with varied financial habits and tools (Excel, Mint, pen & paper).</p>
+      </div>
+
+      <div class="cs-findings">
+        <div class="cs-finding">
+          <div class="cs-finding__header">
+            <span class="cs-finding__number">01</span>
+            <h3 class="cs-finding__title">Familiarity Wins Trust 🔨</h3>
+          </div>
+          <div class="cs-finding__body">
+            <p>"I've been using Excel for years. I trust it more than apps because I can see exactly what's happening."</p>
+          </div>
+        </div>
+
+        <div class="cs-finding">
+          <div class="cs-finding__header">
+            <span class="cs-finding__number">02</span>
+            <h3 class="cs-finding__title">Privacy is Paramount 🔒</h3>
+          </div>
+          <div class="cs-finding__body">
+            <p>"Privacy is always a concern when handling sensitive financial information."</p>
+          </div>
+        </div>
+
+        <div class="cs-finding">
+          <div class="cs-finding__header">
+            <span class="cs-finding__number">03</span>
+            <h3 class="cs-finding__title">Need for Visual Clarity 📊</h3>
+          </div>
+          <div class="cs-finding__body">
+            <p>"It would be great if apps categorized Venmo payments automatically."</p>
+          </div>
+        </div>
+
+        <div class="cs-finding">
+          <div class="cs-finding__header">
+            <span class="cs-finding__number">04</span>
+            <h3 class="cs-finding__title">Peer Pressure = Overspending 🛍️</h3>
+          </div>
+          <div class="cs-finding__body">
+            <p>"Living in NYC, it's hard not to overspend — especially with my friends."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-phase" id="s-personas">
+      <div class="cs-section-header">
+        <span class="cs-section-label">User Research</span>
+        <h2 class="cs-section-title">Personas</h2>
+        <p class="cs-phase__intro">Based on our interviews, we developed two personas to represent the core student archetypes using UFinance.</p>
+      </div>
+
+      <div class="cs-persona-grid">
+        <img src="assets/ufinance_persona_1.jpg" alt="Persona 1" class="cs-persona__img" />
+        <img src="assets/ufinance_persona_2.jpg" alt="Persona 2" class="cs-persona__img" />
+      </div>
+    </section>
+
+    <section class="cs-phase" id="s-flows">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Design Process</span>
+        <h2 class="cs-section-title">User Flows and Information Architecture</h2>
+        <p class="cs-phase__intro">We first created an <span class="cs-accent">Information Architecture of the entire app</span> after a lengthy brainstorming session. We then created certain user flows, including our goals feature displayed below the IA.</p>
+      </div>
+
+      <div class="cs-ia-block">
+        <h4 class="cs-variations__subtitle">Information Architecture</h4>
+        <img src="assets/ufinance_IA.png" alt="UFinance Information Architecture" class="cs-ia__img" />
+      </div>
+
+      <div class="cs-ia-block">
+        <h4 class="cs-variations__subtitle">Goals User Flow</h4>
+        <img src="assets/ufinance_userflow.webp" alt="UFinance Goals User Flow" class="cs-ia__img" />
+      </div>
+    </section>
+
+    <section class="cs-phase" id="s-wireframes">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Design Process</span>
+        <h2 class="cs-section-title">Wireframes</h2>
+        <p class="cs-phase__intro">Then we sketched wireframes for every single screen across the application.</p>
+      </div>
+
+      <div class="cs-ia-block">
+        <img src="assets/uf_wireframe_summary.png" alt="Wireframe summary overview" class="cs-ia__img" />
+      </div>
+
+      <div class="cs-wireframe-grid">
+        <div class="cs-wireframe-item">
+          <span class="cs-wireframe__label">Quick Entry 💲</span>
+          <img src="assets/UF_wireframe_entries.avif" alt="Quick Entry wireframe" class="cs-wireframe__img" />
+        </div>
+        <div class="cs-wireframe-item">
+          <span class="cs-wireframe__label">Transactions 💰</span>
+          <img src="assets/UF_wireframe_transactions.avif" alt="Transactions wireframe" class="cs-wireframe__img" />
+        </div>
+        <div class="cs-wireframe-item">
+          <span class="cs-wireframe__label">Goals 🎯</span>
+          <img src="assets/uf_wireframe_goals.avif" alt="Goals wireframe" class="cs-wireframe__img" />
+        </div>
+        <div class="cs-wireframe-item">
+          <span class="cs-wireframe__label">Notifications 🔔</span>
+          <img src="assets/uf_wireframe_notifications.avif" alt="Notifications wireframe" class="cs-wireframe__img" />
+        </div>
+        <div class="cs-wireframe-item">
+          <span class="cs-wireframe__label">Profile 👤</span>
+          <img src="assets/uf_wireframe_profile.webp" alt="Profile wireframe" class="cs-wireframe__img" />
+        </div>
+        <div class="cs-wireframe-item">
+          <span class="cs-wireframe__label">Summaries 📊</span>
+          <img src="assets/uf_wireframe_summaries.avif" alt="Summaries wireframe" class="cs-wireframe__img" />
+        </div>
+        <div class="cs-wireframe-item">
+          <span class="cs-wireframe__label">Groups 👥</span>
+          <img src="assets/uf_wireframe_groups.avif" alt="Groups wireframe" class="cs-wireframe__img" />
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-phase" id="s-usability">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Evaluation</span>
+        <h2 class="cs-section-title">Usability Testing</h2>
+        <p class="cs-phase__intro"><span class="cs-accent">10 college students</span> tested our prototype through structured, scenario-based tasks. Scenarios included adding a new expense, creating a group and splitting a bill, connecting a bank account, viewing a spending breakdown, and setting savings goals.</p>
+      </div>
+
+      <div class="cs-findings">
+        <div class="cs-finding">
+          <div class="cs-finding__header">
+            <span class="cs-finding__number">01</span>
+            <h3 class="cs-finding__title">Goals Page</h3>
+          </div>
+          <div class="cs-finding__body">
+            <p>Confusing savings progress visuals made it difficult for users to understand their progress at a glance.</p>
+          </div>
+        </div>
+        <div class="cs-finding">
+          <div class="cs-finding__header">
+            <span class="cs-finding__number">02</span>
+            <h3 class="cs-finding__title">Transactions</h3>
+          </div>
+          <div class="cs-finding__body">
+            <p>Unclear pie charts and terminology left users uncertain about what their spending data meant.</p>
+          </div>
+        </div>
+        <div class="cs-finding">
+          <div class="cs-finding__header">
+            <span class="cs-finding__number">03</span>
+            <h3 class="cs-finding__title">Bank Integration</h3>
+          </div>
+          <div class="cs-finding__body">
+            <p>Poor button placement and navigation flow made connecting a bank account frustrating.</p>
+          </div>
+        </div>
+        <div class="cs-finding">
+          <div class="cs-finding__header">
+            <span class="cs-finding__number">04</span>
+            <h3 class="cs-finding__title">Group Splits</h3>
+          </div>
+          <div class="cs-finding__body">
+            <p>Limited split options and vague language created confusion when dividing expenses between friends.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-section-header">
+        <span class="cs-section-label">Iteration & Implementation</span>
+        <h2 class="cs-section-title">Based on testing feedback, we made major improvements.</h2>
+      </div>
+
+      <div class="cs-ut-videos">
+        <div class="cs-ut-video">
+          <video src="assets/ufinance_usabilitytesting1.mp4" autoplay loop muted playsinline class="cs-ut-video__player"></video>
+          <p class="cs-ut-video__label">✅ Updated Transaction summary charts to make them more readable</p>
+        </div>
+        <div class="cs-ut-video">
+          <video src="assets/usability_testing2.mp4" autoplay loop muted playsinline class="cs-ut-video__player"></video>
+          <p class="cs-ut-video__label">✅ Got rid of confusing transaction home screen and made a dedicated home screen</p>
+        </div>
+        <div class="cs-ut-video">
+          <video src="assets/usability_testing3.mp4" autoplay loop muted playsinline class="cs-ut-video__player"></video>
+          <p class="cs-ut-video__label">✅ Improved groups functionality with better split options</p>
+        </div>
+      </div>
+
+      <div class="cs-ut-improvements">
+        <div class="cs-ut-improvement">✅ Redesigned Goals Page with clear progress bars and simplified terms</div>
+        <div class="cs-ut-improvement">✅ Updated Transaction Summaries with intuitive, accessible charts</div>
+        <div class="cs-ut-improvement">✅ Streamlined Bank Integration for better navigation</div>
+        <div class="cs-ut-improvement">✅ Introduced a Homepage with personalized financial overview</div>
+        <div class="cs-ut-improvement">✅ Improved Group Features with better split options and confirmation screens</div>
+      </div>
+
+      <div class="cs-ia-block">
+        <h4 class="cs-variations__subtitle">Task Analysis</h4>
+        <img src="assets/task_usabilitytest.avif" alt="Usability testing task analysis" class="cs-ia__img" />
+      </div>
+    </section>
+
+    <section class="cs-phase" id="s-iteration">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Design Process</span>
+        <h2 class="cs-section-title">Design Iteration & High Fidelity</h2>
+        <p class="cs-phase__intro">With usability insights in hand, we moved from low-fidelity wireframes into <span class="cs-accent">high-fidelity mockups</span>. Each iteration was driven by real user feedback — refining layouts, clarifying visuals, and building toward a polished final product. The progression below shows how each screen evolved from rough sketches to the refined designs that made it into the prototype.</p>
+      </div>
+      <div class="cs-ia-block">
+        <img src="assets/Usability Testing_designiteration.png" alt="Design iteration from low to high fidelity" class="cs-ia__img" />
+      </div>
+    </section>
+
+    <section class="cs-phase" id="s-design-system">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Design</span>
+        <h2 class="cs-section-title">Design System</h2>
+      </div>
+      <div class="cs-design-system">
+        <img src="assets/NEW_Usability Testing_designsystem.png" alt="UFinance Design System" class="cs-design-system__img" />
+      </div>
+    </section>
+
+    <section class="cs-phase" id="s-prototype">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Final Design</span>
+        <h2 class="cs-section-title">Live Prototype</h2>
+        <p class="cs-phase__intro">Interact with the final UFinance prototype below, or <a href="https://www.figma.com/proto/fJgNuq54wsSmV9mAwrsCrK/SI-582-Group-Project?node-id=1869-18374&p=f&viewport=403%2C271%2C0.04&t=Toi2kiFl2F1Q2Now-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1869%3A18374&show-proto-sidebar=1&page-id=1869%3A13654" target="_blank" rel="noopener" class="cs-link">open it in Figma ↗</a>.</p>
+      </div>
+      <div class="cs-prototype-embed">
+        <iframe src="https://embed.figma.com/proto/fJgNuq54wsSmV9mAwrsCrK/SI-582-Group-Project?page-id=1869%3A13654&node-id=1869-18374&node-type=canvas&viewport=403%2C278%2C0.04&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1869%3A18374&embed-host=share&hide-ui=1" loading="lazy" height="1000" width="100%" frameborder="0" allowtransparency="true" allowfullscreen=""></iframe>
+      </div>
+    </section>
+
+    <section class="cs-phase" id="s-outcome">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Results</span>
+        <h2 class="cs-section-title">Outcome & Impact</h2>
+      </div>
+      <div class="cs-glide-stats">
+        <div class="cs-glide-stat">
+          <p class="cs-glide-stat__number">80%</p>
+          <p class="cs-glide-stat__label">Increase in confidence</p>
+          <p class="cs-glide-stat__desc">Refined prototypes through three testing cycles, leading to higher usability scores and increased confidence among student participants managing financial budgets.</p>
+        </div>
+        <div class="cs-glide-stat">
+          <p class="cs-glide-stat__number">10/10</p>
+          <p class="cs-glide-stat__label">User satisfaction</p>
+          <p class="cs-glide-stat__desc">All users were satisfied by the final product and said they would recommend UFinance to other students.</p>
+        </div>
+        <div class="cs-glide-stat">
+          <p class="cs-glide-stat__number">40%</p>
+          <p class="cs-glide-stat__label">Easier to use</p>
+          <p class="cs-glide-stat__desc">Improvement in perceived ease of use, as measured by post-launch user testing.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-phase" id="s-learnings">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Reflection</span>
+        <h2 class="cs-section-title">Key Learnings</h2>
+      </div>
+      <div class="cs-learnings">
+        <div class="cs-learning">
+          <h4 class="cs-learning__title">Iteration is Impactful:</h4>
+          <p class="cs-learning__body">Testing, refining, and retesting showed how incremental tweaks (not just big features) can meaningfully boost usability and confidence.</p>
+        </div>
+        <div class="cs-learning">
+          <h4 class="cs-learning__title">Design for Students, with Students:</h4>
+          <p class="cs-learning__body">Direct collaboration with peers uncovered real budgeting struggles and guided solutions that felt practical, approachable, and empowering.</p>
+        </div>
+        <div class="cs-learning">
+          <h4 class="cs-learning__title">Clarity Over Complexity:</h4>
+          <p class="cs-learning__body">Even small interface improvements, like visual summaries and clear progress indicators, helped students feel more in control of their finances.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      const html = document.documentElement;
+      html.setAttribute('data-theme', html.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
+    });
+
+    // Stepper scroll-spy
+    const stepperItems = document.querySelectorAll('.cs-stepper__item');
+    const targets = Array.from(stepperItems).map(item => {
+      const id = item.dataset.target;
+      return document.getElementById(id);
+    });
+
+    function updateStepper() {
+      let activeIndex = 0;
+      targets.forEach((el, i) => {
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= window.innerHeight * 0.4) activeIndex = i;
+      });
+      stepperItems.forEach((item, i) => {
+        item.classList.toggle('cs-stepper__item--active', i === activeIndex);
+        item.classList.toggle('cs-stepper__item--visited', i < activeIndex);
+      });
+    }
+
+    window.addEventListener('scroll', updateStepper, { passive: true });
+    updateStepper();
+
+    // Smooth scroll on click
+    const NAV_HEIGHT = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 64;
+    document.querySelectorAll('.cs-stepper__link').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const id = link.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.getBoundingClientRect().top + window.scrollY - NAV_HEIGHT;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+  <footer class="footer">
+    <p class="footer__tagline">Yay! Thanks for checking out my work. Say hi! <span style="color:#89b4d4">(＊๑˘◡˘)</span></p>
+    <div class="footer__links">
+      <a href="mailto:ayanal@umich.edu" class="footer__link">ayanal@umich.edu</a>
+      <a href="https://www.linkedin.com/in/ayana-leelasena/" target="_blank" rel="noopener" class="footer__link">LinkedIn ↗</a>
+      <p class="footer__copy">© 2026 Ayana Leelasena</p>
+    </div>
+  </footer>
+</body>
+</html>

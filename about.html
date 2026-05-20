@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Ayana Leelasena</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="case-study.css" />
+</head>
+<body>
+
+  <header class="nav">
+    <a href="index.html" class="nav__logo" aria-label="Home">
+      <img src="assets/logo.png" alt="AL logo" class="nav__logo-img" />
+    </a>
+    <nav class="nav__links" aria-label="Primary navigation">
+      <a href="index.html#work" class="nav__link">Work</a>
+      <a href="playground.html" class="nav__link">Vibes</a>
+      <a href="about.html" class="nav__link active">About</a>
+      <a href="https://drive.google.com/file/d/1g7gjROStxXxsRz4DX33tyKrAW1EHBNSM/view?usp=sharing" class="nav__link nav__link--resume" target="_blank" rel="noopener">
+        <span class="resume-bubbles">
+          <span class="bubble bubble--lg"></span>
+          <span class="bubble bubble--sm"></span>
+        </span>
+        Resume
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <span class="theme-toggle__thumb"></span>
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <main class="case-study">
+
+    <nav class="cs-stepper" aria-label="About navigation">
+      <ol class="cs-stepper__list">
+        <li class="cs-stepper__item" data-target="s-about">
+          <a href="#s-about" class="cs-stepper__link">
+            <span class="cs-stepper__num">01</span>
+            <span class="cs-stepper__label">Bio</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-experience">
+          <a href="#s-experience" class="cs-stepper__link">
+            <span class="cs-stepper__num">02</span>
+            <span class="cs-stepper__label">Experience</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-shapes">
+          <a href="#s-shapes" class="cs-stepper__link">
+            <span class="cs-stepper__num">03</span>
+            <span class="cs-stepper__label">Leadership</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-interests">
+          <a href="#s-interests" class="cs-stepper__link">
+            <span class="cs-stepper__num">04</span>
+            <span class="cs-stepper__label">Interests</span>
+          </a>
+        </li>
+      </ol>
+    </nav>
+    <section class="about" id="s-about">
+      <div class="about__photo-wrap">
+        <img src="assets/me.jpg" alt="Ayana Leelasena" class="about__photo" />
+      </div>
+      <div class="about__content">
+        <h1 class="about__name hero__text-sweep">Ayana Leelasena <span class="hero__dot">(-‿◦☀)</span></h1>
+        <p class="about__bio">Hi, I'm a UX/UI/Product designer with a passion for building digital solutions that make an impact.</p>
+        <p class="about__bio"><span class="about__highlight">I recently graduated with a M.S. in Human-Computer Interaction at the University of Michigan School of Information, specializing in UX Design and Research.</span> I am always seeking opportunities to leverage my skills in user research, digital design, and prototyping.</p>
+        <p class="about__bio">I also <span class="about__highlight">hold a bachelor's degree from Tufts University in Cognitive and Computer Science, creating a solid foundation in user behavior and technology.</span></p>
+      </div>
+    </section>
+    <section class="about-experience" id="s-experience">
+      <div class="about-experience__header">
+        <h2 class="about-experience__title">Experience</h2>
+        <span class="about-experience__label">flip to interact</span>
+      </div>
+      <div class="about-exp-grid">
+
+        <div class="exp-card">
+          <div class="exp-card__inner">
+            <div class="exp-card__front">
+              <div class="exp-card__accent" style="background: #89b4d4;"></div>
+              <img src="assets/ohhilogo.png" alt="Oh Hi, Hello" class="exp-card__logo" />
+              <div class="exp-card__info">
+                <h3 class="exp-card__company">Oh Hi, Hello</h3>
+                <p class="exp-card__role">Product Designer</p>
+                <p class="exp-card__meta">2026 · Contracted</p>
+              </div>
+            </div>
+            <div class="exp-card__back">
+              <div class="exp-card__accent" style="background: #89b4d4;"></div>
+              <p class="exp-card__desc">Building design systems and high-fidelity prototypes for J.P. Morgan Asset Management product and marketing teams.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-card__inner">
+            <div class="exp-card__front">
+              <div class="exp-card__accent" style="background: #e07070;"></div>
+              <img src="assets/promega_logo.png" alt="Promega Corporation" class="exp-card__logo" />
+              <div class="exp-card__info">
+                <h3 class="exp-card__company">Promega Corporation</h3>
+                <p class="exp-card__role">UI/UX Design Intern</p>
+                <p class="exp-card__meta">2025 · Madison, WI</p>
+              </div>
+            </div>
+            <div class="exp-card__back">
+              <div class="exp-card__accent" style="background: #e07070;"></div>
+              <p class="exp-card__desc">Partnered with stakeholders to gather usage data and user feedback, translating insights into wireframes, interactive prototypes, and journey maps that addressed pain points in complex B2B workflows.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-card__inner">
+            <div class="exp-card__front">
+              <div class="exp-card__accent" style="background: #f5c842;"></div>
+              <img src="assets/copper_hill_inewogo.jpeg" alt="Copper Hill" class="exp-card__logo" />
+              <div class="exp-card__info">
+                <h3 class="exp-card__company">Copper Hill</h3>
+                <p class="exp-card__role">UX Design Intern</p>
+                <p class="exp-card__meta">2025 · Livonia, MI</p>
+              </div>
+            </div>
+            <div class="exp-card__back">
+              <div class="exp-card__accent" style="background: #f5c842;"></div>
+              <p class="exp-card__desc">Applied design system management by creating and documenting UI components, style guides, and specifications, ensuring scalability and visual consistency across the platform, improving satisfaction ratings.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-card__inner">
+            <div class="exp-card__front">
+              <div class="exp-card__accent" style="background: #a8d8a8;"></div>
+              <img src="assets/new_WTlogo.png" alt="WillowTree" class="exp-card__logo" />
+              <div class="exp-card__info">
+                <h3 class="exp-card__company">WillowTree</h3>
+                <p class="exp-card__role">Platform Software Test Engineer</p>
+                <p class="exp-card__meta">2022–2024 · Charlottesville, VA</p>
+              </div>
+            </div>
+            <div class="exp-card__back">
+              <div class="exp-card__accent" style="background: #a8d8a8;"></div>
+              <p class="exp-card__desc">Partnered with design teams to translate requirements into functional implementations for enterprise digital products, ensuring WCAG accessibility compliance and improving satisfaction scores.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <section class="about-shapes" id="s-shapes">
+      <div class="about-shapes__header">
+        <h2 class="about-shapes__title">Leadership</h2>
+        <span class="about-shapes__sub">TAP TO FLIP ↓</span>
+      </div>
+
+      <div class="photo-grid">
+
+        <div class="photo-card">
+          <div class="photo-card__inner">
+            <div class="photo-card__front">
+              <img src="assets/edmonlow.JPG" alt="Edmon Low Award" class="photo-card__img" style="object-position: center 30%;" />
+            </div>
+            <div class="photo-card__back">
+              <h3 class="photo-card__back-title"><a href="https://www.si.umich.edu/about-umsi/news/umsi-announces-awards-2026-graduates" target="_blank" rel="noopener" class="photo-card__back-link">Edmon Low Award ↗</a></h3>
+              <p class="photo-card__back-desc">Presented at graduation — only 4 students from the entire student body. Awardees embody dedication to service, empathy, and community.</p>
+            </div>
+          </div>
+          <span class="photo-card__caption">Edmon Low Award</span>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-card__inner">
+            <div class="photo-card__front">
+              <img src="assets/simapresident.jpeg" alt="SIMA President" class="photo-card__img" />
+            </div>
+            <div class="photo-card__back">
+              <h3 class="photo-card__back-title">President, SIMA</h3>
+              <p class="photo-card__back-desc">Led a 500-member graduate student body, organizing initiatives and presenting strategy directly to faculty and administration.</p>
+            </div>
+          </div>
+          <span class="photo-card__caption">SIMA President</span>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-card__inner">
+            <div class="photo-card__front">
+              <img src="assets/Figma_CL.jpeg" alt="Figma Campus Lead" class="photo-card__img" />
+            </div>
+            <div class="photo-card__back">
+              <h3 class="photo-card__back-title">Figma Campus Lead</h3>
+              <p class="photo-card__back-desc">Selected to represent Figma on campus — building and leading a thriving student design community through workshops and events.</p>
+            </div>
+          </div>
+          <span class="photo-card__caption">Figma Campus Lead</span>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-card__inner">
+            <div class="photo-card__front">
+              <img src="assets/ERG_leader.jpeg" alt="ERG Lead" class="photo-card__img" style="object-position: center 20%;" />
+            </div>
+            <div class="photo-card__back">
+              <h3 class="photo-card__back-title">ERG Lead</h3>
+              <p class="photo-card__back-desc">Built a community of 200+ People of Color through company-wide events and support sessions at WillowTree.</p>
+            </div>
+          </div>
+          <span class="photo-card__caption">ERG Lead</span>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="about-interests" id="s-interests">
+      <div class="about-interests__header">
+        <h2 class="about-interests__title">Interests</h2>
+        <span class="about-shapes__sub">TAP TO FLIP ↓</span>
+      </div>
+      <div class="photo-grid photo-grid--interests">
+
+        <div class="photo-card">
+          <div class="photo-card__inner">
+            <div class="photo-card__front">
+              <img src="assets/about_house.JPG" alt="House and Techno Music" class="photo-card__img" />
+            </div>
+            <div class="photo-card__back">
+              <h3 class="photo-card__back-title">House &amp; Techno</h3>
+              <p class="photo-card__back-desc">Fuels my soul.</p>
+            </div>
+          </div>
+          <span class="photo-card__caption">House &amp; Techno 🎶</span>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-card__inner">
+            <div class="photo-card__front">
+              <img src="assets/about_house2.JPG" alt="Mixing Music" class="photo-card__img" />
+            </div>
+            <div class="photo-card__back">
+              <h3 class="photo-card__back-title">Mixing Music</h3>
+              <p class="photo-card__back-desc">Learning how to mix my favorite music to listen to.</p>
+            </div>
+          </div>
+          <span class="photo-card__caption">Mixing Music 🎛️</span>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-card__inner">
+            <div class="photo-card__front">
+              <img src="assets/about_soccer.avif" alt="Soccer" class="photo-card__img" />
+            </div>
+            <div class="photo-card__back">
+              <h3 class="photo-card__back-title">Soccer</h3>
+              <p class="photo-card__back-desc">My favorite sport to watch and play — any day, anywhere.</p>
+            </div>
+          </div>
+          <span class="photo-card__caption">Soccer ⚽</span>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-card__inner">
+            <div class="photo-card__front">
+              <img src="assets/about_ski.webp" alt="Skiing" class="photo-card__img" />
+            </div>
+            <div class="photo-card__back">
+              <h3 class="photo-card__back-title">Skiing</h3>
+              <p class="photo-card__back-desc">Best views in the world. My favorite way to spend a winter day.</p>
+            </div>
+          </div>
+          <span class="photo-card__caption">Skiing 🎿</span>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-card__inner">
+            <div class="photo-card__front">
+              <img src="assets/about_beach.jpeg" alt="Hiriketya Beach, Sri Lanka" class="photo-card__img" />
+            </div>
+            <div class="photo-card__back">
+              <h3 class="photo-card__back-title">Ocean &amp; Beaches</h3>
+              <p class="photo-card__back-desc">Anywhere with an ocean, always. Shoutout to the most magical place on earth — Hiriketya Beach, Sri Lanka 🙂</p>
+            </div>
+          </div>
+          <span class="photo-card__caption">Hiriketya, Sri Lanka 🌊</span>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-card__inner">
+            <div class="photo-card__front">
+              <img src="assets/about_pickleball.jpeg" alt="Pickleball" class="photo-card__img" />
+            </div>
+            <div class="photo-card__back">
+              <h3 class="photo-card__back-title">Pickleball</h3>
+              <p class="photo-card__back-desc">On the court the second the weather hits 70°+.</p>
+            </div>
+          </div>
+          <span class="photo-card__caption">Pickleball 🏓</span>
+        </div>
+
+        <div class="photo-card">
+          <div class="photo-card__inner">
+            <div class="photo-card__front">
+              <img src="assets/about_run.jpeg" alt="Running" class="photo-card__img" />
+            </div>
+            <div class="photo-card__back">
+              <h3 class="photo-card__back-title">Running</h3>
+              <p class="photo-card__back-desc">Goal is to reach a half marathon this year.</p>
+            </div>
+          </div>
+          <span class="photo-card__caption">Running 🏃‍♀️</span>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      const html = document.documentElement;
+      html.setAttribute('data-theme', html.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
+    });
+
+    document.querySelectorAll('.exp-card').forEach(card => {
+      card.addEventListener('click', () => card.classList.toggle('flipped'));
+    });
+
+    document.querySelectorAll('.photo-card').forEach(card => {
+      card.addEventListener('click', () => card.classList.toggle('flipped'));
+    });
+
+    // Stepper scroll-spy
+    const stepperItems = document.querySelectorAll('.cs-stepper__item');
+    const targets = Array.from(stepperItems).map(item => document.getElementById(item.dataset.target));
+
+    function updateStepper() {
+      let activeIndex = 0;
+      targets.forEach((el, i) => {
+        if (!el) return;
+        if (el.getBoundingClientRect().top <= window.innerHeight * 0.4) activeIndex = i;
+      });
+      stepperItems.forEach((item, i) => {
+        item.classList.toggle('cs-stepper__item--active', i === activeIndex);
+        item.classList.toggle('cs-stepper__item--visited', i < activeIndex);
+      });
+    }
+
+    window.addEventListener('scroll', updateStepper, { passive: true });
+    updateStepper();
+
+    const NAV_HEIGHT = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 64;
+    document.querySelectorAll('.cs-stepper__link').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const el = document.getElementById(link.getAttribute('href').slice(1));
+        if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - NAV_HEIGHT, behavior: 'smooth' });
+      });
+    });
+  </script>
+  <footer class="footer">
+    <p class="footer__tagline">Yay! Thanks for checking out my work. Say hi! <span style="color:#89b4d4">(＊๑˘◡˘)</span></p>
+    <div class="footer__links">
+      <a href="mailto:ayanal@umich.edu" class="footer__link">ayanal@umich.edu</a>
+      <a href="https://www.linkedin.com/in/ayana-leelasena/" target="_blank" rel="noopener" class="footer__link">LinkedIn ↗</a>
+      <p class="footer__copy">© 2026 Ayana Leelasena</p>
+    </div>
+  </footer>
+</body>
+</html>

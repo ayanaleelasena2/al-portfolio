@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vibes — Ayana Leelasena</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="playground.css" />
+</head>
+<body>
+
+  <header class="nav">
+    <a href="index.html" class="nav__logo" aria-label="Home">
+      <img src="assets/logo.png" alt="AL logo" class="nav__logo-img" />
+    </a>
+    <nav class="nav__links" aria-label="Primary navigation">
+      <a href="index.html#work" class="nav__link">Work</a>
+      <a href="about.html" class="nav__link">About</a>
+      <a href="playground.html" class="nav__link active">Vibes</a>
+      <a href="https://drive.google.com/file/d/1g7gjROStxXxsRz4DX33tyKrAW1EHBNSM/view?usp=sharing" class="nav__link nav__link--resume" target="_blank" rel="noopener">
+        <span class="resume-bubbles">
+          <span class="bubble bubble--lg"></span>
+          <span class="bubble bubble--sm"></span>
+        </span>
+        Resume
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <span class="theme-toggle__thumb"></span>
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Side dot navigation -->
+  <nav class="mood-dot-nav" id="moodDotNav" aria-label="Mood navigation">
+    <button class="mood-dot active" data-target="beach" aria-label="Dancing on the Beach"></button>
+    <button class="mood-dot" data-target="designing" aria-label="Late Night Designing"></button>
+    <button class="mood-dot" data-target="sunday" aria-label="Sunday Reset"></button>
+    <button class="mood-dot" data-target="running" aria-label="Running & Movement"></button>
+    <button class="mood-dot" data-target="autumn" aria-label="Crisp Autumn Drive"></button>
+    <button class="mood-dot" data-target="disco" aria-label="Disco Under the Stars"></button>
+    <button class="mood-dot" data-target="spring" aria-label="First Taste of Spring"></button>
+  </nav>
+
+  <main>
+
+    <!-- 01 · Dancing on the Beach -->
+    <section class="mood-section" id="beach" data-mood="beach">
+      <div class="mood__bg-text" aria-hidden="true">01</div>
+      <div class="mood__content">
+        <div class="mood__text">
+          <span class="mood__num">01</span>
+          <h2 class="mood__title">Dancing on<br>the Beach</h2>
+          <p class="mood__desc">Salt air, warm sand, and bass that shakes your soul.</p>
+        </div>
+        <div class="mood__player">
+          <iframe style="border-radius:14px" src="https://open.spotify.com/embed/playlist/47zCMz6rRRdtIcdih1gwio?utm_source=generator&theme=0" width="380" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 · Late Night Designing -->
+    <section class="mood-section" id="designing" data-mood="designing">
+      <div class="mood__glow" aria-hidden="true"></div>
+      <div class="mood__bg-text" aria-hidden="true">02</div>
+      <div class="mood__content">
+        <div class="mood__text">
+          <span class="mood__num">02</span>
+          <h2 class="mood__title">Late Night<br>Designing</h2>
+          <p class="mood__desc">Just you, the screen, and a playlist that keeps the ideas flowing.</p>
+        </div>
+        <div class="mood__player">
+          <iframe style="border-radius:14px" src="https://open.spotify.com/embed/playlist/0sB3hfoStmDHPrbiypJHr6?utm_source=generator&theme=0" width="380" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 · Sunday Reset -->
+    <section class="mood-section" id="sunday" data-mood="sunday">
+      <div class="mood__bg-text" aria-hidden="true">03</div>
+      <div class="mood__content">
+        <div class="mood__text">
+          <span class="mood__num">03</span>
+          <h2 class="mood__title">Sunday<br>Reset</h2>
+          <p class="mood__desc">Slow mornings, good coffee, and music that feels like a hug.</p>
+        </div>
+        <div class="mood__player">
+          <iframe style="border-radius:14px" src="https://open.spotify.com/embed/playlist/2MI8TWqjEr60XsrgVjFB8C?utm_source=generator" width="380" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 · Running & Skiing -->
+    <section class="mood-section" id="running" data-mood="running">
+      <div class="mood__bg-text" aria-hidden="true">04</div>
+      <div class="mood__content">
+        <div class="mood__text">
+          <span class="mood__num">04</span>
+          <h2 class="mood__title">Running &<br>Movement</h2>
+          <p class="mood__desc">Movement, momentum, and music that makes you feel unstoppable.</p>
+        </div>
+        <div class="mood__player">
+          <iframe style="border-radius:14px" src="https://open.spotify.com/embed/playlist/35QaVUIc4joUpl9QjNVdPh?utm_source=generator&theme=0" width="380" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 · Crisp Autumn Drive -->
+    <section class="mood-section" id="autumn" data-mood="autumn">
+      <div class="mood__bg-text" aria-hidden="true">05</div>
+      <div class="mood__content">
+        <div class="mood__text">
+          <span class="mood__num">05</span>
+          <h2 class="mood__title">Crisp Autumn<br>Drive</h2>
+          <p class="mood__desc">Windows down, leaves falling, and the perfect playlist for the road.</p>
+        </div>
+        <div class="mood__player">
+          <iframe style="border-radius:14px" src="https://open.spotify.com/embed/playlist/4CI3ZrKmUg8OkBaB0rWVkI?utm_source=generator&theme=0" width="380" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 · Disco Under the Stars -->
+    <section class="mood-section" id="disco" data-mood="disco">
+      <div class="mood__bg-text" aria-hidden="true">06</div>
+      <div class="mood__content">
+        <div class="mood__text">
+          <span class="mood__num">06</span>
+          <h2 class="mood__title">Disco Under<br>the Stars</h2>
+          <p class="mood__desc">Glitter, groove, and a sky full of lights.</p>
+        </div>
+        <div class="mood__player">
+          <iframe style="border-radius:14px" src="https://open.spotify.com/embed/playlist/3olOwIcuVHKiM4CmXmM01S?utm_source=generator&theme=0" width="380" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 · First Taste of Spring -->
+    <section class="mood-section" id="spring" data-mood="spring">
+      <div class="mood__bg-text" aria-hidden="true">07</div>
+      <div class="mood__content">
+        <div class="mood__text">
+          <span class="mood__num">07</span>
+          <h2 class="mood__title">First Taste<br>of Spring</h2>
+          <p class="mood__desc">That first warm day when everything feels possible again.</p>
+        </div>
+        <div class="mood__player">
+          <iframe style="border-radius:14px" src="https://open.spotify.com/embed/playlist/0rY9sUauahTYorO24VKJIu?utm_source=generator" width="380" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      const html = document.documentElement;
+      html.setAttribute('data-theme', html.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
+    });
+
+    // Dot nav — scroll spy
+    const sections = document.querySelectorAll('.mood-section');
+    const dots = document.querySelectorAll('.mood-dot');
+
+    function updateDots() {
+      let current = 0;
+      sections.forEach((section, i) => {
+        if (section.getBoundingClientRect().top <= window.innerHeight * 0.5) current = i;
+      });
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === current));
+
+      // update dot color to match section
+      const activeMood = sections[current].dataset.mood;
+      document.getElementById('moodDotNav').dataset.mood = activeMood;
+    }
+
+    window.addEventListener('scroll', updateDots, { passive: true });
+    updateDots();
+
+    // Dot nav — click to scroll
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const target = document.getElementById(dot.dataset.target);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+
+  <footer class="footer">
+    <p class="footer__tagline">Yay! Thanks for checking out my work. Say hi! <span style="color:#89b4d4">(＊๑˘◡˘)</span></p>
+    <div class="footer__links">
+      <a href="mailto:ayanal@umich.edu" class="footer__link">ayanal@umich.edu</a>
+      <a href="https://www.linkedin.com/in/ayana-leelasena/" target="_blank" rel="noopener" class="footer__link">LinkedIn ↗</a>
+      <p class="footer__copy">© 2026 Ayana Leelasena</p>
+    </div>
+  </footer>
+</body>
+</html>
