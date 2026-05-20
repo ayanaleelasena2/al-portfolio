@@ -30,7 +30,14 @@
         <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
     </nav>
+      <button class="nav__hamburger" id="navHamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
   </header>
+  <div class="nav__mobile-menu" id="navMobileMenu">
+    <a href="index.html#work" class="nav__mobile-link">Work</a>
+    <a href="about.html" class="nav__mobile-link">About</a>
+    <a href="playground.html" class="nav__mobile-link">Vibes</a>
+    <a href="https://drive.google.com/file/d/1g7gjROStxXxsRz4DX33tyKrAW1EHBNSM/view?usp=sharing" class="nav__mobile-link" target="_blank" rel="noopener">Resume ↗</a>
+  </div>
 
   <!-- Side dot navigation -->
   <nav class="mood-dot-nav" id="moodDotNav" aria-label="Mood navigation">
@@ -187,6 +194,24 @@
         if (target) target.scrollIntoView({ behavior: 'smooth' });
       });
     });
+
+    // Hamburger menu
+    const hamburger = document.getElementById('navHamburger');
+    const mobileMenu = document.getElementById('navMobileMenu');
+    if (hamburger && mobileMenu) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+        document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+      });
+      mobileMenu.querySelectorAll('.nav__mobile-link').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('open');
+          mobileMenu.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+      });
+    }
   </script>
 
   <footer class="footer">
