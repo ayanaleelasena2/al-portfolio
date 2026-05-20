@@ -204,3 +204,29 @@
 
 [data-mood="spring"] .mood__num    { color: #d4f5c4; opacity: 1; }
 [data-mood="spring"] .mood__bg-text { color: #ffffff; }
+
+/* ══════════════════════════════════════════════════════════════
+   MOBILE RESPONSIVE  (max-width: 768px)
+   ══════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  .mood-section { padding: 80px 24px 60px; }
+
+  .mood__content {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .mood__title { font-size: clamp(40px, 10vw, 64px); }
+  .mood__desc { font-size: 14px; max-width: 100%; }
+
+  .mood__player iframe {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .mood__bg-text { font-size: clamp(120px, 30vw, 200px); }
+
+  /* Hide side dot nav on mobile */
+  .mood-dot-nav { display: none; }
+}

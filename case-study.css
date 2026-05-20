@@ -1967,3 +1967,50 @@
 .case-study ~ .footer {
   margin-left: 220px;
 }
+
+/* ══════════════════════════════════════════════════════════════
+   MOBILE RESPONSIVE  (max-width: 768px)
+   ══════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* Hide stepper, remove left margin */
+  .cs-stepper { display: none; }
+  .case-study { margin-left: 0; }
+  [data-theme="light"] .case-study { background-color: #ffffff; }
+
+  /* Hero */
+  .cs-hero {
+    padding: 48px 24px 32px;
+    grid-template-columns: 1fr;
+  }
+  .cs-hero__details-wrap { padding: 20px 24px; }
+  .cs-hero__details { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .cs-hero__title { font-size: clamp(28px, 7vw, 44px); }
+  .cs-hero__media { margin: 0 24px; }
+
+  /* Sections */
+  .cs-intro { padding: 48px 24px; flex-direction: column; }
+  .cs-goals { padding: 48px 24px; flex-direction: column; }
+  .cs-phase { padding: 48px 24px; }
+  .cs-intro__stats { grid-template-columns: 1fr 1fr; }
+  .cs-glide-stats { grid-template-columns: 1fr; }
+
+  /* Images and media */
+  .cs-phase__img,
+  .cs-phase__video { width: 100% !important; max-width: 100% !important; }
+  .cs-side-by-side { flex-direction: column; }
+  .cs-side-by-side img { width: 100% !important; height: 200px; }
+
+  /* Realization / learning blocks */
+  .cs-realization-items { grid-template-columns: 1fr; }
+  .cs-learnings { grid-template-columns: 1fr; }
+  .cs-glide-stats { grid-template-columns: 1fr; }
+
+  /* Persona */
+  .cs-persona-card { flex-direction: column; }
+  .cs-persona-card__goals-grid { grid-template-columns: 1fr; }
+
+  /* Feature cards */
+  .cs-feature-cards { grid-template-columns: 1fr; }
+  .cs-feedback-cards { flex-direction: column; }
+}
