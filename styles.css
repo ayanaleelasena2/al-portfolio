@@ -1096,6 +1096,9 @@ a.shape-card__title:hover {
 [data-theme="light"] .footer__link:hover { color: #0d3a52; }
 [data-theme="light"] .footer__copy { color: #aaaaaa; }
 
+.footer__emoji { color: #89b4d4; }
+[data-theme="light"] .footer__emoji { color: #0d3a52; }
+
 /* ══════════════════════════════════════════════════════════════
    MOBILE RESPONSIVE  (max-width: 768px)
    ══════════════════════════════════════════════════════════════ */
