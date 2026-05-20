@@ -49,7 +49,17 @@ html {
   height: 36px;
   width: auto;
   display: block;
-  filter: brightness(0) saturate(100%) invert(74%) sepia(22%) saturate(600%) hue-rotate(175deg) brightness(80%);
+  transition: filter 0.3s;
+}
+
+/* Dark mode — lighter blue #89b4d4 */
+[data-theme="dark"] .nav__logo-img {
+  filter: brightness(0) saturate(100%) invert(72%) sepia(18%) saturate(728%) hue-rotate(169deg) brightness(103%) contrast(88%);
+}
+
+/* Light mode — dark so it shows on white background */
+[data-theme="light"] .nav__logo-img {
+  filter: brightness(0) saturate(100%);
 }
 
 .nav__links {
