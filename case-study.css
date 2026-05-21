@@ -555,7 +555,7 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
-  border: 1px solid #3a3a3a;
+  border: 1px solid #e8e8e8;
   border-radius: 16px;
   overflow: hidden;
   max-width: 900px;
@@ -568,13 +568,13 @@
   gap: 40px;
   align-items: flex-start;
   padding: 36px;
-  background: #161616;
+  background: #ffffff;
 }
 
 .cs-method__number {
   font-family: var(--font-heading);
   font-size: 28px;
-  color: #89b4d4;
+  color: #0d3a52;
   letter-spacing: 0.05em;
   flex-shrink: 0;
   line-height: 1;
@@ -590,7 +590,7 @@
   font-family: var(--font-heading);
   font-size: 18px;
   font-weight: 400;
-  color: #ffffff;
+  color: #111111;
 }
 
 .cs-method__list {
@@ -604,7 +604,7 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 1.6;
-  color: #aaaaaa;
+  color: #555555;
   padding-left: 16px;
   position: relative;
 }
@@ -613,7 +613,7 @@
   content: '·';
   position: absolute;
   left: 0;
-  color: #89b4d4;
+  color: #0d3a52;
 }
 
 [data-theme="light"] .cs-phase {
@@ -625,27 +625,27 @@
 }
 
 [data-theme="light"] .cs-method__list li {
-  color: #555555;
+  color: #aaaaaa;
 }
 
 [data-theme="light"] .cs-methods {
-  border-color: #e8e8e8;
+  border-color: #3a3a3a;
 }
 
 [data-theme="light"] .cs-method {
-  background: #ffffff;
+  background: #161616;
 }
 
 [data-theme="light"] .cs-method__title {
-  color: #111111;
+  color: #ffffff;
 }
 
 [data-theme="light"] .cs-method__number {
-  color: #0d3a52;
+  color: #89b4d4;
 }
 
 [data-theme="light"] .cs-method__list li::before {
-  color: #0d3a52;
+  color: #89b4d4;
 }
 
 /* ── Interview section ── */
@@ -737,7 +737,7 @@
 .cs-finding__number {
   font-family: var(--font-heading);
   font-size: 32px;
-  color: #89b4d4;
+  color: #0d3a52;
   letter-spacing: 0.05em;
   flex-shrink: 0;
   line-height: 1;
