@@ -2016,4 +2016,14 @@
 
   /* Hide arrow icons in prototype/CTA buttons */
   .cs-hero__proto span[aria-hidden="true"] { display: none; }
+
+  /* Stack buttons full-width */
+  .cs-hero__proto-wrap {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .cs-hero__proto {
+    width: 100%;
+    justify-content: center;
+  }
 }
