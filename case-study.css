@@ -1968,6 +1968,90 @@
   margin-left: 220px;
 }
 
+/* ── More Work section ── */
+.cs-more-work {
+  padding: 80px 200px;
+  border-top: 1px solid #1e1e1e;
+  margin-left: 220px;
+}
+
+.cs-more-work__label {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #89b4d4;
+  margin-bottom: 40px;
+}
+
+.cs-more-work__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.cs-more-work__card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px;
+  background: #161616;
+  border: 1px solid #2a2a2a;
+  border-radius: 16px;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.cs-more-work__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+  border-color: #3a3a3a;
+}
+
+.cs-more-work__tag {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #89b4d4;
+}
+
+.cs-more-work__title {
+  font-family: var(--font-heading);
+  font-size: clamp(20px, 2vw, 26px);
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.cs-more-work__desc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #aaaaaa;
+  flex: 1;
+}
+
+.cs-more-work__arrow {
+  font-size: 18px;
+  color: #89b4d4;
+  align-self: flex-end;
+  transition: transform 0.2s ease;
+}
+
+.cs-more-work__card:hover .cs-more-work__arrow {
+  transform: translate(4px, -4px);
+}
+
+[data-theme="light"] .cs-more-work { border-top-color: #e8e8e8; }
+[data-theme="light"] .cs-more-work__label { color: #0d3a52; }
+[data-theme="light"] .cs-more-work__card { background: #ffffff; border-color: #e8e8e8; }
+[data-theme="light"] .cs-more-work__card:hover { border-color: #c0c0c0; box-shadow: 0 16px 40px rgba(0,0,0,0.1); }
+[data-theme="light"] .cs-more-work__tag { color: #0d3a52; }
+[data-theme="light"] .cs-more-work__title { color: #111111; }
+[data-theme="light"] .cs-more-work__desc { color: #555555; }
+[data-theme="light"] .cs-more-work__arrow { color: #0d3a52; }
+
 /* ══════════════════════════════════════════════════════════════
    MOBILE RESPONSIVE  (max-width: 768px)
    ══════════════════════════════════════════════════════════════ */
@@ -1976,6 +2060,8 @@
   /* Hide stepper, remove left margin */
   .cs-stepper { display: none; }
   .case-study { margin-left: 0; }
+  .cs-more-work { margin-left: 0; padding: 48px 16px; }
+  .cs-more-work__grid { grid-template-columns: 1fr; }
   [data-theme="light"] .case-study { background-color: #ffffff; }
 
   /* Hero */
