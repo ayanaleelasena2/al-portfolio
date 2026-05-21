@@ -2047,6 +2047,10 @@
   /* Persona card body */
   .cs-persona-card__body { grid-template-columns: 1fr; }
 
+  /* Mockup cards — reduce padding so images are larger */
+  .cs-final-phase { padding: 20px 16px; }
+  .cs-final-phase__img { border-radius: 8px; }
+
   /* Stack buttons full-width */
   .cs-hero__proto-wrap {
     flex-direction: column;
