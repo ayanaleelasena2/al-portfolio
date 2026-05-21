@@ -1991,6 +1991,7 @@
   /* Sections */
   .cs-intro { padding: 48px 24px; flex-direction: column; }
   .cs-goals { padding: 48px 24px; flex-direction: column; }
+  .cs-goals__grid { grid-template-columns: 1fr; }
   .cs-phase { padding: 48px 24px; }
   .cs-intro__stats { grid-template-columns: 1fr 1fr; }
   .cs-glide-stats { grid-template-columns: 1fr; }
