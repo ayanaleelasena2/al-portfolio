@@ -1224,6 +1224,14 @@ a.shape-card__title:hover {
   color: #ffffff;
 }
 
+/* On touch devices, disable hover lift so first tap navigates directly */
+@media (hover: none) {
+  .project-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
 @media (max-width: 768px) {
   .nav__hamburger { display: flex; }
   .nav__links { display: none; }
