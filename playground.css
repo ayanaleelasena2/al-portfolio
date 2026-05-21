@@ -1,5 +1,42 @@
 /* ── Playground — Music Mood Board ───────────────────────────── */
 
+/* ── Disco ball ─────────────────────────────────────────────── */
+.disco-ball-wrap {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* thin string from top of screen */
+.disco-ball-wrap::before {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 32px;
+  background: rgba(180, 180, 180, 0.35);
+}
+
+.disco-ball {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  animation: discoSwing 4s ease-in-out infinite;
+  transform-origin: top center;
+  filter: drop-shadow(0 8px 24px rgba(150, 120, 255, 0.35));
+}
+
+@keyframes discoSwing {
+  0%   { transform: rotate(-6deg); }
+  50%  { transform: rotate(6deg); }
+  100% { transform: rotate(-6deg); }
+}
+
 .mood-section {
   min-height: 100vh;
   display: flex;
