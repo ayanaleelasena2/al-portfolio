@@ -341,6 +341,11 @@ main {
   padding: 16px;
 }
 
+.project-card__cover--fit {
+  object-fit: contain;
+  object-position: center;
+}
+
 .project-card__media--promega {
   background-image: url('assets/CentralDogmaOfBiology_4.jpg');
   background-size: cover;
