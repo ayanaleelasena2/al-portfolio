@@ -2,33 +2,33 @@
 
 /* ── Disco ball ─────────────────────────────────────────────── */
 .disco-ball-wrap {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 50;
+  z-index: 10;
   pointer-events: none;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* thin string from top of screen */
+/* thin string from top of section */
 .disco-ball-wrap::before {
   content: '';
   display: block;
   width: 1px;
-  height: 32px;
-  background: rgba(180, 180, 180, 0.35);
+  height: 40px;
+  background: rgba(200, 200, 200, 0.4);
 }
 
 .disco-ball {
-  width: 90px;
-  height: 90px;
+  width: 110px;
+  height: 110px;
   object-fit: contain;
   animation: discoSwing 4s ease-in-out infinite;
   transform-origin: top center;
-  filter: drop-shadow(0 8px 24px rgba(150, 120, 255, 0.35));
+  filter: drop-shadow(0 12px 32px rgba(150, 120, 255, 0.5));
 }
 
 @keyframes discoSwing {
