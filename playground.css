@@ -2,7 +2,7 @@
 
 /* ── Disco ball ─────────────────────────────────────────────── */
 .disco-ball-wrap {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -13,12 +13,12 @@
   align-items: center;
 }
 
-/* thin string from top of section */
+/* thin string from top of viewport */
 .disco-ball-wrap::before {
   content: '';
   display: block;
   width: 1px;
-  height: 120px;
+  height: 80px;
   background: rgba(200, 200, 200, 0.4);
 }
 
