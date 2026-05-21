@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <style>
+    .al { fill: #0d3a52; }
+    @media (prefers-color-scheme: dark) { .al { fill: #89b4d4; } }
+  </style>
+  <text class="al" x="50" y="74" text-anchor="middle"
+        font-family="'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif"
+        font-weight="900" font-size="58">AL</text>
+</svg>
