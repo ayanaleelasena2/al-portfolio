@@ -161,10 +161,24 @@ const sections = document.querySelectorAll('main section[id]');
       cursorLabel.style.top = e.clientY + 'px';
     });
 
-    cards.forEach(card => {
-      card.addEventListener('mouseenter', () => cursorLabel.style.opacity = '1');
-      card.addEventListener('mouseleave', () => cursorLabel.style.opacity = '0');
-    });
+    const isTouchDevice = window.matchMedia('(hover: none)').matches;
+
+    if (isTouchDevice) {
+      // Hide cursor label on touch devices
+      cursorLabel.style.display = 'none';
+      // Make entire card navigate on single tap
+      cards.forEach(card => {
+        card.addEventListener('click', () => {
+          const link = card.querySelector('.project-card__link');
+          if (link) window.location.href = link.href;
+        });
+      });
+    } else {
+      cards.forEach(card => {
+        card.addEventListener('mouseenter', () => cursorLabel.style.opacity = '1');
+        card.addEventListener('mouseleave', () => cursorLabel.style.opacity = '0');
+      });
+    }
 
     // Hamburger menu
     const hamburger = document.getElementById('navHamburger');
