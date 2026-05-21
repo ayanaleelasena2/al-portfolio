@@ -2013,4 +2013,7 @@
   /* Feature cards */
   .cs-feature-cards { grid-template-columns: 1fr; }
   .cs-feedback-cards { flex-direction: column; }
+
+  /* Hide arrow icons in prototype/CTA buttons */
+  .cs-hero__proto span[aria-hidden="true"] { display: none; }
 }
