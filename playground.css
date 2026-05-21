@@ -242,6 +242,49 @@
 [data-mood="spring"] .mood__num    { color: #d4f5c4; opacity: 1; }
 [data-mood="spring"] .mood__bg-text { color: #ffffff; }
 
+/* ── Skiing in the Alps ─────────────────────────────────────── */
+[data-mood="skiing"] {
+  background: linear-gradient(150deg,
+    #020d1a 0%,
+    #0a2a4a 30%,
+    #1a6090 60%,
+    #c8e8f8 100%
+  );
+  color: #ffffff;
+}
+
+[data-mood="skiing"] .mood__num    { color: #a8d8f0; opacity: 1; }
+[data-mood="skiing"] .mood__bg-text { color: #ffffff; }
+
+/* ── Good Ol' Days ──────────────────────────────────────────── */
+[data-mood="goodoldays"] {
+  background: linear-gradient(150deg,
+    #1a0e00 0%,
+    #3d2200 30%,
+    #7a4a10 60%,
+    #c89050 100%
+  );
+  color: #ffffff;
+}
+
+[data-mood="goodoldays"] .mood__num    { color: #f5d49a; opacity: 1; }
+[data-mood="goodoldays"] .mood__bg-text { color: #ffffff; }
+
+/* ── 4th of July on a Lake ──────────────────────────────────── */
+[data-mood="july"] {
+  background: linear-gradient(135deg,
+    #00083a 0%,
+    #0a1a6a 30%,
+    #1a4aa0 55%,
+    #c0180a 80%,
+    #e84040 100%
+  );
+  color: #ffffff;
+}
+
+[data-mood="july"] .mood__num    { color: #f5c0a0; opacity: 1; }
+[data-mood="july"] .mood__bg-text { color: #ffffff; }
+
 /* ══════════════════════════════════════════════════════════════
    MOBILE RESPONSIVE  (max-width: 768px)
    ══════════════════════════════════════════════════════════════ */
