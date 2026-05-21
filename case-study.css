@@ -2018,6 +2018,31 @@
   /* Hide arrow icons in prototype/CTA buttons */
   .cs-hero__proto span[aria-hidden="true"] { display: none; }
 
+  /* Hero details metadata */
+  .cs-hero__details { grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  /* Intro stats */
+  .cs-intro__stats { grid-template-columns: 1fr 1fr; }
+
+  /* Interview grid */
+  .cs-interview-grid { grid-template-columns: 1fr; }
+
+  /* Finding quotes */
+  .cs-finding__quotes { grid-template-columns: 1fr; }
+
+  /* Design requirements */
+  .cs-reqs__grid { grid-template-columns: 1fr; }
+
+  /* Variations grids */
+  .cs-variations__grid,
+  .cs-variations__grid--three { grid-template-columns: 1fr; }
+
+  /* Glide stats */
+  .cs-glide-stats { grid-template-columns: 1fr; }
+
+  /* Persona card body */
+  .cs-persona-card__body { grid-template-columns: 1fr; }
+
   /* Stack buttons full-width */
   .cs-hero__proto-wrap {
     flex-direction: column;

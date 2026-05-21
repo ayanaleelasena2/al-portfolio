@@ -1151,7 +1151,7 @@ a.shape-card__title:hover {
   .about-shapes { padding: 0 24px 80px; }
   .about-shapes__grid { grid-template-columns: 1fr; max-width: 100%; }
   .about-interests { padding: 0 24px 80px; }
-  .about-interests__grid { grid-template-columns: 1fr 1fr; }
+  .about-interests__grid { grid-template-columns: 1fr; }
 
   /* ── Polaroid photo cards ── */
   .photo-grid { gap: 14px; }
