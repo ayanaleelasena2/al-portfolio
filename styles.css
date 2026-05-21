@@ -1111,12 +1111,13 @@ a.shape-card__title:hover {
   .resume-bubbles { display: none; }
 
   /* ── Hero ── */
-  .hero { padding: 100px 24px 60px; }
+  .hero { padding: 100px 16px 60px; }
+  .hero__content { max-width: 100%; }
   .hero__greeting { font-size: clamp(30px, 8vw, 48px); }
   .hero__tagline { font-size: clamp(16px, 4vw, 20px); }
 
   /* ── Work grid ── */
-  .work { padding: 0 24px 60px; }
+  .work { padding: 0 16px 60px; }
   .work__grid { grid-template-columns: 1fr; }
 
   /* ── Footer ── */
