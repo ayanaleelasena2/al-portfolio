@@ -2018,6 +2018,10 @@
   /* Hide arrow icons in prototype/CTA buttons */
   .cs-hero__proto span[aria-hidden="true"] { display: none; }
 
+  /* Usability table image + its container */
+  .cs-usability__lower { grid-template-columns: 1fr; }
+  .cs-usability__table { width: 100%; max-width: 100%; }
+
   /* Hero details metadata */
   .cs-hero__details { grid-template-columns: 1fr 1fr; gap: 16px; }
 
