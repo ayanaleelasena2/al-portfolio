@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <title>Ctrl Z — Ayana Leelasena</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="case-study.css" />
+  <style>
+    :root { --cz-green: #25c896; --cz-green-light: #3eebb4; }
+    .cs-section-label                             { color: var(--cz-green-light); }
+    .cs-hmw                                       { margin-top: 24px; }
+    #s-problem                                    { gap: 20px; }
+    .cs-hmw,
+    .cs-finding,
+    .cs-learning                                  { border-left: 3px solid var(--cz-green); }
+    .cs-persona-card__avatar                      { background: var(--cz-green); color: #fff; }
+    .cs-persona-card__role                        { color: var(--cz-green-light); }
+    .cs-persona-card__col-title--goals            { color: var(--cz-green-light); }
+    .cs-persona-card__col-title--frustrations     { color: var(--cz-green); }
+    .cs-accent                                    { color: var(--cz-green-light); }
+    .cs-realization-step__num                     { color: var(--cz-green-light); }
+
+    /* ── Key Features grid ── */
+    .cz-features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .cz-feature-card {
+      background: #111111;
+      border: 1px solid #2a2a2a;
+      border-left: 3px solid var(--cz-green);
+      border-radius: 16px;
+      padding: 28px 32px;
+    }
+    [data-theme="light"] .cz-feature-card {
+      background: #f7f7f7;
+      border-color: #e0e0e0;
+      border-left-color: var(--cz-green);
+    }
+    .cz-feature-card__title {
+      font-size: 17px;
+      font-weight: 500;
+      color: #ffffff;
+      margin: 0 0 10px;
+      letter-spacing: -0.01em;
+    }
+    [data-theme="light"] .cz-feature-card__title { color: #111111; }
+    .cz-feature-card__desc {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #aaaaaa;
+      margin: 0;
+    }
+    [data-theme="light"] .cz-feature-card__desc { color: #555555; }
+    @media (max-width: 640px) {
+      .cz-features-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Winner row ── */
+    .cz-winner-section { padding-top: 48px; padding-bottom: 48px; }
+    .cz-winner-row {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .cz-winner-img {
+      width: 220px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+    .cz-winner-text { display: flex; flex-direction: column; gap: 10px; }
+    .cz-winner-badge {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--cz-green-light);
+      letter-spacing: -0.01em;
+    }
+    .cz-winner-desc {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #aaaaaa;
+      margin: 0;
+    }
+    [data-theme="light"] .cz-winner-desc { color: #555555; }
+    @media (max-width: 640px) {
+      .cz-winner-row { flex-direction: column; }
+      .cz-winner-img { width: 100%; }
+    }
+
+    /* ── Impact list ── */
+    .cz-impact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .cz-impact-card {
+      background: #111111;
+      border: 1px solid #2a2a2a;
+      border-left: 3px solid var(--cz-green);
+      border-radius: 16px;
+      padding: 28px 32px;
+    }
+    [data-theme="light"] .cz-impact-card {
+      background: #f7f7f7;
+      border-color: #e0e0e0;
+      border-left-color: var(--cz-green);
+    }
+
+    /* ── Figma embed ── */
+    .cz-figma-embed {
+      width: 100%;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #2a2a2a;
+    }
+    [data-theme="light"] .cz-figma-embed { border-color: #e8e8e8; }
+
+    /* ── Full-width section image ── */
+    .cz-img {
+      width: 100%;
+      border-radius: 14px;
+      display: block;
+      border: 1px solid #2a2a2a;
+      object-fit: cover;
+    }
+    [data-theme="light"] .cz-img { border-color: #e8e8e8; }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <a href="index.html" class="nav__logo" aria-label="Home">
+      <img src="assets/logo.png" alt="AL logo" class="nav__logo-img" />
+    </a>
+    <nav class="nav__links" aria-label="Primary navigation">
+      <a href="index.html#work" class="nav__link">Work</a>
+      <a href="about.html" class="nav__link">About</a>
+      <a href="playground.html" class="nav__link">Vibes</a>
+      <a href="https://drive.google.com/file/d/1g7gjROStxXxsRz4DX33tyKrAW1EHBNSM/view?usp=sharing" class="nav__link nav__link--resume" target="_blank" rel="noopener">
+        <span class="resume-bubbles">
+          <span class="bubble bubble--lg"></span>
+          <span class="bubble bubble--sm"></span>
+        </span>
+        Resume
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <span class="theme-toggle__thumb"></span>
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </nav>
+    <button class="nav__hamburger" id="navHamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </header>
+  <div class="nav__mobile-menu" id="navMobileMenu">
+    <a href="index.html#work" class="nav__mobile-link">Work</a>
+    <a href="about.html" class="nav__mobile-link">About</a>
+    <a href="playground.html" class="nav__mobile-link">Vibes</a>
+    <a href="https://drive.google.com/file/d/1g7gjROStxXxsRz4DX33tyKrAW1EHBNSM/view?usp=sharing" class="nav__mobile-link" target="_blank" rel="noopener">Resume ↗</a>
+  </div>
+
+  <main class="case-study">
+
+    <nav class="cs-stepper" aria-label="Case study navigation">
+      <ol class="cs-stepper__list">
+        <li class="cs-stepper__item" data-target="s-overview">
+          <a href="#s-overview" class="cs-stepper__link">
+            <span class="cs-stepper__num">01</span>
+            <span class="cs-stepper__label">Overview</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-problem">
+          <a href="#s-problem" class="cs-stepper__link">
+            <span class="cs-stepper__num">02</span>
+            <span class="cs-stepper__label">Problem Statement</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-brainstorm">
+          <a href="#s-brainstorm" class="cs-stepper__link">
+            <span class="cs-stepper__num">03</span>
+            <span class="cs-stepper__label">Brainstorm</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-persona">
+          <a href="#s-persona" class="cs-stepper__link">
+            <span class="cs-stepper__num">04</span>
+            <span class="cs-stepper__label">User Persona</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-solution">
+          <a href="#s-solution" class="cs-stepper__link">
+            <span class="cs-stepper__num">05</span>
+            <span class="cs-stepper__label">Solution</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-features">
+          <a href="#s-features" class="cs-stepper__link">
+            <span class="cs-stepper__num">06</span>
+            <span class="cs-stepper__label">Key Features</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-prototype">
+          <a href="#s-prototype" class="cs-stepper__link">
+            <span class="cs-stepper__num">07</span>
+            <span class="cs-stepper__label">Live Prototype</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-impact">
+          <a href="#s-impact" class="cs-stepper__link">
+            <span class="cs-stepper__num">08</span>
+            <span class="cs-stepper__label">Impact</span>
+          </a>
+        </li>
+      </ol>
+    </nav>
+
+    <!-- 01 · Overview / Hero -->
+    <section class="cs-hero" id="s-overview">
+      <div class="cs-hero__content">
+        <h1 class="cs-hero__title animate animate--1">Ctrl Z</h1>
+        <p class="cs-hero__subtitle animate animate--3">Anti-Algorithm App</p>
+        <p class="cs-hero__blurb animate animate--3">In this designathon we were tasked with building a product that embraces anti-algorithm in today's society. We had 2 hours to brainstorm and design a product that serves this purpose.</p>
+        <div class="cs-hero__proto-wrap animate animate--3">
+          <a href="https://www.figma.com/design/jC7ONp4LHBvrBFnflhrhRC/Spaghetti-%F0%9F%8D%9D?node-id=18-18684&t=6sQlrM5KwHYwsQqH-1" target="_blank" rel="noopener" class="cs-hero__proto">
+            Figma File <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+      <div class="cs-hero__media animate animate--3">
+        <img src="assets/ctrlz_home.png" alt="Ctrl Z interface" class="cs-hero__video" />
+      </div>
+    </section>
+
+    <hr class="cs-hero__rule" />
+
+    <div class="cs-hero__details-wrap">
+      <div class="cs-hero__details animate animate--3">
+        <div class="cs-detail">
+          <span class="cs-detail__label">Institution</span>
+          <span class="cs-detail__value">University of Michigan, School of Information</span>
+        </div>
+        <div class="cs-detail">
+          <span class="cs-detail__label">Designathon</span>
+          <span class="cs-detail__value">Converge — FLUX (Figma Learning for UX)</span>
+        </div>
+        <div class="cs-detail">
+          <span class="cs-detail__label">Time</span>
+          <span class="cs-detail__value">2 Hours</span>
+        </div>
+        <div class="cs-detail">
+          <span class="cs-detail__label">Team</span>
+          <span class="cs-detail__value">4 Members</span>
+        </div>
+        <div class="cs-detail">
+          <span class="cs-detail__label">Tools</span>
+          <span class="cs-detail__value">Figma</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🏆 Winner banner -->
+    <section class="cs-phase cz-winner-section">
+      <div class="cs-body">
+        <div class="cz-winner-row">
+          <img src="assets/ctrlz_winning.png" alt="Ctrl Z — First Place Designathon Winner" class="cz-winner-img" />
+          <div class="cz-winner-text">
+            <span class="cz-winner-badge">🏆 First Place</span>
+            <p class="cz-winner-desc">Ctrl Z took home first place out of all teams at the designathon — built in just 2 hours.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 · Problem Statement -->
+    <section class="cs-phase" id="s-problem">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Problem Statement</span>
+        <h2 class="cs-section-title">Undo control over lyfe!</h2>
+      </div>
+      <div class="cs-body">
+        <p class="cs-phase__intro">In a world dominated by personalization algorithms, our choices—and even our joy—are increasingly filtered and predicted. This control stifles spontaneity and limits the possibility of unexpected, meaningful moments.</p>
+        <div class="cs-hmw">
+          <p class="cs-hmw__text">How might we create experiences that <span class="cs-accent">reject algorithmic influence</span> and instead embrace <span class="cs-accent">randomness, human spontaneity, and the thrill of the unknown?</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 · Brainstorm -->
+    <section class="cs-phase" id="s-brainstorm">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Brainstorm</span>
+        <h2 class="cs-section-title">Ideation</h2>
+      </div>
+      <div class="cs-body">
+        <img src="assets/brainstorm_ctrlz.png" alt="Ctrl Z brainstorm" class="cz-img" />
+      </div>
+    </section>
+
+    <!-- 04 · User Persona -->
+    <section class="cs-phase" id="s-persona">
+      <div class="cs-section-header">
+        <span class="cs-section-label">User Persona</span>
+        <h2 class="cs-section-title">Meet Jamal</h2>
+      </div>
+      <div class="cs-persona-card">
+        <div class="cs-persona-card__header">
+          <div class="cs-persona-card__avatar">JR</div>
+          <div>
+            <h3 class="cs-persona-card__name">Jamal Riveria</h3>
+            <p class="cs-persona-card__role">Software Developer</p>
+            <p class="cs-persona-card__quote">"I am tired of routine I need something new and crazy"</p>
+          </div>
+        </div>
+        <div class="cs-persona-card__details">
+          <div class="cs-persona-card__detail">
+            <span class="cs-persona-card__detail-label">Age</span>
+            <span class="cs-persona-card__detail-value">26</span>
+          </div>
+          <div class="cs-persona-card__detail">
+            <span class="cs-persona-card__detail-label">Occupation</span>
+            <span class="cs-persona-card__detail-value">Software Developer</span>
+          </div>
+        </div>
+        <div class="cs-persona-card__body">
+          <div class="cs-persona-card__col">
+            <h4 class="cs-persona-card__col-title cs-persona-card__col-title--goals">Goals</h4>
+            <ul class="cs-persona-card__list">
+              <li>
+                <span class="cs-persona-card__item-desc">Driven by a desire to slow down and savor life's simple pleasures.</span>
+              </li>
+              <li>
+                <span class="cs-persona-card__item-desc">Searching for gentle disruptions: things that spark wonder, laughter, or thought without needing a detailed plan.</span>
+              </li>
+              <li>
+                <span class="cs-persona-card__item-desc">Values experiences that foster presence and authenticity over efficiency or optimization.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="cs-persona-card__col">
+            <h4 class="cs-persona-card__col-title cs-persona-card__col-title--frustrations">Frustrations</h4>
+            <ul class="cs-persona-card__list">
+              <li>
+                <span class="cs-persona-card__item-desc">Finds planning social events exhausting or awkward.</span>
+              </li>
+              <li>
+                <span class="cs-persona-card__item-desc">Feels like apps over-filter his choices instead of broadening them.</span>
+              </li>
+              <li>
+                <span class="cs-persona-card__item-desc">Craves authentic, soulful interactions that feel human.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 · Solution -->
+    <section class="cs-phase" id="s-solution">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Solution</span>
+        <h2 class="cs-section-title">How Ctrl Z works</h2>
+      </div>
+      <div class="cs-body">
+        <div class="cs-realization-steps">
+          <div class="cs-realization-step">
+            <span class="cs-realization-step__num">01</span>
+            <div class="cs-realization-step__content">
+              <span class="cs-realization-step__title">You sign up with no plan.</span>
+              <span class="cs-realization-step__desc">Just share your basic preferences, like dietary needs and hard no's. That's it.</span>
+            </div>
+          </div>
+          <div class="cs-realization-step">
+            <span class="cs-realization-step__num">02</span>
+            <div class="cs-realization-step__content">
+              <span class="cs-realization-step__title">We design your day, not an algorithm.</span>
+              <span class="cs-realization-step__desc">A rotating crew of humans (not bots) craft a one-of-a-kind experience just for you.</span>
+            </div>
+          </div>
+          <div class="cs-realization-step">
+            <span class="cs-realization-step__num">03</span>
+            <div class="cs-realization-step__content">
+              <span class="cs-realization-step__title">You show up with no clue.</span>
+              <span class="cs-realization-step__desc">No previews, no ratings, no itinerary. Just trust the journey and go with the flow.</span>
+            </div>
+          </div>
+          <div class="cs-realization-step">
+            <span class="cs-realization-step__num">04</span>
+            <div class="cs-realization-step__content">
+              <span class="cs-realization-step__title">You come back surprised (and kinda proud).</span>
+              <span class="cs-realization-step__desc">Maybe you danced. Maybe you pet a goat. Who knows? You lived a day you'd never have planned yourself.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 · Key Features -->
+    <section class="cs-phase" id="s-features">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Key Features</span>
+        <h2 class="cs-section-title">What makes Ctrl Z different</h2>
+      </div>
+      <div class="cs-body">
+        <div class="cz-features-grid">
+          <div class="cz-feature-card">
+            <h3 class="cz-feature-card__title">One Day. One Box. No Returns.</h3>
+            <p class="cz-feature-card__desc">Think of it like a subscription box for your soul. But instead of snacks, you get stories.</p>
+          </div>
+          <div class="cz-feature-card">
+            <h3 class="cz-feature-card__title">Hard No? We Hear You.</h3>
+            <p class="cz-feature-card__desc">Hate heights? Allergic to drama? Just tell us your red flags and we'll take care of the rest. You're safe, even in the surprise.</p>
+          </div>
+          <div class="cz-feature-card">
+            <h3 class="cz-feature-card__title">No Profiles. No Tracking.</h3>
+            <p class="cz-feature-card__desc">We don't remember your last trip. There's no "For You" page. You're not a pattern, you're a person.</p>
+          </div>
+          <div class="cz-feature-card">
+            <h3 class="cz-feature-card__title">Human-Curated Chaos.</h3>
+            <p class="cz-feature-card__desc">No AI. No data trails. Each experience is handcrafted by real people, artists, explorers, and kind-hearted weirdos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 · Live Prototype -->
+    <section class="cs-phase" id="s-prototype">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Live Prototype</span>
+        <h2 class="cs-section-title">Try it yourself</h2>
+      </div>
+      <div class="cs-body">
+        <div class="cz-figma-embed">
+          <iframe src="https://embed.figma.com/proto/jC7ONp4LHBvrBFnflhrhRC/Spaghetti-%F0%9F%8D%9D?page-id=15%3A108&node-id=23-237&scaling=scale-down&content-scaling=fixed&starting-point-node-id=15%3A1466&show-proto-sidebar=1&embed-host=share&hide-ui=1" loading="lazy" height="1000" width="100%" frameborder="0" allowtransparency="true" allowfullscreen=""></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 · Impact -->
+    <section class="cs-phase" id="s-impact">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Impact</span>
+        <h2 class="cs-section-title">Why it matters</h2>
+      </div>
+      <div class="cs-body">
+        <div class="cz-impact-list">
+          <div class="cz-impact-card">
+            <h3 class="cz-feature-card__title">Breaks the filter bubble.</h3>
+            <p class="cz-feature-card__desc">Users step outside their algorithm-curated worlds and into unexpected, real-world experiences.</p>
+          </div>
+          <div class="cz-impact-card">
+            <h3 class="cz-feature-card__title">Reintroduces trust &amp; serendipity.</h3>
+            <p class="cz-feature-card__desc">By giving up control, people rediscover the joy of not knowing.</p>
+          </div>
+          <div class="cz-impact-card">
+            <h3 class="cz-feature-card__title">Prioritizes well-being over engagement.</h3>
+            <p class="cz-feature-card__desc">No endless scrolls. Just meaningful, human moments.</p>
+          </div>
+          <div class="cz-impact-card">
+            <h3 class="cz-feature-card__title">Promotes digital detachment.</h3>
+            <p class="cz-feature-card__desc">A day without data collection, optimization, or notifications.</p>
+          </div>
+          <div class="cz-impact-card">
+            <h3 class="cz-feature-card__title">Builds empathy through diversity.</h3>
+            <p class="cz-feature-card__desc">Every journey is crafted by different people, from different walks of life.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <section class="cs-more-work">
+    <span class="cs-more-work__label">More Work</span>
+    <div class="cs-more-work__grid">
+      <a href="mint.html" class="cs-more-work__card">
+        <img src="assets/mint_home.png" alt="mint" class="cs-more-work__img" />
+        <div class="cs-more-work__body">
+          <span class="cs-more-work__tag">UX Design · Music</span>
+          <h3 class="cs-more-work__title">mint</h3>
+          <p class="cs-more-work__desc">A music discovery app for EDM listeners, showcasing advanced design systems, variables, and prototyping in Figma.</p>
+          <span class="cs-more-work__arrow">↗</span>
+        </div>
+      </a>
+      <a href="stackeval.html" class="cs-more-work__card">
+        <img src="assets/new_stackevalhome.png" alt="StackEval" class="cs-more-work__img" style="object-fit:contain;" />
+        <div class="cs-more-work__body">
+          <span class="cs-more-work__tag">UX Research · AI Tools</span>
+          <h3 class="cs-more-work__title">StackEval</h3>
+          <p class="cs-more-work__desc">An LLM evaluation tool built for developers, helping teams systematically test, compare, and improve their AI stack.</p>
+          <span class="cs-more-work__arrow">↗</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p class="footer__tagline">Yay! Thanks for checking out my work. Say hi! <span class="footer__emoji">(＊๑˘◡˘)</span></p>
+    <div class="footer__links">
+      <a href="mailto:ayanal@umich.edu" class="footer__link">ayanal@umich.edu</a>
+      <a href="https://www.linkedin.com/in/ayana-leelasena/" target="_blank" rel="noopener" class="footer__link">LinkedIn ↗</a>
+      <p class="footer__copy">© 2026 Ayana Leelasena</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      const html = document.documentElement;
+      html.setAttribute('data-theme', html.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
+    });
+    const hamburger = document.getElementById('navHamburger');
+    const mobileMenu = document.getElementById('navMobileMenu');
+    if (hamburger && mobileMenu) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+        document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+      });
+      mobileMenu.querySelectorAll('.nav__mobile-link').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('open');
+          mobileMenu.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+  </script>
+</body>
+</html>

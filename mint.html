@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <title>mint — Ayana Leelasena</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="case-study.css" />
+  <style>
+    /* ── mint brand overrides ── */
+    :root {
+      --mint-pink:  #f04e9e;
+      --mint-green: #3eebb4;
+    }
+
+    /* Accent text throughout the page */
+    .cs-accent { color: var(--mint-green); }
+
+    /* Persona card */
+    .cs-persona-card__avatar       { background: var(--mint-pink); color: #fff; }
+    .cs-persona-card__role         { color: var(--mint-pink); }
+    .cs-persona-card__col-title--goals        { color: var(--mint-green); }
+    .cs-persona-card__col-title--frustrations { color: var(--mint-pink); }
+
+    /* HMW block accent */
+    .cs-hmw { border-left: 3px solid var(--mint-pink); }
+
+    /* Design system image sections */
+    .mint-ds-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+    }
+    .mint-ds-block {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .mint-ds-block--typo { flex: 1.6; }
+    .mint-ds-block--color { flex: 1; }
+    .mint-ds-block__label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mint-green);
+    }
+    .mint-ds-block__desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #aaaaaa;
+    }
+    .mint-ds-block__img {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+      border: 1px solid #2a2a2a;
+    }
+    [data-theme="light"] .mint-ds-block__img { border-color: #e8e8e8; }
+    @media (max-width: 768px) {
+      .mint-ds-row { flex-direction: column; }
+    }
+
+    /* ── Variables section ── */
+    .mint-var-intro {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #aaaaaa;
+      max-width: 680px;
+      margin-bottom: 8px;
+    }
+    .mint-var-intro + .mint-var-intro {
+      margin-bottom: 40px;
+    }
+    .mint-var-overview {
+      width: 100%;
+      border-radius: 14px;
+      display: block;
+      margin-bottom: 40px;
+      border: 1px solid #2a2a2a;
+    }
+    [data-theme="light"] .mint-var-overview { border-color: #e8e8e8; }
+    .mint-var-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .mint-var-item {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .mint-var-item__label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mint-green);
+    }
+    .mint-var-item__img {
+      width: 100%;
+      border-radius: 10px;
+      display: block;
+      border: 1px solid #2a2a2a;
+      object-fit: contain;
+    }
+    [data-theme="light"] .mint-var-item__img { border-color: #e8e8e8; }
+    @media (max-width: 768px) {
+      .mint-var-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .mint-var-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Prototype image + video row ── */
+    .mint-proto-row {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+    .mint-proto-row__img {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+      border: 1px solid #2a2a2a;
+      object-fit: contain;
+    }
+    [data-theme="light"] .mint-proto-row__img { border-color: #e8e8e8; }
+    .mint-proto-video {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+      border: 1px solid #2a2a2a;
+      background: #000;
+    }
+    [data-theme="light"] .mint-proto-video { border-color: #e8e8e8; }
+    @media (max-width: 600px) {
+      .mint-proto-row { grid-template-columns: 1fr; }
+    }
+
+    /* ── Key Learnings cards ── */
+    .mint-learnings {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .mint-learning-card {
+      border: 1px solid #2a2a2a;
+      border-radius: 16px;
+      padding: 28px 32px;
+      background: #111111;
+      border-left: 3px solid var(--mint-green);
+      transition: border-color 0.2s;
+    }
+    [data-theme="light"] .mint-learning-card {
+      background: #f7f7f7;
+      border-color: #e0e0e0;
+      border-left-color: var(--mint-pink);
+    }
+    .mint-learning-card__title {
+      font-size: 18px;
+      font-weight: 500;
+      margin: 0 0 12px;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+    [data-theme="light"] .mint-learning-card__title { color: #111111; }
+    .mint-learning-card__desc {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #aaaaaa;
+      margin: 0;
+    }
+    [data-theme="light"] .mint-learning-card__desc { color: #555555; }
+
+    /* ── Figma embed ── */
+    .mint-figma-embed {
+      width: 100%;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #2a2a2a;
+    }
+    [data-theme="light"] .mint-figma-embed { border-color: #e8e8e8; }
+
+    /* ── Final Design tags ── */
+    .mint-final-tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .mint-final-tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mint-pink);
+      border: 1px solid var(--mint-pink);
+      border-radius: 100px;
+      padding: 4px 14px;
+    }
+
+    /* ── Light / Dark mode grid ── */
+    .mint-mode-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    /* ── Components subsection ── */
+    .mint-comp-divider {
+      width: 100%;
+      height: 1px;
+      background: #2a2a2a;
+      margin: 52px 0 40px;
+    }
+    [data-theme="light"] .mint-comp-divider { background: #e8e8e8; }
+    .mint-comp-subtitle {
+      font-size: clamp(22px, 2.5vw, 32px);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin: 0 0 20px;
+      color: #ffffff;
+    }
+    [data-theme="light"] .mint-comp-subtitle { color: #111111; }
+    .mint-comp-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <a href="index.html" class="nav__logo" aria-label="Home">
+      <img src="assets/logo.png" alt="AL logo" class="nav__logo-img" />
+    </a>
+    <nav class="nav__links" aria-label="Primary navigation">
+      <a href="index.html#work" class="nav__link">Work</a>
+      <a href="about.html" class="nav__link">About</a>
+      <a href="playground.html" class="nav__link">Vibes</a>
+      <a href="https://drive.google.com/file/d/1g7gjROStxXxsRz4DX33tyKrAW1EHBNSM/view?usp=sharing" class="nav__link nav__link--resume" target="_blank" rel="noopener">
+        <span class="resume-bubbles">
+          <span class="bubble bubble--lg"></span>
+          <span class="bubble bubble--sm"></span>
+        </span>
+        Resume
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <span class="theme-toggle__thumb"></span>
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </nav>
+    <button class="nav__hamburger" id="navHamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </header>
+  <div class="nav__mobile-menu" id="navMobileMenu">
+    <a href="index.html#work" class="nav__mobile-link">Work</a>
+    <a href="about.html" class="nav__mobile-link">About</a>
+    <a href="playground.html" class="nav__mobile-link">Vibes</a>
+    <a href="https://drive.google.com/file/d/1g7gjROStxXxsRz4DX33tyKrAW1EHBNSM/view?usp=sharing" class="nav__mobile-link" target="_blank" rel="noopener">Resume ↗</a>
+  </div>
+
+  <main class="case-study">
+
+    <nav class="cs-stepper" aria-label="Case study navigation">
+      <ol class="cs-stepper__list">
+        <li class="cs-stepper__item" data-target="s-overview">
+          <a href="#s-overview" class="cs-stepper__link">
+            <span class="cs-stepper__num">01</span>
+            <span class="cs-stepper__label">Overview</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-problem">
+          <a href="#s-problem" class="cs-stepper__link">
+            <span class="cs-stepper__num">02</span>
+            <span class="cs-stepper__label">Problem Statement</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-research">
+          <a href="#s-research" class="cs-stepper__link">
+            <span class="cs-stepper__num">03</span>
+            <span class="cs-stepper__label">User Persona</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-design-system">
+          <a href="#s-design-system" class="cs-stepper__link">
+            <span class="cs-stepper__num">04</span>
+            <span class="cs-stepper__label">Design System</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-components">
+          <a href="#s-components" class="cs-stepper__link">
+            <span class="cs-stepper__num">05</span>
+            <span class="cs-stepper__label">Components & Variables</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-wireframes">
+          <a href="#s-wireframes" class="cs-stepper__link">
+            <span class="cs-stepper__num">06</span>
+            <span class="cs-stepper__label">Wireframes</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-final">
+          <a href="#s-final" class="cs-stepper__link">
+            <span class="cs-stepper__num">07</span>
+            <span class="cs-stepper__label">Final Design</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-prototype">
+          <a href="#s-prototype" class="cs-stepper__link">
+            <span class="cs-stepper__num">08</span>
+            <span class="cs-stepper__label">Prototyping</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-learnings">
+          <a href="#s-learnings" class="cs-stepper__link">
+            <span class="cs-stepper__num">09</span>
+            <span class="cs-stepper__label">Reflections</span>
+          </a>
+        </li>
+      </ol>
+    </nav>
+
+    <!-- 01 · Overview / Hero -->
+    <section class="cs-hero" id="s-overview">
+      <div class="cs-hero__content">
+        <h1 class="cs-hero__title animate animate--1">mint</h1>
+        <p class="cs-hero__subtitle animate animate--3">Personalized EDM Music Discovery</p>
+        <p class="cs-hero__blurb animate animate--3">mint is a personalized EDM app that syncs with your music accounts to recommend tracks, DJ sets, and events — built to showcase advanced design systems, variables, components, and prototyping in Figma.</p>
+        <div class="cs-hero__proto-wrap animate animate--3">
+          <a href="https://www.figma.com/design/waFyocdxcAiCxEbUAXkRjO/Individual-Project-mint-app?node-id=52-33317&t=jYXdFvcZRpHo4BD5-1" target="_blank" rel="noopener" class="cs-hero__proto">
+            Figma File <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+      <div class="cs-hero__media animate animate--3">
+        <img src="assets/mint_home.png" alt="Mint interface" class="cs-hero__video" />
+      </div>
+    </section>
+
+    <hr class="cs-hero__rule" />
+
+    <div class="cs-hero__details-wrap">
+      <div class="cs-hero__details animate animate--3">
+        <div class="cs-detail">
+          <span class="cs-detail__label">Project Type</span>
+          <span class="cs-detail__value">Personal</span>
+        </div>
+        <div class="cs-detail">
+          <span class="cs-detail__label">Timeline</span>
+          <span class="cs-detail__value">Winter 2025</span>
+        </div>
+        <div class="cs-detail">
+          <span class="cs-detail__label">Team</span>
+          <span class="cs-detail__value">Solo Project</span>
+        </div>
+        <div class="cs-detail">
+          <span class="cs-detail__label">Tools</span>
+          <span class="cs-detail__value">Figma</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02 · Problem Statement -->
+    <section class="cs-phase" id="s-problem">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Problem Statement</span>
+        <h2 class="cs-section-title">EDM fans are juggling too many platforms just to stay connected to the music they love.</h2>
+        <p class="cs-phase__intro">Fans often struggle to manage multiple platforms to discover music, track live sets, follow festival lineups, and stay updated on news. This results in a fragmented, frustrating experience with no central hub tailored to electronic music culture.</p>
+      </div>
+      <div class="cs-hmw">
+        <p class="cs-hmw__text">How might we create an all-in-one mobile app that <span class="cs-accent">streamlines music discovery, festival planning, and social connection</span> for EDM fans?</p>
+      </div>
+    </section>
+
+    <!-- 03 · Research -->
+    <section class="cs-phase" id="s-research">
+      <div class="cs-section-header">
+        <span class="cs-section-label">User Persona</span>
+        <h2 class="cs-section-title">Who are we designing for?</h2>
+      </div>
+
+      <div class="cs-persona-card">
+        <!-- Header -->
+        <div class="cs-persona-card__header">
+          <div class="cs-persona-card__avatar">JR</div>
+          <div>
+            <h3 class="cs-persona-card__name">John Roberts</h3>
+            <p class="cs-persona-card__role">Marketing Associate (Entry-Level)</p>
+            <p class="cs-persona-card__quote">"I want music discovery to feel exciting again! Like stumbling into a set at 2 AM that changes how I see a whole genre."</p>
+          </div>
+        </div>
+
+        <!-- Details row -->
+        <div class="cs-persona-card__details">
+          <div class="cs-persona-card__detail">
+            <span class="cs-persona-card__detail-label">Age</span>
+            <span class="cs-persona-card__detail-value">27</span>
+          </div>
+          <div class="cs-persona-card__detail">
+            <span class="cs-persona-card__detail-label">Industry</span>
+            <span class="cs-persona-card__detail-value">Marketing</span>
+          </div>
+          <div class="cs-persona-card__detail">
+            <span class="cs-persona-card__detail-label">Music Platforms</span>
+            <span class="cs-persona-card__detail-value">Spotify, SoundCloud, RA</span>
+          </div>
+          <div class="cs-persona-card__detail">
+            <span class="cs-persona-card__detail-label">Festival-goer</span>
+            <span class="cs-persona-card__detail-value">2–3 per year</span>
+          </div>
+        </div>
+
+        <!-- Goals & Frustrations -->
+        <div class="cs-persona-card__body">
+          <div class="cs-persona-card__col">
+            <h4 class="cs-persona-card__col-title cs-persona-card__col-title--goals">Goals</h4>
+            <ul class="cs-persona-card__list">
+              <li>
+                <span class="cs-persona-card__item-title">Discover Early</span>
+                <span class="cs-persona-card__item-desc">Find new DJs and underground sets before they blow up.</span>
+              </li>
+              <li>
+                <span class="cs-persona-card__item-title">Curate & Share</span>
+                <span class="cs-persona-card__item-desc">Create and share playlists that match his mood or upcoming festival.</span>
+              </li>
+              <li>
+                <span class="cs-persona-card__item-title">Real-World Connection</span>
+                <span class="cs-persona-card__item-desc">Connect music discovery with events, merch, and communities.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="cs-persona-card__col">
+            <h4 class="cs-persona-card__col-title cs-persona-card__col-title--frustrations">Frustrations</h4>
+            <ul class="cs-persona-card__list">
+              <li>
+                <span class="cs-persona-card__item-desc">Overwhelmed by the sheer volume of new music on streaming platforms.</span>
+              </li>
+              <li>
+                <span class="cs-persona-card__item-desc">Struggles to keep track of different festival apps, ticketing platforms, and set-time PDFs.</span>
+              </li>
+              <li>
+                <span class="cs-persona-card__item-desc">Feels like Spotify's algorithm repeats the same mainstream tracks, missing niche discoveries.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 · Design System -->
+    <section class="cs-phase" id="s-design-system">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Design System</span>
+        <h2 class="cs-section-title">Typography &amp; Color</h2>
+        <p class="cs-phase__intro">I first started by establishing my typography and color palette — a deliberate challenge, as I chose a far more diverse palette than my usual design flow.</p>
+      </div>
+
+      <div class="mint-ds-row">
+        <div class="mint-ds-block mint-ds-block--typo">
+          <span class="mint-ds-block__label">Typography</span>
+          <p class="mint-ds-block__desc">Modern, legible typefaces that balance EDM's sleek, tech-forward vibe with a clean user experience.</p>
+          <img src="assets/typography_mint.png" alt="mint typography specimen" class="mint-ds-block__img" />
+          <img src="assets/mint_moretypography.png" alt="mint typography scale" class="mint-ds-block__img" />
+        </div>
+        <div class="mint-ds-block mint-ds-block--color">
+          <span class="mint-ds-block__label">Color Palette</span>
+          <p class="mint-ds-block__desc">Drawing from EDM's high-energy visuals — dark themes with vibrant neon accents.</p>
+          <img src="assets/Colors)mintnew.png" alt="mint color palette" class="mint-ds-block__img" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 · Components & Variables -->
+    <section class="cs-phase" id="s-components">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Components &amp; Variables</span>
+        <h2 class="cs-section-title">Variables</h2>
+      </div>
+      <div class="cs-body">
+        <p class="mint-var-intro">To streamline theme switching and maintain visual consistency, I used design variables for colors, typography, spacing, and states. These variables made it easy to manage both light and dark modes, ensure accessibility, and scale the design system efficiently across screens and components.</p>
+        <p class="mint-var-intro">Using variables made all of my screens responsive.</p>
+
+        <img src="assets/variables_mint.png" alt="mint design variables overview" class="mint-var-overview" />
+
+        <div class="mint-var-grid">
+          <div class="mint-var-item">
+            <span class="mint-var-item__label">Application</span>
+            <img src="assets/variables1_application.jpg" alt="Application variables" class="mint-var-item__img" />
+          </div>
+          <div class="mint-var-item">
+            <span class="mint-var-item__label">Brand Colors</span>
+            <img src="assets/variables2_brandcolors.jpg" alt="Brand color variables" class="mint-var-item__img" />
+          </div>
+          <div class="mint-var-item">
+            <span class="mint-var-item__label">Primitives</span>
+            <img src="assets/varibles3_primitives.jpg" alt="Primitive variables" class="mint-var-item__img" />
+          </div>
+          <div class="mint-var-item">
+            <span class="mint-var-item__label">Product Interactions</span>
+            <img src="assets/variables4_productinteractions.jpg" alt="Product interaction variables" class="mint-var-item__img" />
+          </div>
+          <div class="mint-var-item">
+            <span class="mint-var-item__label">Tokens</span>
+            <img src="assets/variables5_tokens.jpg" alt="Token variables" class="mint-var-item__img" />
+          </div>
+          <div class="mint-var-item">
+            <span class="mint-var-item__label">Typography</span>
+            <img src="assets/variables6_typography.jpg" alt="Typography variables" class="mint-var-item__img" />
+          </div>
+        </div>
+
+        <!-- Components subsection -->
+        <div class="mint-comp-divider"></div>
+        <h3 class="mint-comp-subtitle">Components</h3>
+        <p class="mint-var-intro">To ensure consistency and streamline design, I built a reusable component library in Figma. This included buttons, navigation bars, cards, and event tiles, all styled to match mint's visual language. These components supported faster iteration and a scalable UI system and allowed for advanced prototyping.</p>
+        <div class="mint-comp-grid">
+          <div class="mint-var-item">
+            <span class="mint-var-item__label">Buttons</span>
+            <img src="assets/buttons_mint.png" alt="mint button components" class="mint-var-item__img" />
+          </div>
+          <div class="mint-var-item">
+            <span class="mint-var-item__label">Components</span>
+            <img src="assets/components_mint.png" alt="mint component library" class="mint-var-item__img" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 · Wireframes -->
+    <section class="cs-phase" id="s-wireframes">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Wireframes</span>
+        <h2 class="cs-section-title">Wireframes</h2>
+      </div>
+      <div class="cs-body">
+        <p class="mint-var-intro">Designing mint required a human-centered and iterative approach to address the unique needs of electronic dance music fans. These variables made it easy to manage both light and dark modes, ensure accessibility, and scale the design system efficiently across screens and components.</p>
+        <p class="mint-var-intro">I created low-fidelity wireframes to map key user flows like music discovery, event tracking, and itinerary planning. These helped me focus on layout, hierarchy, and navigation before moving into visual design. Early feedback ensured the structure aligned with user needs.</p>
+        <img src="assets/wireframe_mint.jpg" alt="mint low-fidelity wireframes" class="mint-var-overview" />
+      </div>
+    </section>
+
+    <!-- 07 · Final Design -->
+    <section class="cs-phase" id="s-final">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Final Design</span>
+        <h2 class="cs-section-title">High Fidelity Mockups</h2>
+      </div>
+      <div class="cs-body">
+        <div class="mint-final-tags">
+          <span class="mint-final-tag">Light &amp; Dark Mode</span>
+        </div>
+        <p class="mint-var-intro">With the structure in place and components finalized, I brought mint to life through high-fidelity mockups. This included buttons, navigation bars, cards, and event tiles, all styled to match mint's visual language.</p>
+        <p class="mint-var-intro">With the click of a button you can switch mockups from light to dark thanks to variables! My mockups are different sizes to incorporate scroll.</p>
+        <div class="mint-mode-grid">
+          <div class="mint-var-item">
+            <span class="mint-var-item__label">Light Mode</span>
+            <img src="assets/Light Mode.png" alt="mint light mode mockups" class="mint-var-item__img" />
+          </div>
+          <div class="mint-var-item">
+            <span class="mint-var-item__label">Dark Mode</span>
+            <img src="assets/Dark Mode.png" alt="mint dark mode mockups" class="mint-var-item__img" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 · Prototyping -->
+    <section class="cs-phase" id="s-prototype">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Prototyping</span>
+        <h2 class="cs-section-title">Advanced Prototyping</h2>
+      </div>
+      <div class="cs-body">
+        <p class="mint-var-intro">I used variables to allow conditional prototyping in my application for the onboarding experience.</p>
+        <div class="mint-proto-row">
+          <img src="assets/mint_advancedprootype.jpg" alt="mint advanced prototyping" class="mint-proto-row__img" />
+          <video class="mint-proto-video mint-proto-row__video" autoplay loop muted playsinline>
+            <source src="assets/mint_advanced%20prototyping.mov" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <div class="mint-comp-divider"></div>
+        <h3 class="mint-comp-subtitle">Live Prototype</h3>
+        <div class="mint-figma-embed">
+          <iframe src="https://embed.figma.com/proto/waFyocdxcAiCxEbUAXkRjO/611-Individual-Project-mint-app?page-id=337%3A488207&node-id=337-488209&viewport=934%2C-221%2C0.33&scaling=scale-down&content-scaling=fixed&starting-point-node-id=337%3A488209&show-proto-sidebar=1&embed-host=share&hide-ui=1" loading="lazy" height="820" width="100%" frameborder="0" allowtransparency="true" allowfullscreen=""></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 · Reflections -->
+    <section class="cs-phase" id="s-learnings">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Reflections</span>
+        <h2 class="cs-section-title">Key Learnings</h2>
+      </div>
+      <div class="cs-body">
+        <div class="mint-learnings">
+          <div class="mint-learning-card">
+            <h3 class="mint-learning-card__title">Mastering Scalable Design Systems</h3>
+            <p class="mint-learning-card__desc">I strengthened my skills in systems thinking by setting up design variables and component libraries, which helped me efficiently support both dark and light modes while keeping the UI consistent.</p>
+          </div>
+          <div class="mint-learning-card">
+            <h3 class="mint-learning-card__title">Advancing Prototyping Techniques</h3>
+            <p class="mint-learning-card__desc">I pushed myself to experiment with advanced prototyping in Figma, simulating dynamic interactions like theme switching, music playback, and multi-step flows.</p>
+          </div>
+          <div class="mint-learning-card">
+            <h3 class="mint-learning-card__title">Expanding Creative and Technical Growth</h3>
+            <p class="mint-learning-card__desc">This project encouraged me to think beyond individual screens, sharpen my technical design abilities, and explore future opportunities such as social features and real-time data integration.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+
+  <section class="cs-more-work">
+    <span class="cs-more-work__label">More Work</span>
+    <div class="cs-more-work__grid">
+      <a href="ufinance.html" class="cs-more-work__card">
+        <img src="assets/newhero_ufinance.png" alt="UFinance" class="cs-more-work__img" />
+        <div class="cs-more-work__body">
+          <span class="cs-more-work__tag">UX Design · Fintech</span>
+          <h3 class="cs-more-work__title">UFinance</h3>
+          <p class="cs-more-work__desc">A fintech iOS app helping students manage and budget their finances, built on user research and intuitive design.</p>
+          <span class="cs-more-work__arrow">↗</span>
+        </div>
+      </a>
+      <a href="glide.html" class="cs-more-work__card">
+        <img src="assets/newhero_glide.png" alt="Glide" class="cs-more-work__img" />
+        <div class="cs-more-work__body">
+          <span class="cs-more-work__tag">UX Design · Travel</span>
+          <h3 class="cs-more-work__title">Glide</h3>
+          <p class="cs-more-work__desc">A travel planning app that takes the stress out of group trips with smart itinerary building and real-time collaboration.</p>
+          <span class="cs-more-work__arrow">↗</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      const html = document.documentElement;
+      html.setAttribute('data-theme', html.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
+    });
+
+    // Stepper scroll-spy
+    const stepperItems = document.querySelectorAll('.cs-stepper__item');
+    const targets = Array.from(stepperItems).map(item => {
+      const id = item.dataset.target;
+      return document.getElementById(id);
+    });
+
+    function updateStepper() {
+      let activeIndex = 0;
+      targets.forEach((el, i) => {
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= window.innerHeight * 0.4) activeIndex = i;
+      });
+      stepperItems.forEach((item, i) => {
+        item.classList.toggle('cs-stepper__item--active', i === activeIndex);
+        item.classList.toggle('cs-stepper__item--visited', i < activeIndex);
+      });
+    }
+
+    window.addEventListener('scroll', updateStepper, { passive: true });
+    updateStepper();
+
+    // Smooth scroll on click
+    const NAV_HEIGHT = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 64;
+    document.querySelectorAll('.cs-stepper__link').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const id = link.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.getBoundingClientRect().top + window.scrollY - NAV_HEIGHT;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Hamburger menu
+    const hamburger = document.getElementById('navHamburger');
+    const mobileMenu = document.getElementById('navMobileMenu');
+    if (hamburger && mobileMenu) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+      });
+    }
+  </script>
+
+</body>
+</html>

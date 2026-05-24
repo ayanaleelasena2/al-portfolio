@@ -6,6 +6,49 @@
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <title>AL — Portfolio</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── Featured: StackEval spans 2 rows, UFinance + Promega stack right ── */
+    .work__grid--featured {
+      grid-template-columns: 1.5fr 1fr;
+      grid-template-rows: 270px 270px;
+      margin-bottom: 24px;
+    }
+    .work__grid--featured .project-card--featured {
+      grid-row: 1 / 3;
+      aspect-ratio: unset;
+    }
+    .work__grid--featured .project-card:not(.project-card--featured) {
+      aspect-ratio: unset;
+    }
+
+    /* ── Three-column layout ── */
+    .work__grid--trio {
+      grid-template-columns: 1fr 1fr 1fr;
+      margin-bottom: 0;
+    }
+
+    /* ── Medium screens: featured drops to 2-col stacked, trio drops to 2-col ── */
+    @media (max-width: 1100px) {
+      .work__grid--featured {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 220px 220px;
+      }
+      .work__grid--trio {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* ── Mobile: stack everything ── */
+    @media (max-width: 768px) {
+      .work__grid--featured {
+        grid-template-columns: 1fr;
+        grid-template-rows: unset;
+      }
+      .work__grid--featured .project-card--featured { grid-row: unset; aspect-ratio: 4/3; }
+      .work__grid--featured .project-card:not(.project-card--featured) { aspect-ratio: 4/3; }
+      .work__grid--trio { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -54,76 +97,112 @@
         <h2 class="work__label">Selected Work</h2>
       </div>
 
-      <div class="work__grid animate animate--5">
-      <article class="project-card">
-        <div class="project-card__media">
-          <img src="assets/new_stackevalhome.png" alt="StackEval" class="project-card__cover" style="object-fit:contain;" />
-        </div>
-        <div class="project-card__info">
-          <div class="project-card__meta">
-            <span class="project-card__client">
-              <img src="assets/backboard_io_logo.jpeg" alt="Backboard.io" class="project-card__client-logo" />
-              Backboard.io
-            </span>
-          </div>
-          <h3 class="project-card__title">StackEval</h3>
-          <p class="project-card__desc">An LLM evaluation tool built for developers, helping teams systematically test, compare, and improve their AI stack through structured research and intuitive design.</p>
-          <a href="stackeval.html" class="project-card__link">View Case Study <span aria-hidden="true">→</span></a>
-        </div>
-      </article>
+      <!-- Row 1: featured left + two stacked right -->
+      <div class="work__grid work__grid--featured animate animate--5">
 
-      <article class="project-card">
-        <div class="project-card__media">
-          <img src="assets/newhero_ufinance.png" alt="UFinance" class="project-card__cover" />
-        </div>
-        <div class="project-card__info">
-          <div class="project-card__meta">
-            <span class="project-card__client">
-              <img src="assets/ufinance_logo.png" alt="UFinance" class="project-card__client-logo" />
-              UFinance
-            </span>
+        <article class="project-card project-card--featured" style="background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 50%, #0d2340 100%);">
+          <div class="project-card__media">
+            <img src="assets/new_stackevalhome.png" alt="StackEval" class="project-card__cover" style="object-fit:contain; object-position: bottom;" />
           </div>
-          <h3 class="project-card__title">UFinance</h3>
-          <p class="project-card__desc">A fintech iOS application designed to help students manage and budget their finances in school, built on a foundation of user research and intuitive design.</p>
-          <a href="ufinance.html" class="project-card__link">View Case Study <span aria-hidden="true">→</span></a>
-        </div>
-      </article>
+          <div class="project-card__info">
+            <div class="project-card__meta">
+              <span class="project-card__client">
+                <img src="assets/backboard_io_logo.jpeg" alt="Backboard.io" class="project-card__client-logo" />
+                Backboard.io
+              </span>
+            </div>
+            <h3 class="project-card__title">StackEval</h3>
+            <p class="project-card__desc">An LLM evaluation tool built for developers, helping teams systematically test, compare, and improve their AI stack through structured research and intuitive design.</p>
+            <a href="stackeval.html" class="project-card__link">View Case Study <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card__media">
+            <img src="assets/newhero_ufinance.png" alt="UFinance" class="project-card__cover" />
+          </div>
+          <div class="project-card__info">
+            <div class="project-card__meta">
+              <span class="project-card__client">
+                <img src="assets/ufinance_logo.png" alt="UFinance" class="project-card__client-logo" />
+                UFinance
+              </span>
+            </div>
+            <h3 class="project-card__title">UFinance</h3>
+            <p class="project-card__desc">A fintech iOS application designed to help students manage and budget their finances in school, built on a foundation of user research and intuitive design.</p>
+            <a href="ufinance.html" class="project-card__link">View Case Study <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card__media project-card__media--promega">
+            <img src="assets/promega_newhome2.png" alt="ProNect" class="project-card__cover" style="object-fit:contain;" />
+          </div>
+          <div class="project-card__info">
+            <div class="project-card__meta">
+              <span class="project-card__client">
+                <img src="assets/promega_logo.png" alt="Promega" class="project-card__client-logo" />
+                Promega
+              </span>
+            </div>
+            <h3 class="project-card__title">ProNect™ Data Platform</h3>
+            <p class="project-card__desc">Optimized cell assay workflows for life science researchers by designing an intuitive 384-well plate map experience.</p>
+            <a href="promega.html" class="project-card__link">View Case Study <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
       </div>
 
-      <div class="work__grid animate animate--5">
-      <article class="project-card">
-        <div class="project-card__media">
-          <img src="assets/newhero_glide.png" alt="GLIDE" class="project-card__cover" />
-        </div>
-        <div class="project-card__info">
-          <div class="project-card__meta">
-            <span class="project-card__client">
-              <img src="assets/glide_logo.png" alt="GLIDE" class="project-card__client-logo" />
-              GLIDE
-            </span>
-          </div>
-          <h3 class="project-card__title">GLIDE</h3>
-          <p class="project-card__desc">An iOS travel application designed to give you a calm, predictable travel experience — built on market research and intuitive design.</p>
-          <a href="glide.html" class="project-card__link">View Case Study <span aria-hidden="true">→</span></a>
-        </div>
-      </article>
+      <!-- Row 2: three equal columns -->
+      <div class="work__grid work__grid--trio animate animate--5">
 
-      <article class="project-card">
-        <div class="project-card__media project-card__media--promega">
-          <img src="assets/promega_newhome2.png" alt="ProNect" class="project-card__cover" style="object-fit:contain;" />
-        </div>
-        <div class="project-card__info">
-          <div class="project-card__meta">
-            <span class="project-card__client">
-              <img src="assets/promega_logo.png" alt="Promega" class="project-card__client-logo" />
-              Promega
-            </span>
+        <article class="project-card">
+          <div class="project-card__media">
+            <img src="assets/newhero_glide.png" alt="GLIDE" class="project-card__cover" />
           </div>
-          <h3 class="project-card__title">384-Well Plate Map on the ProNect™ Data Platform</h3>
-          <p class="project-card__desc">Optimized cell assay workflows for life science researchers by designing an intuitive 384-well plate map experience within the ProNect™ Data Platform.</p>
-          <a href="promega.html" class="project-card__link">View Case Study <span aria-hidden="true">→</span></a>
-        </div>
-      </article>
+          <div class="project-card__info">
+            <div class="project-card__meta">
+              <span class="project-card__client">
+                <img src="assets/glide_logo.png" alt="GLIDE" class="project-card__client-logo" />
+                <strong>GLIDE</strong>
+              </span>
+            </div>
+            <p class="project-card__desc">An iOS travel application designed to give you a calm, predictable travel experience — built on market research and intuitive design.</p>
+            <a href="glide.html" class="project-card__link">View Case Study <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card__media">
+            <img src="assets/mint_finalhome.png" alt="Mint" class="project-card__cover" />
+          </div>
+          <div class="project-card__info">
+            <div class="project-card__meta">
+              <span class="project-card__client">
+                <img src="assets/mint_logo_cleaned-removebg-preview_1.png" alt="Mint" class="project-card__client-logo" />
+              </span>
+            </div>
+            <p class="project-card__desc">Personal project showcasing skills with variables, components, design systems, and conditional prototyping in Figma.</p>
+            <a href="mint.html" class="project-card__link">View Case Study <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card__media">
+            <img src="assets/ctrlz_home.png" alt="Ctrl Z" class="project-card__cover" />
+          </div>
+          <div class="project-card__info">
+            <div class="project-card__meta">
+              <span class="project-card__client">
+                <img src="assets/CtrlZ.png" alt="Ctrl Z" class="project-card__client-logo" />
+                <strong>Ctrl Z</strong>
+              </span>
+            </div>
+            <p class="project-card__desc">An anti-algorithm app designed in two hours at a designathon. Inspired by the desire to undo algorithmic control over daily life in a world dominated by personalization.</p>
+            <a href="ctrlz.html" class="project-card__link">View Case Study <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
       </div>
     </section>
 
@@ -175,8 +254,14 @@ const sections = document.querySelectorAll('main section[id]');
       });
     } else {
       cards.forEach(card => {
+        const media = card.querySelector('.project-card__media');
+        const info  = card.querySelector('.project-card__info');
         card.addEventListener('mouseenter', () => cursorLabel.style.opacity = '1');
         card.addEventListener('mouseleave', () => cursorLabel.style.opacity = '0');
+        if (info) {
+          info.addEventListener('mouseenter', () => cursorLabel.style.opacity = '0');
+          info.addEventListener('mouseleave', () => cursorLabel.style.opacity = '1');
+        }
       });
     }
 

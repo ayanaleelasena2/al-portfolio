@@ -235,6 +235,7 @@ main {
 .work {
   padding: 0 200px 80px;
   background-color: #0a0a0a;
+  overflow: hidden;
 }
 
 .work__label {
@@ -440,6 +441,17 @@ main {
 
 .project-card__link:hover {
   gap: 10px;
+}
+
+.project-card__link--soon {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #555555;
+  opacity: 0.6;
+  cursor: default;
+  pointer-events: none;
 }
 
 /* ── Animations ── */
