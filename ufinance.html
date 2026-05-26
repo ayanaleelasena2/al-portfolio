@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,17 +7,166 @@
   <title>UFinance — Ayana Leelasena</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="case-study.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root { --uf-green: #16a34a; --uf-green-light: #4ade80; }
+
+    /* ── IBM Plex Sans for headings ── */
+    h1, h2, h3, h4, h5, h6,
+    .cs-section-title,
+    .cs-intro__hook p,
+    .cs-hero__title,
+    .cs-finding__title,
+    .cs-req__title,
+    .cs-method__title,
+    .cs-goal__title,
+    .cs-direction__label,
+    .cs-learning__title,
+    .cs-realization-step__title,
+    .cs-persona-card__name,
+    .cs-more-work__title         { font-family: 'IBM Plex Sans', sans-serif !important; }
+
+    /* ── BDO Grotesk for body ── */
+    p, li, strong,
+    .cs-phase__intro,
+    .cs-hero__blurb,
+    .cs-interview-block__text,
+    .cs-finding__body p,
+    .cs-req__desc,
+    .cs-direction__text,
+    .cs-quote__text,
+    .cs-method__list li          { font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif !important; }
+
+    /* ── Consistent dark body text ── */
+    [data-theme="light"] .cs-phase__intro,
+    [data-theme="light"] .cs-hero__blurb,
+    [data-theme="light"] .cs-intro__body p,
+    [data-theme="light"] .cs-finding__body p,
+    [data-theme="light"] .cs-quote__text,
+    [data-theme="light"] .cs-interview-block__text,
+    [data-theme="light"] .cs-direction__text,
+    [data-theme="light"] .cs-req__desc,
+    [data-theme="light"] .cs-hmw__text,
+    [data-theme="light"] .cs-method__list li,
+    [data-theme="light"] .cs-learning__body,
+    [data-theme="light"] .cs-persona-card__quote,
+    [data-theme="light"] .cs-persona-card__item-desc,
+    [data-theme="light"] .cs-more-work__desc,
+    [data-theme="light"] .cs-final-phase__body p,
+    [data-theme="light"] .cs-priority__body         { color: #171717; }
+
+    [data-theme="light"] .cs-hmw__text { font-size: 15px; }
+    [data-theme="light"] .cs-design-system__img { border: 1px solid #e8e8e8 !important; box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
+    [data-theme="light"] .cs-ut-video__player { box-shadow: 0 8px 32px rgba(0,0,0,0.12) !important; border-radius: 16px !important; overflow: hidden; }
+    [data-theme="light"] .cs-ut-improvement { box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important; color: #171717 !important; }
+    .se-jump-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 28px;
+      background: #0d3a52;
+      color: #ffffff;
+      font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .se-jump-btn:hover { background: #1a5a7a; transform: translateY(-1px); }
+    [data-theme="light"] .cs-learning__title { color: #171717; }
+    [data-theme="light"] .cs-hmw {
+      padding: 20px 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+      border-color: #e8e8e8;
+    }
+
     .cs-persona-card__avatar                      { background: var(--uf-green); color: #fff; }
     .cs-persona-card__role                        { color: var(--uf-green-light); }
     .cs-persona-card__col-title--goals            { color: var(--uf-green-light); }
     .cs-persona-card__col-title--frustrations     { color: var(--uf-green); }
     .cs-section-label                             { color: var(--uf-green-light); }
     .cs-hmw,
-    .cs-finding,
     .cs-learning,
     .cs-interview-block                           { border-left: 3px solid var(--uf-green); }
+
+    [data-theme="light"] .cs-findings { display: flex; flex-direction: column; gap: 16px; }
+    [data-theme="light"] .cs-finding {
+      background: #ffffff;
+      border: 1px solid #e8e8e8;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+    }
+    [data-theme="light"] .cs-finding__number {
+      color: #2d5a3d;
+      background: #e2ede8;
+      font-size: 14px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      padding-top: 0;
+    }
+    [data-theme="light"] .cs-finding__header { align-items: center; }
+
+    /* ── Impact stat boxes ── */
+    [data-theme="light"] .cs-glide-stats {
+      display: flex;
+      gap: 16px;
+    }
+    [data-theme="light"] .cs-glide-stat {
+      flex: 1;
+      background: #ffffff;
+      border: 1px solid #e8e8e8;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    [data-theme="light"] .cs-glide-stat__number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-self: center;
+      background: #e2ede8;
+      color: #2d5a3d;
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      font-size: 22px;
+      font-weight: 600;
+      font-family: 'IBM Plex Sans', sans-serif;
+      margin-bottom: 8px;
+    }
+    [data-theme="light"] .cs-glide-stat__label {
+      font-size: 15px;
+      font-weight: 400;
+      color: #171717;
+      font-family: 'IBM Plex Sans', sans-serif;
+    }
+    [data-theme="light"] .cs-glide-stat__desc {
+      font-size: 14px;
+      color: #171717;
+      line-height: 1.6;
+    }
+
+    /* ── Lightbox ── */
+    .uf-zoomable { cursor: zoom-in; transition: opacity 0.2s ease; border-radius: 12px; display: block; width: 100%; }
+    .uf-zoomable:hover { opacity: 0.88; }
+    .uf-lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 99999; align-items: center; justify-content: center; padding: 24px; backdrop-filter: blur(4px); }
+    .uf-lightbox.open { display: flex; }
+    .uf-lightbox__inner { position: relative; overflow: auto; max-width: 92vw; max-height: 90vh; border-radius: 12px; cursor: zoom-in; }
+    .uf-lightbox__inner.zoomed { cursor: zoom-out; }
+    .uf-lightbox__img { display: block; width: 90vw; height: auto; border-radius: 12px; transition: width 0.3s ease; }
+    .uf-lightbox__inner.zoomed .uf-lightbox__img { width: 180vw; }
+    .uf-lightbox__close { position: fixed; top: 20px; right: 24px; background: rgba(255,255,255,0.15); border: none; color: #fff; font-size: 24px; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 100000; }
+    .uf-lightbox__hint { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.5); font-size: 12px; pointer-events: none; }
   </style>
 </head>
 <body>
@@ -179,6 +328,9 @@
       <div class="cs-hmw">
         <p class="cs-hmw__text">How might we help students easily <span class="cs-accent">track daily spending across categories</span> like food, transportation, and entertainment to <span class="cs-accent">plan expenses and identify areas to save?</span></p>
       </div>
+      <div style="margin-top: 24px;">
+        <a href="#s-prototype" class="se-jump-btn">Jump to Final Solution ↓</a>
+      </div>
     </section>
 
     <section class="cs-phase" id="s-research">
@@ -239,8 +391,8 @@
       </div>
 
       <div class="cs-persona-grid">
-        <img src="assets/ufinance_persona_1.jpg" alt="Persona 1" class="cs-persona__img" />
-        <img src="assets/ufinance_persona_2.jpg" alt="Persona 2" class="cs-persona__img" />
+        <img src="assets/ufinance_persona_1.jpg" alt="Persona 1" class="cs-persona__img" style="box-shadow: 0 8px 32px rgba(0,0,0,0.10); border-radius: 16px; border: 1px solid #e8e8e8;" />
+        <img src="assets/ufinance_persona_2.jpg" alt="Persona 2" class="cs-persona__img" style="box-shadow: 0 8px 32px rgba(0,0,0,0.10); border-radius: 16px; border: 1px solid #e8e8e8;" />
       </div>
     </section>
 
@@ -253,12 +405,12 @@
 
       <div class="cs-ia-block">
         <h4 class="cs-variations__subtitle">Information Architecture</h4>
-        <img src="assets/ufinance_IA.png" alt="UFinance Information Architecture" class="cs-ia__img" />
+        <img src="assets/ufinance_IA.png" alt="UFinance Information Architecture" class="cs-ia__img uf-zoomable" data-lightbox style="box-shadow: 0 8px 32px rgba(0,0,0,0.10); border-radius: 16px; border: 1px solid #e8e8e8;" />
       </div>
 
       <div class="cs-ia-block">
         <h4 class="cs-variations__subtitle">Goals User Flow</h4>
-        <img src="assets/ufinance_userflow.webp" alt="UFinance Goals User Flow" class="cs-ia__img" />
+        <img src="assets/ufinance_userflow.webp" alt="UFinance Goals User Flow" class="cs-ia__img" style="box-shadow: 0 8px 32px rgba(0,0,0,0.10); border-radius: 16px; border: 1px solid #e8e8e8;" />
       </div>
     </section>
 
@@ -270,7 +422,7 @@
       </div>
 
       <div class="cs-ia-block">
-        <img src="assets/uf_wireframe_summary.png" alt="Wireframe summary overview" class="cs-ia__img" />
+        <img src="assets/uf_wireframe_summary.png" alt="Wireframe summary overview" class="cs-ia__img" style="box-shadow: 0 8px 32px rgba(0,0,0,0.10); border-radius: 16px; border: 1px solid #e8e8e8;" />
       </div>
 
       <div class="cs-wireframe-grid">
@@ -312,7 +464,7 @@
         <p class="cs-phase__intro"><span class="cs-accent">10 college students</span> tested our prototype through structured, scenario-based tasks. Scenarios included adding a new expense, creating a group and splitting a bill, connecting a bank account, viewing a spending breakdown, and setting savings goals.</p>
       </div>
 
-      <div class="cs-findings">
+      <div class="cs-findings" style="display: flex; flex-direction: column; gap: 16px;">
         <div class="cs-finding">
           <div class="cs-finding__header">
             <span class="cs-finding__number">01</span>
@@ -358,15 +510,15 @@
 
       <div class="cs-ut-videos">
         <div class="cs-ut-video">
-          <video src="assets/ufinance_usabilitytesting1.mp4" autoplay loop muted playsinline class="cs-ut-video__player"></video>
+          <video src="assets/ufinance_usabilitytesting1.mp4" autoplay loop muted playsinline class="cs-ut-video__player" style="box-shadow: 0 8px 32px rgba(0,0,0,0.15); border-radius: 16px;"></video>
           <p class="cs-ut-video__label">✅ Updated Transaction summary charts to make them more readable</p>
         </div>
         <div class="cs-ut-video">
-          <video src="assets/usability_testing2.mp4" autoplay loop muted playsinline class="cs-ut-video__player"></video>
+          <video src="assets/usability_testing2.mp4" autoplay loop muted playsinline class="cs-ut-video__player" style="box-shadow: 0 8px 32px rgba(0,0,0,0.15); border-radius: 16px;"></video>
           <p class="cs-ut-video__label">✅ Got rid of confusing transaction home screen and made a dedicated home screen</p>
         </div>
         <div class="cs-ut-video">
-          <video src="assets/usability_testing3.mp4" autoplay loop muted playsinline class="cs-ut-video__player"></video>
+          <video src="assets/usability_testing3.mp4" autoplay loop muted playsinline class="cs-ut-video__player" style="box-shadow: 0 8px 32px rgba(0,0,0,0.15); border-radius: 16px;"></video>
           <p class="cs-ut-video__label">✅ Improved groups functionality with better split options</p>
         </div>
       </div>
@@ -381,7 +533,7 @@
 
       <div class="cs-ia-block">
         <h4 class="cs-variations__subtitle">Task Analysis</h4>
-        <img src="assets/task_usabilitytest.avif" alt="Usability testing task analysis" class="cs-ia__img" />
+        <img src="assets/task_usabilitytest.avif" alt="Usability testing task analysis" class="cs-ia__img" style="box-shadow: 0 8px 32px rgba(0,0,0,0.10); border-radius: 16px; border: 1px solid #e8e8e8;" />
       </div>
     </section>
 
@@ -392,7 +544,7 @@
         <p class="cs-phase__intro">With usability insights in hand, we moved from low-fidelity wireframes into <span class="cs-accent">high-fidelity mockups</span>. Each iteration was driven by real user feedback — refining layouts, clarifying visuals, and building toward a polished final product. The progression below shows how each screen evolved from rough sketches to the refined designs that made it into the prototype.</p>
       </div>
       <div class="cs-ia-block">
-        <img src="assets/Usability_Testing_designiteration.png" alt="Design iteration from low to high fidelity" class="cs-ia__img" />
+        <img src="assets/Usability_Testing_designiteration.png" alt="Design iteration from low to high fidelity" class="cs-ia__img" style="box-shadow: 0 8px 32px rgba(0,0,0,0.10); border-radius: 16px; border: 1px solid #e8e8e8;" />
       </div>
     </section>
 
@@ -412,7 +564,7 @@
         <h2 class="cs-section-title">Live Prototype</h2>
         <p class="cs-phase__intro">Interact with the final UFinance prototype below, or <a href="https://www.figma.com/proto/fJgNuq54wsSmV9mAwrsCrK/SI-582-Group-Project?node-id=1869-18374&p=f&viewport=403%2C271%2C0.04&t=Toi2kiFl2F1Q2Now-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1869%3A18374&show-proto-sidebar=1&page-id=1869%3A13654" target="_blank" rel="noopener" class="cs-link">open it in Figma ↗</a>.</p>
       </div>
-      <div class="cs-prototype-embed">
+      <div class="cs-prototype-embed" style="box-shadow: 0 8px 32px rgba(0,0,0,0.10); border-radius: 16px; overflow: hidden; border: 1px solid #e8e8e8;">
         <iframe src="https://embed.figma.com/proto/fJgNuq54wsSmV9mAwrsCrK/SI-582-Group-Project?page-id=1869%3A13654&node-id=1869-18374&node-type=canvas&viewport=403%2C278%2C0.04&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1869%3A18374&embed-host=share&hide-ui=1" loading="lazy" height="1000" width="100%" frameborder="0" allowtransparency="true" allowfullscreen=""></iframe>
       </div>
     </section>
@@ -550,6 +702,35 @@
       });
     }
   </script>
+
+  <!-- Lightbox -->
+  <div class="uf-lightbox" id="ufLightbox">
+    <button class="uf-lightbox__close" id="ufLightboxClose">✕</button>
+    <div class="uf-lightbox__inner" id="ufLightboxInner">
+      <img src="" alt="" class="uf-lightbox__img" id="ufLightboxImg" />
+    </div>
+    <span class="uf-lightbox__hint">Click to zoom · Click again to zoom out · Esc to close</span>
+  </div>
+  <script>
+    const ufLightbox = document.getElementById('ufLightbox');
+    const ufLightboxImg = document.getElementById('ufLightboxImg');
+    const ufLightboxInner = document.getElementById('ufLightboxInner');
+    const ufLightboxClose = document.getElementById('ufLightboxClose');
+    document.querySelectorAll('[data-lightbox]').forEach(img => {
+      img.addEventListener('click', () => {
+        ufLightboxImg.src = img.src;
+        ufLightboxImg.alt = img.alt;
+        ufLightbox.classList.add('open');
+        ufLightboxInner.classList.remove('zoomed');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    ufLightboxInner.addEventListener('click', () => ufLightboxInner.classList.toggle('zoomed'));
+    ufLightboxClose.addEventListener('click', () => { ufLightbox.classList.remove('open'); document.body.style.overflow = ''; });
+    ufLightbox.addEventListener('click', e => { if (e.target === ufLightbox) { ufLightbox.classList.remove('open'); document.body.style.overflow = ''; } });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') { ufLightbox.classList.remove('open'); document.body.style.overflow = ''; } });
+  </script>
+
   <footer class="footer">
     <p class="footer__tagline">Yay! Thanks for checking out my work. Say hi! <span class="footer__emoji">(＊๑˘◡˘)</span></p>
     <div class="footer__links">

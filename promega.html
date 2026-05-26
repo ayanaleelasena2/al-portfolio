@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,8 +7,83 @@
   <title>Promega ProNect™ — Ayana Leelasena</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="case-study.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    :root { --pm-yellow: #d97706; --pm-yellow-light: #fbbf24; }
+    :root { --pm-yellow: #eab308; --pm-yellow-light: #facc15; }
+
+    /* ── IBM Plex Sans for headings ── */
+    h1, h2, h3, h4, h5, h6,
+    .cs-section-title,
+    .cs-intro__hook p,
+    .cs-hero__title,
+    .cs-finding__title,
+    .cs-req__title,
+    .cs-method__title,
+    .cs-goal__title,
+    .cs-direction__label,
+    .cs-learning__title,
+    .cs-realization-step__title,
+    .cs-persona-card__name,
+    .cs-more-work__title         { font-family: 'IBM Plex Sans', sans-serif !important; }
+
+    /* ── BDO Grotesk for body ── */
+    p, li, strong,
+    .cs-phase__intro,
+    .cs-hero__blurb,
+    .cs-interview-block__text,
+    .cs-finding__body p,
+    .cs-req__desc,
+    .cs-direction__text,
+    .cs-quote__text,
+    .cs-method__list li          { font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif !important; }
+
+    /* ── Consistent dark body text ── */
+    [data-theme="light"] .cs-phase__intro,
+    [data-theme="light"] .cs-hero__blurb,
+    [data-theme="light"] .cs-intro__body p,
+    [data-theme="light"] .cs-finding__body p,
+    [data-theme="light"] .cs-quote__text,
+    [data-theme="light"] .cs-interview-block__text,
+    [data-theme="light"] .cs-direction__text,
+    [data-theme="light"] .cs-req__desc,
+    [data-theme="light"] .cs-hmw__text,
+    [data-theme="light"] .cs-method__list li,
+    [data-theme="light"] .cs-learning__body,
+    [data-theme="light"] .cs-learning__title,
+    [data-theme="light"] .cs-persona-card__quote,
+    [data-theme="light"] .cs-persona-card__item-desc,
+    [data-theme="light"] .cs-more-work__desc,
+    [data-theme="light"] .cs-final-phase__body p,
+    [data-theme="light"] .cs-realization-block__body,
+    [data-theme="light"] .cs-realization-block__title,
+    [data-theme="light"] .cs-priority__body         { color: #171717; }
+
+    .pm-jump-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 28px;
+      background: #0d3a52;
+      color: #ffffff;
+      font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 999px;
+      text-decoration: none;
+      margin-top: 16px;
+      transition: background 0.2s ease;
+    }
+    .pm-jump-btn:hover { background: #0a2d41; }
+
+    .cs-hero__proto--secondary {
+      background: #ffffff !important;
+      border: 2px solid #0d3a52 !important;
+      color: #0d3a52 !important;
+    }
+    .cs-hero__proto--secondary:hover {
+      background: rgba(13, 58, 82, 0.06) !important;
+    }
     .cs-persona-card__avatar                      { background: var(--pm-yellow); color: #fff; }
     .cs-persona-card__role                        { color: var(--pm-yellow-light); }
     .cs-persona-card__col-title--goals            { color: var(--pm-yellow-light); }
@@ -16,8 +91,53 @@
     .cs-section-label                             { color: var(--pm-yellow-light); }
     .cs-hmw,
     .cs-finding,
-    .cs-realization-block,
     .cs-interview-block                           { border-left: 3px solid var(--pm-yellow); }
+    [data-theme="light"] .cs-hmw__text { font-size: 15px; }
+    [data-theme="light"] .cs-hmw {
+      padding: 20px 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+      border-color: #e8e8e8;
+    }
+    [data-theme="light"] .cs-realization-steps {
+      background: transparent;
+      border: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      overflow: visible;
+    }
+    [data-theme="light"] .cs-realization-step {
+      background: #ffffff;
+      border: 1px solid #e8e8e8;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+    }
+    [data-theme="light"] .cs-realization-step__num {
+      color: #171717;
+      background: #fef9c3;
+      font-size: 14px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      padding-top: 0;
+      flex-shrink: 0;
+    }
+    [data-theme="light"] .cs-realization-step__title { color: #171717; }
+    [data-theme="light"] .cs-realization-step__desc  { color: #171717; }
+    [data-theme="light"] .cs-persona-card {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    }
+    [data-theme="light"] .cs-persona-card__item-title,
+    [data-theme="light"] .cs-persona-card__col-title--goals,
+    [data-theme="light"] .cs-persona-card__col-title--frustrations,
+    [data-theme="light"] .cs-persona-card__demo-value,
+    [data-theme="light"] .cs-persona-card__item-desc,
+    [data-theme="light"] .cs-persona-card__quote,
+    [data-theme="light"] .cs-persona-card__role { color: #171717; }
   </style>
 </head>
 <body>
@@ -195,16 +315,17 @@
       <div class="cs-realization-block">
         <p class="cs-realization-block__body">Promega is a global biotechnology company that provides innovative solutions for life sciences. <span class="cs-accent">CellTiter-Glo</span> is one of its flagship assays used to measure cell viability, and <span class="cs-accent">ProNect</span> is a digital platform designed to streamline <span class="cs-accent">assay setup and data management workflows</span>.</p>
         <p class="cs-realization-block__body">As part of a cross-functional initiative at Promega, I led UX design research to reimagine digital tools for <span class="cs-accent">384-well plate mapping</span>. Our goal was to improve workflows for scientists working in high-throughput areas like <span class="cs-accent">genomics, drug discovery, and cell-based assays</span> by making plate setup more intuitive, accurate, and scalable. I built off the existing 96-well plate design to introduce <span class="cs-accent">dual-compatibility for more complex 384-well plate maps</span>.</p>
-        <p class="cs-realization-block__body" style="font-size: 13px;"><span style="color: #89b4d4; font-weight: 500;">Note: </span>This feature has not been published on the platform since my internship ended in December but is planning to be rolled out later this year.</p>
+        <p class="cs-realization-block__body" style="font-size: 13px;"><span style="color: #171717; font-weight: 500;">Note: </span>This feature has not been published on the platform since my internship ended in December but is planning to be rolled out later this year.</p>
         <div class="cs-ia-block cs-ia-block--row" style="max-width: 900px;">
-          <img src="assets/promega1.jpg" alt="Promega 384-well plate" class="cs-ia__img" style="max-height: 240px; object-fit: cover; background: none; padding: 0; flex: 1; min-width: 0;" />
-          <img src="assets/promega2.jpg" alt="Promega lab context" class="cs-ia__img" style="max-height: 240px; object-fit: cover; background: none; padding: 0; flex: 1; min-width: 0;" />
+          <img src="assets/promega1.jpg" alt="Promega 384-well plate" class="cs-ia__img" style="max-height: 240px; object-fit: cover; background: none; padding: 0; flex: 1; min-width: 0; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.12);" />
+          <img src="assets/promega2.jpg" alt="Promega lab context" class="cs-ia__img" style="max-height: 240px; object-fit: cover; background: none; padding: 0; flex: 1; min-width: 0; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.12);" />
         </div>
         <div>
           <p class="cs-section-label" style="display: block; margin-bottom: 12px;">Problem Statement</p>
           <div class="cs-hmw" id="s-problem">
             <p class="cs-hmw__text">How might we extend the ProNect Data Platform to support both <span class="cs-accent">96-well and 384-well plate formats</span> so that scientists can <span class="cs-accent">seamlessly analyze experimental data</span> across different plate types?</p>
           </div>
+          <a href="#s-demo" class="pm-jump-btn">Jump to Final Solution ↓</a>
         </div>
       </div>
     </section>
@@ -214,7 +335,7 @@
         <span class="cs-section-label">Background</span>
         <h2 class="cs-section-title">What is the ProNect™ Data Platform?</h2>
       </div>
-      <a href="https://www.youtube.com/watch?v=PhXsZ7E7rao&t=1s" target="_blank" rel="noopener" class="cs-yt-thumb">
+      <a href="https://www.youtube.com/watch?v=PhXsZ7E7rao&t=1s" target="_blank" rel="noopener" class="cs-yt-thumb" style="box-shadow: 0 8px 32px rgba(0,0,0,0.12); border-radius: 12px; overflow: hidden; display: block;">
         <img src="https://img.youtube.com/vi/PhXsZ7E7rao/maxresdefault.jpg" alt="ProNect Data Platform — Introducing the ProNect Data Platform" class="cs-yt-thumb__img" />
         <div class="cs-yt-thumb__overlay">
           <div class="cs-yt-thumb__play">
@@ -226,7 +347,7 @@
 
       <div class="cs-ia-block">
         <h4 class="cs-variations__subtitle">Current 96 Well Plate Workflow</h4>
-        <video src="assets/96wellplate.mp4" autoplay loop muted playsinline style="width: auto; max-width: 50%; border-radius: 12px; border: 1px solid #3a3a3a; display: block;"></video>
+        <video src="assets/96wellplate.mp4" autoplay loop muted playsinline style="width: auto; max-width: 50%; border-radius: 12px; border: 1px solid #e8e8e8; display: block; box-shadow: 0 8px 32px rgba(0,0,0,0.12);"></video>
       </div>
     </section>
 
@@ -329,13 +450,14 @@
       </div>
 
       <div class="cs-ia-block">
-        <img src="assets/promega_usersurvey.webp" alt="Promega user survey" class="cs-ia__img" style="background: none; padding: 0;" />
+        <img src="assets/promega_usersurvey.webp" alt="Promega user survey" class="cs-ia__img" style="background: none; padding: 0; box-shadow: 0 8px 32px rgba(0,0,0,0.12); border-radius: 12px;" />
       </div>
 
-      <div class="cs-section-header" style="gap: 0;">
-        <span class="cs-section-label">Key Constraint</span>
-        <h3 class="cs-section-title" style="font-size: clamp(20px, 2.5vw, 28px);">Biggest constraint was 4× Data Density</h3>
-      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div class="cs-section-header" style="gap: 0;">
+          <span class="cs-section-label">Key Constraint</span>
+          <h3 class="cs-section-title" style="font-size: clamp(20px, 2.5vw, 28px);">Biggest constraint was 4× Data Density</h3>
+        </div>
 
       <div class="cs-ia-block" style="max-width: 900px; gap: 20px;">
         <p class="cs-realization-block__body">When we expanded from 96 wells to 384 wells, the total number of cells increased from 96 to 384 — an increase of <span class="cs-accent">288 additional wells</span>.</p>
@@ -344,7 +466,8 @@
         <div class="cs-hmw" style="padding: 20px 24px;">
           <p class="cs-hmw__text">The interaction patterns that worked at 96 did not scale proportionally. So the core design question became: <span class="cs-accent">How do we maintain clarity and confidence while increasing density by four times?</span></p>
         </div>
-        <img src="assets/promega96to384.png" alt="96 to 384 well plate comparison" class="cs-ia__img" style="background: #ffffff; padding: 32px; width: 100%;" />
+        <img src="assets/promega96to384.png" alt="96 to 384 well plate comparison" class="cs-ia__img" style="background: #ffffff; padding: 32px; width: 100%; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.10); border: 1px solid #e8e8e8;" />
+      </div>
       </div>
     </section>
 
@@ -356,20 +479,20 @@
       </div>
 
       <div class="cs-glide-stats" style="grid-template-columns: repeat(3, 1fr);">
-        <div class="cs-glide-stat">
-          <p class="cs-glide-stat__label" style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #f5c842; font-weight: 600; margin-bottom: 12px;">Tools Used</p>
-          <p class="cs-glide-stat__number" style="font-size: clamp(15px, 1.5vw, 18px); color: #ffffff; margin-bottom: 8px;">Excel & GraphPad Prism</p>
-          <p class="cs-glide-stat__desc">The most common tools among respondents. Excel is accessible and easy to edit — a familiar baseline for most scientists.</p>
+        <div class="cs-glide-stat" style="box-shadow: 0 8px 32px rgba(0,0,0,0.10); border: 1px solid #e8e8e8; display: flex; flex-direction: column; gap: 10px; justify-content: flex-start; align-items: flex-start;">
+          <p style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: #171717; font-weight: 600; margin: 0; font-family: 'IBM Plex Sans', sans-serif !important;">Tools Used</p>
+          <p style="font-size: 16px; font-weight: 400; color: #171717; margin: 0; font-family: 'IBM Plex Sans', sans-serif !important;">Excel & GraphPad Prism</p>
+          <p style="font-size: 13px; font-weight: 400; color: #171717; margin: 0; font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif !important;">The most common tools among respondents. Excel is accessible and easy to edit, a familiar baseline for most scientists.</p>
         </div>
-        <div class="cs-glide-stat">
-          <p class="cs-glide-stat__label" style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #e07070; font-weight: 600; margin-bottom: 12px;">Pain Points</p>
-          <p class="cs-glide-stat__number" style="font-size: clamp(15px, 1.5vw, 18px); color: #ffffff; margin-bottom: 8px;">Extremely Manual Setup</p>
-          <p class="cs-glide-stat__desc">Excel setup is especially burdensome for 384-well formats — users must build 16×24 grids and label every well by hand.</p>
+        <div class="cs-glide-stat" style="box-shadow: 0 8px 32px rgba(0,0,0,0.10); border: 1px solid #e8e8e8; display: flex; flex-direction: column; gap: 10px; justify-content: flex-start; align-items: flex-start;">
+          <p style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: #171717; font-weight: 600; margin: 0; font-family: 'IBM Plex Sans', sans-serif !important;">Pain Points</p>
+          <p style="font-size: 16px; font-weight: 400; color: #171717; margin: 0; font-family: 'IBM Plex Sans', sans-serif !important;">Extremely Manual Setup</p>
+          <p style="font-size: 13px; font-weight: 400; color: #171717; margin: 0; font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif !important;">Excel setup is especially burdensome for 384-well formats. Users must build 16×24 grids and label every well by hand.</p>
         </div>
-        <div class="cs-glide-stat">
-          <p class="cs-glide-stat__label" style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #89b4d4; font-weight: 600; margin-bottom: 12px;">Engagement</p>
-          <p class="cs-glide-stat__number" style="font-size: clamp(15px, 1.5vw, 18px); color: #ffffff; margin-bottom: 8px;">High Interest</p>
-          <p class="cs-glide-stat__desc">Both respondents expressed interest in participating in future research — a strong signal for continued co-design opportunities.</p>
+        <div class="cs-glide-stat" style="box-shadow: 0 8px 32px rgba(0,0,0,0.10); border: 1px solid #e8e8e8; display: flex; flex-direction: column; gap: 10px; justify-content: flex-start; align-items: flex-start;">
+          <p style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: #171717; font-weight: 600; margin: 0; font-family: 'IBM Plex Sans', sans-serif !important;">Engagement</p>
+          <p style="font-size: 16px; font-weight: 400; color: #171717; margin: 0; font-family: 'IBM Plex Sans', sans-serif !important;">High Interest</p>
+          <p style="font-size: 13px; color: #171717; margin: 0; font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif !important;">Both respondents expressed interest in participating in future research, a strong signal for continued co-design opportunities.</p>
         </div>
       </div>
     </section>
@@ -384,14 +507,17 @@
       <div class="cs-ia-block" style="max-width: 900px; gap: 20px;">
         <p class="cs-realization-block__body">To address this, I introduced a <span class="cs-accent">zoom and quadrant-based navigation system</span> to break the grid into manageable sections. This allowed users to:</p>
         <div class="cs-realization-items">
-          <div class="cs-realization-item">
-            <p class="cs-realization-item__desc"><span class="cs-realization-item__label" style="display: inline;">Zoom out</span> to see the entire plate for a quick overview.</p>
+          <div class="cs-realization-item" style="background: #ffffff; border: 1px solid #e8e8e8; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); padding: 20px 24px; display: flex; align-items: center; gap: 16px;">
+            <span style="min-width: 36px; height: 36px; background: #fef9c3; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Sans', sans-serif; font-size: 14px; font-weight: 600; color: #171717;">1</span>
+            <p style="margin: 0; color: #171717; font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif !important; font-weight: 400; font-size: 15px;">Zoom out to see the entire plate for a quick overview.</p>
           </div>
-          <div class="cs-realization-item">
-            <p class="cs-realization-item__desc"><span class="cs-realization-item__label" style="display: inline;">Zoom into individual quadrants (A–D)</span> for focused editing.</p>
+          <div class="cs-realization-item" style="background: #ffffff; border: 1px solid #e8e8e8; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); padding: 20px 24px; display: flex; align-items: center; gap: 16px;">
+            <span style="min-width: 36px; height: 36px; background: #fef9c3; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Sans', sans-serif; font-size: 14px; font-weight: 600; color: #171717;">2</span>
+            <p style="margin: 0; color: #171717; font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif !important; font-weight: 400; font-size: 15px;">Zoom into individual quadrants (A–D) for focused editing.</p>
           </div>
-          <div class="cs-realization-item">
-            <p class="cs-realization-item__desc"><span class="cs-realization-item__label" style="display: inline;">Navigate through quadrants</span> using labeled tabs for clarity and speed.</p>
+          <div class="cs-realization-item" style="background: #ffffff; border: 1px solid #e8e8e8; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); padding: 20px 24px; display: flex; align-items: center; gap: 16px;">
+            <span style="min-width: 36px; height: 36px; background: #fef9c3; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Sans', sans-serif; font-size: 14px; font-weight: 600; color: #171717;">3</span>
+            <p style="margin: 0; color: #171717; font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif !important; font-weight: 400; font-size: 15px;">Navigate through quadrants using labeled tabs for clarity and speed.</p>
           </div>
         </div>
         <p class="cs-realization-block__body">This model dramatically reduced cognitive load while maintaining flexibility for users working at different scales.</p>
@@ -399,21 +525,21 @@
 
       <div class="cs-ia-block" style="max-width: 900px; gap: 24px;">
         <div style="display: flex; flex-direction: column; gap: 8px;">
-          <img src="assets/promega_iteration1.png" alt="Zoom navigation iteration 1" class="cs-ia__img" style="background: #ffffff; padding: 24px; width: 100%;" />
+          <img src="assets/promega_iteration1.png" alt="Zoom navigation iteration 1" class="cs-ia__img" style="background: #ffffff; padding: 24px; width: 100%; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.10); border: 1px solid #e8e8e8;" />
           <p style="text-align: center; font-size: 13px; color: #aaaaaa;">Iteration 1</p>
         </div>
         <div style="display: flex; flex-direction: column; gap: 8px;">
-          <video src="assets/promega_iteration2vid.mov" autoplay loop muted playsinline class="cs-ia__img" style="background: #ffffff; padding: 24px; width: 100%;"></video>
+          <video src="assets/promega_iteration2vid.mov" autoplay loop muted playsinline class="cs-ia__img" style="background: #ffffff; padding: 24px; width: 100%; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.10); border: 1px solid #e8e8e8;"></video>
           <p style="text-align: center; font-size: 13px; color: #aaaaaa;">Iteration 2</p>
         </div>
         <div class="cs-realization-items">
-          <div class="cs-realization-item">
-            <span class="cs-realization-item__label">Simplified zoom controls</span>
-            <p class="cs-realization-item__desc">Removed plus/minus zoom controls after feedback showed they added complexity without value. Focused the system on structured quadrant-based navigation for clearer, more intentional interaction.</p>
+          <div class="cs-realization-item" style="background: #ffffff; border: 1px solid #e8e8e8; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
+            <span class="cs-realization-item__label" style="color: #171717; font-family: 'IBM Plex Sans', sans-serif !important;">Simplified zoom controls</span>
+            <p class="cs-realization-item__desc" style="color: #171717 !important; font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif !important; font-weight: 400 !important;">Removed plus/minus zoom controls after feedback showed they added complexity without value. Focused the system on structured quadrant-based navigation for clearer, more intentional interaction.</p>
           </div>
-          <div class="cs-realization-item">
-            <span class="cs-realization-item__label">Stronger selection state</span>
-            <p class="cs-realization-item__desc">Early versions only highlighted the selected quadrant border — too subtle at scale. Switched to a full color fill on the active quadrant, making the selected area immediately obvious.</p>
+          <div class="cs-realization-item" style="background: #ffffff; border: 1px solid #e8e8e8; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
+            <span class="cs-realization-item__label" style="color: #171717; font-family: 'IBM Plex Sans', sans-serif !important;">Stronger selection state</span>
+            <p class="cs-realization-item__desc" style="color: #171717 !important; font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif !important; font-weight: 400 !important;">Early versions only highlighted the selected quadrant border — too subtle at scale. Switched to a full color fill on the active quadrant, making the selected area immediately obvious.</p>
           </div>
         </div>
       </div>
@@ -428,7 +554,7 @@
 
       <div class="cs-ia-block" style="max-width: 900px; gap: 20px;">
         <p class="cs-realization-block__body">A <span class="cs-accent">toggle was chosen intentionally</span> — with only two possible modes, a toggle is the clearest and most efficient control. It avoids the overhead of dropdowns or radio buttons and makes switching feel immediate and low-effort.</p>
-        <img src="assets/promega_toggle.png" alt="Plate type toggle between 96 and 384 wells" class="cs-ia__img" style="background: #ffffff; padding: 32px; width: 100%;" />
+        <img src="assets/promega_toggle.png" alt="Plate type toggle between 96 and 384 wells" class="cs-ia__img" style="background: #ffffff; padding: 32px; width: 100%; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.10); border: 1px solid #e8e8e8;" />
       </div>
     </section>
 
@@ -440,16 +566,22 @@
 
       <div class="cs-ia-block" style="max-width: 900px; gap: 20px;">
         <div class="cs-realization-items">
-          <div class="cs-realization-item">
-            <span class="cs-realization-item__label">Visual quadrant dividers</span>
-            <p class="cs-realization-item__desc">Added yellow dividing lines to segment the 384-well grid into four logical sections (A–D), helping users quickly orient themselves and reduce cognitive load when scanning or editing dense data layouts.</p>
+          <div class="cs-realization-item" style="background: #ffffff; border: 1px solid #e8e8e8; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); display: flex; align-items: flex-start; gap: 16px;">
+            <span style="min-width: 36px; height: 36px; background: #fef9c3; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Sans', sans-serif; font-size: 14px; font-weight: 600; color: #171717; flex-shrink: 0;">1</span>
+            <div>
+              <span class="cs-realization-item__label" style="color: #171717 !important; font-family: 'IBM Plex Sans', sans-serif !important;">Visual quadrant dividers</span>
+              <p class="cs-realization-item__desc" style="color: #171717 !important; font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif !important; font-weight: 400 !important;">Added yellow dividing lines to segment the 384-well grid into four logical sections (A–D), helping users quickly orient themselves and reduce cognitive load when scanning or editing dense data layouts.</p>
+            </div>
           </div>
-          <div class="cs-realization-item">
-            <span class="cs-realization-item__label">Quadrant carousel navigation</span>
-            <p class="cs-realization-item__desc">Introduced a carousel at the bottom of the interface, allowing users to instantly recognize which grid section they're viewing and jump forward or backward between plate sections without losing their place.</p>
+          <div class="cs-realization-item" style="background: #ffffff; border: 1px solid #e8e8e8; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); display: flex; align-items: flex-start; gap: 16px;">
+            <span style="min-width: 36px; height: 36px; background: #fef9c3; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Sans', sans-serif; font-size: 14px; font-weight: 600; color: #171717; flex-shrink: 0;">2</span>
+            <div>
+              <span class="cs-realization-item__label" style="color: #171717 !important; font-family: 'IBM Plex Sans', sans-serif !important;">Quadrant carousel navigation</span>
+              <p class="cs-realization-item__desc" style="color: #171717 !important; font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif !important; font-weight: 400 !important;">Introduced a carousel at the bottom of the interface, allowing users to instantly recognize which grid section they're viewing and jump forward or backward between plate sections without losing their place.</p>
+            </div>
           </div>
         </div>
-        <img src="assets/promega_gridlegibility.png" alt="Grid legibility with quadrant dividers" class="cs-ia__img" style="background: #ffffff; padding: 32px; width: 100%;" />
+        <img src="assets/promega_gridlegibility.png" alt="Grid legibility with quadrant dividers" class="cs-ia__img" style="background: #ffffff; padding: 32px; width: 100%; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.10); border: 1px solid #e8e8e8;" />
       </div>
     </section>
 
@@ -461,7 +593,7 @@
       </div>
 
       <div class="cs-ia-block" style="max-width: 900px;">
-        <video src="assets/promega_hover.mov" autoplay loop muted playsinline class="cs-ia__img" style="background: #ffffff; padding: 24px; width: 100%;"></video>
+        <video src="assets/promega_hover.mov" autoplay loop muted playsinline class="cs-ia__img" style="background: #ffffff; padding: 24px; width: 100%; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.10); border: 1px solid #e8e8e8;"></video>
       </div>
     </section>
 
@@ -474,21 +606,30 @@
 
       <div class="cs-ia-block" style="max-width: 900px; gap: 20px;">
         <div class="cs-realization-items">
-          <div class="cs-realization-item">
-            <span class="cs-realization-item__label">Dual-quadrant view</span>
-            <p class="cs-realization-item__desc">Zoom into two quadrants at once (A+B or C+D) for improved context when reviewing or editing adjacent regions.</p>
+          <div class="cs-realization-item" style="background: #ffffff; border: 1px solid #e8e8e8; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); display: flex; align-items: flex-start; gap: 16px;">
+            <span style="min-width: 36px; height: 36px; background: #fef9c3; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Sans', sans-serif; font-size: 14px; font-weight: 600; color: #171717; flex-shrink: 0;">1</span>
+            <div>
+              <span class="cs-realization-item__label" style="color: #171717 !important; font-family: 'IBM Plex Sans', sans-serif !important;">Dual-quadrant view</span>
+              <p class="cs-realization-item__desc" style="color: #171717 !important; font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif !important; font-weight: 400 !important;">Zoom into two quadrants at once (A+B or C+D) for improved context when reviewing or editing adjacent regions.</p>
+            </div>
           </div>
-          <div class="cs-realization-item">
-            <span class="cs-realization-item__label">High-precision zoom</span>
-            <p class="cs-realization-item__desc">Zoom further into a single quadrant displaying only six columns at a time — ideal for dose-response curves or replicates where detail and accuracy are critical.</p>
+          <div class="cs-realization-item" style="background: #ffffff; border: 1px solid #e8e8e8; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); display: flex; align-items: flex-start; gap: 16px;">
+            <span style="min-width: 36px; height: 36px; background: #fef9c3; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Sans', sans-serif; font-size: 14px; font-weight: 600; color: #171717; flex-shrink: 0;">2</span>
+            <div>
+              <span class="cs-realization-item__label" style="color: #171717 !important; font-family: 'IBM Plex Sans', sans-serif !important;">High-precision zoom</span>
+              <p class="cs-realization-item__desc" style="color: #171717 !important; font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif !important; font-weight: 400 !important;">Zoom further into a single quadrant displaying only six columns at a time — ideal for dose-response curves or replicates where detail and accuracy are critical.</p>
+            </div>
           </div>
-          <div class="cs-realization-item">
-            <span class="cs-realization-item__label">Mini map orientation anchor</span>
-            <p class="cs-realization-item__desc">A persistent mini toggle map stays visible when zoomed in, showing the full 384 layout with the active section highlighted. Users can jump between quadrants directly from the map, reducing disorientation and improving navigation efficiency.</p>
+          <div class="cs-realization-item" style="background: #ffffff; border: 1px solid #e8e8e8; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); display: flex; align-items: flex-start; gap: 16px;">
+            <span style="min-width: 36px; height: 36px; background: #fef9c3; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Sans', sans-serif; font-size: 14px; font-weight: 600; color: #171717; flex-shrink: 0;">3</span>
+            <div>
+              <span class="cs-realization-item__label" style="color: #171717 !important; font-family: 'IBM Plex Sans', sans-serif !important;">Mini map orientation anchor</span>
+              <p class="cs-realization-item__desc" style="color: #171717 !important; font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif !important; font-weight: 400 !important;">A persistent mini toggle map stays visible when zoomed in, showing the full 384 layout with the active section highlighted. Users can jump between quadrants directly from the map, reducing disorientation and improving navigation efficiency.</p>
+            </div>
           </div>
         </div>
         <p class="cs-realization-block__body">This tiered zoom system helped users maintain both <span class="cs-accent">spatial orientation</span> and <span class="cs-accent">fine-grained control</span> without overwhelming the interface.</p>
-        <video src="assets/promega_flexiblezoom.mov" autoplay loop muted playsinline class="cs-ia__img" style="background: #ffffff; padding: 24px; width: 100%;"></video>
+        <video src="assets/promega_flexiblezoom.mov" autoplay loop muted playsinline class="cs-ia__img" style="background: #ffffff; padding: 24px; width: 100%; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.10); border: 1px solid #e8e8e8;"></video>
       </div>
     </section>
 
@@ -498,7 +639,7 @@
         <h2 class="cs-section-title">Client Demo</h2>
       </div>
       <div class="cs-ia-block" style="max-width: 900px;">
-        <video src="assets/promega_fulldemo.mov" autoplay loop muted playsinline class="cs-ia__img" style="background: #ffffff; padding: 24px; width: 100%;"></video>
+        <video src="assets/promega_fulldemo.mov" autoplay loop muted playsinline class="cs-ia__img" style="background: #ffffff; padding: 24px; width: 100%; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.10); border: 1px solid #e8e8e8;"></video>
       </div>
     </section>
 
@@ -508,20 +649,26 @@
         <h2 class="cs-section-title">Outcome</h2>
       </div>
       <div class="cs-glide-stats">
-        <div class="cs-glide-stat">
-          <p class="cs-glide-stat__number">75%</p>
-          <p class="cs-glide-stat__label">Faster setup</p>
-          <p class="cs-glide-stat__desc">Reduced setup times by streamlining experimental configuration for life sciences researchers.</p>
+        <div class="cs-glide-stat" style="background: #ffffff; border: 1px solid #e8e8e8; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); display: flex; flex-direction: column; align-items: flex-start; text-align: left; gap: 12px; padding: 28px 24px;">
+          <div style="width: 80px; height: 80px; background: #fef9c3; border-radius: 50%; display: flex; align-items: center; justify-content: center; align-self: center;">
+            <span style="font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #171717;">75%</span>
+          </div>
+          <p style="font-family: 'IBM Plex Sans', sans-serif; font-size: 15px; font-weight: 500; color: #171717; margin: 0;">Faster setup</p>
+          <p style="font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif; font-size: 14px; font-weight: 400; color: #171717; margin: 0;">Reduced setup times by streamlining experimental configuration for life sciences researchers.</p>
         </div>
-        <div class="cs-glide-stat">
-          <p class="cs-glide-stat__number">15/15</p>
-          <p class="cs-glide-stat__label">Client satisfaction</p>
-          <p class="cs-glide-stat__desc">All clients were satisfied with the demo and rated both concepts highly.</p>
+        <div class="cs-glide-stat" style="background: #ffffff; border: 1px solid #e8e8e8; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); display: flex; flex-direction: column; align-items: flex-start; text-align: left; gap: 12px; padding: 28px 24px;">
+          <div style="width: 80px; height: 80px; background: #fef9c3; border-radius: 50%; display: flex; align-items: center; justify-content: center; align-self: center;">
+            <span style="font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #171717;">15/15</span>
+          </div>
+          <p style="font-family: 'IBM Plex Sans', sans-serif; font-size: 15px; font-weight: 500; color: #171717; margin: 0;">Client satisfaction</p>
+          <p style="font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif; font-size: 14px; font-weight: 400; color: #171717; margin: 0;">All clients were satisfied with the demo and rated both concepts highly.</p>
         </div>
-        <div class="cs-glide-stat">
-          <p class="cs-glide-stat__number">2026</p>
-          <p class="cs-glide-stat__label">Planned launch</p>
-          <p class="cs-glide-stat__desc">Iterations are still being made and will publicly be launched in 2026 on the ProNect™ Data Platform.</p>
+        <div class="cs-glide-stat" style="background: #ffffff; border: 1px solid #e8e8e8; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); display: flex; flex-direction: column; align-items: flex-start; text-align: left; gap: 12px; padding: 28px 24px;">
+          <div style="width: 80px; height: 80px; background: #fef9c3; border-radius: 50%; display: flex; align-items: center; justify-content: center; align-self: center;">
+            <span style="font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #171717;">2026</span>
+          </div>
+          <p style="font-family: 'IBM Plex Sans', sans-serif; font-size: 15px; font-weight: 500; color: #171717; margin: 0;">Planned launch</p>
+          <p style="font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif; font-size: 14px; font-weight: 400; color: #171717; margin: 0;">Iterations are still being made and will publicly be launched in 2026 on the ProNect™ Data Platform.</p>
         </div>
       </div>
     </section>
