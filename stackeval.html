@@ -192,9 +192,13 @@
     }
     [data-theme="light"] .cs-method__title { font-weight: 400; }
     [data-theme="light"] .cs-interview-block__title {
-      color: #111111;
+      color: #171717;
       font-size: 20px;
-      font-weight: 600;
+      font-weight: 400;
+    }
+    [data-theme="light"] .cs-interview-block {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10) !important;
+      border: 1px solid #e8e8e8 !important;
     }
     [data-theme="light"] .cs-finding__header {
       align-items: center;
@@ -353,8 +357,22 @@
     [data-theme="light"] .cs-method__list li strong,
     [data-theme="light"] .cs-method__list li span {
       font-size: 15px !important;
-      color: #888888 !important;
+      color: #171717 !important;
     }
+
+    [data-theme="light"] .cs-hero__video { box-shadow: 0 16px 48px rgba(0,0,0,0.18) !important; }
+
+    /* Drop shadows on all cards/boxes */
+    [data-theme="light"] .cs-finding         { box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important; }
+    [data-theme="light"] .cs-req             { box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important; }
+    [data-theme="light"] .cs-goal            { box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important; }
+    [data-theme="light"] .cs-direction       { box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important; }
+    [data-theme="light"] .cs-realization-step { box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important; }
+    [data-theme="light"] .cs-stat            { box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important; }
+    [data-theme="light"] .cs-design-system__img { box-shadow: 0 8px 32px rgba(0,0,0,0.10) !important; border: 1px solid #e8e8e8 !important; }
+    [data-theme="light"] .cs-full-image__img { box-shadow: 0 8px 32px rgba(0,0,0,0.10) !important; border: 1px solid #e8e8e8 !important; border-radius: 16px !important; }
+    [data-theme="light"] .cs-sketch__img     { box-shadow: 0 8px 32px rgba(0,0,0,0.10) !important; border: 1px solid #e8e8e8 !important; border-radius: 16px !important; }
+    [data-theme="light"] .cs-usability__table { box-shadow: 0 8px 32px rgba(0,0,0,0.10) !important; border: 1px solid #e8e8e8 !important; border-radius: 16px !important; overflow: hidden; }
 
     [data-theme="light"] .cs-realization-steps {
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
@@ -568,7 +586,9 @@
         </div>
       </div>
       <div style="margin-top:32px;">
-        <a href="#s-final" class="se-jump-btn">Jump to Final Solution ↓</a>
+        <div style="display: flex; justify-content: center; width: 100%; margin-top: -16px;">
+          <a href="#s-final" class="se-jump-btn">Jump to Final Solution ↓</a>
+        </div>
       </div>
     </section>
 

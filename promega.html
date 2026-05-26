@@ -75,6 +75,7 @@
       transition: background 0.2s ease;
     }
     .pm-jump-btn:hover { background: #0a2d41; }
+    [data-theme="light"] .cs-hero__video { box-shadow: 0 16px 48px rgba(0,0,0,0.18) !important; }
 
     .cs-hero__proto--secondary {
       background: #ffffff !important;
@@ -325,7 +326,9 @@
           <div class="cs-hmw" id="s-problem">
             <p class="cs-hmw__text">How might we extend the ProNect Data Platform to support both <span class="cs-accent">96-well and 384-well plate formats</span> so that scientists can <span class="cs-accent">seamlessly analyze experimental data</span> across different plate types?</p>
           </div>
-          <a href="#s-demo" class="pm-jump-btn">Jump to Final Solution ↓</a>
+          <div style="display: flex; justify-content: center; width: 100%; margin-top: 40px;">
+            <a href="#s-demo" class="pm-jump-btn">Jump to Final Solution ↓</a>
+          </div>
         </div>
       </div>
     </section>
