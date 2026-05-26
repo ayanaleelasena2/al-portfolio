@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,11 +7,51 @@
   <title>GLIDE — Ayana Leelasena</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="case-study.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root { --gl-blue: #1e3a5f; --gl-blue-light: #4a8db7; }
     .cs-section-label                             { color: var(--gl-blue-light); }
     .cs-hmw,
     .cs-method                                    { border-left: 3px solid var(--gl-blue-light); }
+
+    /* IBM Plex Sans for all headings */
+    [data-theme="light"] h1, [data-theme="light"] h2, [data-theme="light"] h3,
+    [data-theme="light"] h4, [data-theme="light"] h5, [data-theme="light"] h6,
+    [data-theme="light"] .cs-section-title,
+    [data-theme="light"] .cs-method__title,
+    [data-theme="light"] .cs-hero__title,
+    [data-theme="light"] .cs-more-work__title { font-family: 'IBM Plex Sans', sans-serif !important; }
+
+    /* Black body text */
+    [data-theme="light"] p,
+    [data-theme="light"] li,
+    [data-theme="light"] .cs-phase__intro,
+    [data-theme="light"] .cs-hmw__text,
+    [data-theme="light"] .cs-priority__body,
+    [data-theme="light"] .cs-method__list li,
+    [data-theme="light"] .cs-glide-stat__label,
+    [data-theme="light"] .cs-glide-stat__desc,
+    [data-theme="light"] .cs-more-work__desc,
+    [data-theme="light"] .cs-outcome-list li { color: #171717 !important; }
+
+    /* Drop shadows on all boxes */
+    [data-theme="light"] .cs-glide-stat  { box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important; border: 1px solid #e8e8e8; }
+    [data-theme="light"] .cs-glide-stat__number { color: #171717 !important; font-size: 18px !important; font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif !important; font-weight: 500 !important; }
+    [data-theme="light"] .cs-priority    { box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important; }
+    [data-theme="light"] .cs-methods     { border: none !important; overflow: visible !important; gap: 12px !important; background: transparent !important; }
+    [data-theme="light"] .cs-method      { box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important; border: 1px solid #e8e8e8 !important; border-radius: 16px !important; align-items: center !important; }
+    [data-theme="light"] .cs-method__number-circle { width: 44px; height: 44px; min-width: 44px; background: #dce8f5; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif; font-size: 15px; color: #1e3a5f; font-weight: 600; }
+    [data-theme="light"] .cs-method__title,
+    [data-theme="light"] .cs-method__list,
+    [data-theme="light"] .cs-method p { font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif !important; font-weight: 400 !important; }
+    [data-theme="light"] .cs-hmw         { box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important; padding: 20px 32px !important; max-width: 860px !important; display: flex; align-items: center; }
+    [data-theme="light"] .cs-hmw__text   { font-size: 15px !important; margin: 0 !important; padding: 0 !important; line-height: 1.5 !important; }
+    [data-theme="light"] .cs-chain-item  { box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important; }
+    [data-theme="light"] .cs-hero__video { box-shadow: 0 16px 48px rgba(0,0,0,0.18) !important; }
+    [data-theme="light"] .cs-ia-block img,
+    [data-theme="light"] .cs-ia-block video { box-shadow: 0 8px 32px rgba(0,0,0,0.10) !important; border-radius: 16px !important; border: 1px solid #e8e8e8 !important; }
   </style>
 </head>
 <body>
@@ -104,9 +144,15 @@
             <span class="cs-stepper__label">Design Decision #5</span>
           </a>
         </li>
+        <li class="cs-stepper__item" data-target="s-prototype">
+          <a href="#s-prototype" class="cs-stepper__link">
+            <span class="cs-stepper__num">10</span>
+            <span class="cs-stepper__label">Live Prototype</span>
+          </a>
+        </li>
         <li class="cs-stepper__item" data-target="s-outcome">
           <a href="#s-outcome" class="cs-stepper__link">
-            <span class="cs-stepper__num">10</span>
+            <span class="cs-stepper__num">11</span>
             <span class="cs-stepper__label">Outcome & Impact</span>
           </a>
         </li>
@@ -163,6 +209,9 @@
       <div class="cs-hmw">
         <p class="cs-hmw__text">How might we help travelers <span class="cs-accent">anticipate what is coming next</span>, not just react when something goes wrong?</p>
       </div>
+      <div style="display: flex; justify-content: center; width: 100%; margin-top: 32px;">
+        <a href="#s-prototype" class="pm-jump-btn" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; background: #0d3a52; color: #ffffff; font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif; font-size: 14px; border-radius: 999px; text-decoration: none;">Jump to Final Solution <span aria-hidden="true">↓</span></a>
+      </div>
     </section>
 
     <section class="cs-phase" id="s-research">
@@ -174,15 +223,21 @@
 
       <div class="cs-glide-stats">
         <div class="cs-glide-stat">
-          <span class="cs-glide-stat__number">67.6%</span>
+          <div style="width: 80px; height: 80px; background: #dce8f5; border-radius: 50%; display: flex; align-items: center; justify-content: center; align-self: center; margin-bottom: 12px;">
+            <span class="cs-glide-stat__number" style="color: #1e3a5f !important; font-size: 18px !important;">67.6%</span>
+          </div>
           <span class="cs-glide-stat__label">report moderate–high travel stress</span>
         </div>
         <div class="cs-glide-stat">
-          <span class="cs-glide-stat__number">84.6%</span>
+          <div style="width: 80px; height: 80px; background: #dce8f5; border-radius: 50%; display: flex; align-items: center; justify-content: center; align-self: center; margin-bottom: 12px;">
+            <span class="cs-glide-stat__number" style="color: #1e3a5f !important; font-size: 18px !important;">84.6%</span>
+          </div>
           <span class="cs-glide-stat__label">find real-time updates highly useful</span>
         </div>
         <div class="cs-glide-stat">
-          <span class="cs-glide-stat__number">96%</span>
+          <div style="width: 80px; height: 80px; background: #dce8f5; border-radius: 50%; display: flex; align-items: center; justify-content: center; align-self: center; margin-bottom: 12px;">
+            <span class="cs-glide-stat__number" style="color: #1e3a5f !important; font-size: 18px !important;">96%</span>
+          </div>
           <span class="cs-glide-stat__label">already use travel apps</span>
         </div>
       </div>
@@ -191,21 +246,21 @@
     <section class="cs-phase" id="s-dvf">
       <div class="cs-section-header">
         <span class="cs-section-label">Product Strategy</span>
-        <h2 class="cs-section-title">Desirability, Feasibility, Viability</h2>
+        <h2 class="cs-section-title">DVF Framework</h2>
       </div>
 
       <div class="cs-glide-stats">
         <div class="cs-glide-stat">
-          <span class="cs-glide-stat__number">Desirability</span>
+          <span class="cs-glide-stat__number" style="font-size: 16px !important; color: #171717 !important; font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif !important; font-weight: 500 !important;">Desirability</span>
           <span class="cs-glide-stat__label">GLIDE is desirable due to strong traveler demand for stress-free, personalized travel tools in a <span class="cs-accent">$1.5T market</span> with <span class="cs-accent">850M app users</span>.</span>
         </div>
         <div class="cs-glide-stat">
-          <span class="cs-glide-stat__number">Feasibility</span>
-          <span class="cs-glide-stat__label">GLIDE leverages <span class="cs-accent">accessible tech</span> like APIs, AR, and AI, making it simple and scalable to build.</span>
+          <span class="cs-glide-stat__number" style="font-size: 16px !important; color: #171717 !important; font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif !important; font-weight: 500 !important;">Viability</span>
+          <span class="cs-glide-stat__label">With <span class="cs-accent">4.5B global air travelers</span> and 300M+ digital-first flyers, GLIDE taps into a huge, under-served market ready for a smarter and calmer travel experience.</span>
         </div>
         <div class="cs-glide-stat">
-          <span class="cs-glide-stat__number">Viability</span>
-          <span class="cs-glide-stat__label">With <span class="cs-accent">4.5B global air travelers</span> and 300M+ digital-first flyers, GLIDE taps into a huge, under-served market ready for a smarter and calmer travel experience.</span>
+          <span class="cs-glide-stat__number" style="font-size: 16px !important; color: #171717 !important; font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif !important; font-weight: 500 !important;">Feasibility</span>
+          <span class="cs-glide-stat__label">GLIDE leverages <span class="cs-accent">accessible tech</span> like APIs, AR, and AI, making it simple and scalable to build.</span>
         </div>
       </div>
     </section>
@@ -225,9 +280,7 @@
         <div class="cs-chain-item">Gate changes affect navigation.</div>
       </div>
 
-      <div class="cs-priority" style="max-width:900px;margin:0 auto;width:100%;">
-        <p class="cs-priority__body">The system needed to model these dependencies clearly <span class="cs-accent">without overwhelming users</span>. I designed a <span class="cs-accent">unified journey timeline</span> that updates dynamically based on the traveler's stage.</p>
-      </div>
+      <p class="cs-phase__intro" style="max-width:900px;margin:0 auto;width:100%;margin-top:24px;">The system needed to model these dependencies clearly <span class="cs-accent">without overwhelming users</span>. I designed a <span class="cs-accent">unified journey timeline</span> that updates dynamically based on the traveler's stage.</p>
 
       <div class="cs-ia-block">
         <h4 class="cs-variations__subtitle">Journey Timeline</h4>
@@ -249,28 +302,28 @@
 
       <div class="cs-methods">
         <div class="cs-method">
-          <span class="cs-method__number">01</span>
+          <div class="cs-method__number-circle">01</div>
           <div class="cs-method__content">
             <h3 class="cs-method__title">Adaptive Departure Recommendation</h3>
           </div>
         </div>
         <div class="cs-method">
-          <span class="cs-method__number">02</span>
+          <div class="cs-method__number-circle">02</div>
           <div class="cs-method__content">
             <h3 class="cs-method__title">Live TSA Wait Times</h3>
           </div>
         </div>
         <div class="cs-method">
-          <span class="cs-method__number">03</span>
+          <div class="cs-method__number-circle">03</div>
           <div class="cs-method__content">
             <h3 class="cs-method__title">Gate Walk Time Estimates</h3>
           </div>
         </div>
         <div class="cs-method">
-          <span class="cs-method__number">04</span>
+          <div class="cs-method__number-circle">04</div>
           <div class="cs-method__content">
             <h3 class="cs-method__title">Centralized Travel Wallet</h3>
-            <p class="cs-method__list" style="list-style:none;padding:0;color:#aaaaaa;font-size:14px;line-height:1.6;">Boarding pass, seat, and baggage — all in one place.</p>
+            <p class="cs-method__list" style="list-style:none;padding:0;color:#171717;font-size:14px;line-height:1.6;">Boarding pass, seat, and baggage — all in one place.</p>
           </div>
         </div>
       </div>
@@ -290,19 +343,19 @@
 
       <div class="cs-methods">
         <div class="cs-method">
-          <span class="cs-method__number">01</span>
+          <div class="cs-method__number-circle">01</div>
           <div class="cs-method__content">
             <h3 class="cs-method__title">Live Flight Conditions</h3>
           </div>
         </div>
         <div class="cs-method">
-          <span class="cs-method__number">02</span>
+          <div class="cs-method__number-circle">02</div>
           <div class="cs-method__content">
             <h3 class="cs-method__title">Plain-Language Turbulence Explanations</h3>
           </div>
         </div>
         <div class="cs-method">
-          <span class="cs-method__number">03</span>
+          <div class="cs-method__number-circle">03</div>
           <div class="cs-method__content">
             <h3 class="cs-method__title">Safety Education & Breathing Tips</h3>
           </div>
@@ -324,19 +377,19 @@
 
       <div class="cs-methods">
         <div class="cs-method">
-          <span class="cs-method__number">01</span>
+          <div class="cs-method__number-circle">01</div>
           <div class="cs-method__content">
             <h3 class="cs-method__title">AR and Map-Based Wayfinding</h3>
           </div>
         </div>
         <div class="cs-method">
-          <span class="cs-method__number">02</span>
+          <div class="cs-method__number-circle">02</div>
           <div class="cs-method__content">
             <h3 class="cs-method__title">Search Along Your Route</h3>
           </div>
         </div>
         <div class="cs-method">
-          <span class="cs-method__number">03</span>
+          <div class="cs-method__number-circle">03</div>
           <div class="cs-method__content">
             <h3 class="cs-method__title">Time and Distance Estimates</h3>
           </div>
@@ -359,23 +412,23 @@
 
       <div class="cs-methods">
         <div class="cs-method">
-          <span class="cs-method__number">01</span>
+          <div class="cs-method__number-circle">01</div>
           <div class="cs-method__content"><h3 class="cs-method__title">Lost Luggage</h3></div>
         </div>
         <div class="cs-method">
-          <span class="cs-method__number">02</span>
+          <div class="cs-method__number-circle">02</div>
           <div class="cs-method__content"><h3 class="cs-method__title">Airport Services</h3></div>
         </div>
         <div class="cs-method">
-          <span class="cs-method__number">03</span>
+          <div class="cs-method__number-circle">03</div>
           <div class="cs-method__content"><h3 class="cs-method__title">Flight Issues</h3></div>
         </div>
         <div class="cs-method">
-          <span class="cs-method__number">04</span>
+          <div class="cs-method__number-circle">04</div>
           <div class="cs-method__content"><h3 class="cs-method__title">Credit Card Benefits</h3></div>
         </div>
         <div class="cs-method">
-          <span class="cs-method__number">05</span>
+          <div class="cs-method__number-circle">05</div>
           <div class="cs-method__content"><h3 class="cs-method__title">And anything else!</h3></div>
         </div>
       </div>
@@ -383,6 +436,16 @@
       <div class="cs-ia-block cs-ia-block--row">
         <img src="assets/glide_ai1.png" alt="GLIDE AI assistant screen 1" class="cs-ia__img cs-ia__img--xs" />
         <img src="assets/glide_ai_2.png" alt="GLIDE AI assistant screen 2" class="cs-ia__img cs-ia__img--xs" />
+      </div>
+    </section>
+
+    <section class="cs-phase" id="s-prototype">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Live Prototype</span>
+        <h2 class="cs-section-title">Try it yourself.</h2>
+      </div>
+      <div style="border-radius: 16px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.10); border: 1px solid #e8e8e8;">
+        <iframe src="https://embed.figma.com/proto/UZQp2SZ3foosWkkfPGjsyu/GLIDE?page-id=336%3A2&node-id=781-5135&p=f&viewport=6%2C-300%2C0.11&scaling=scale-down&content-scaling=fixed&starting-point-node-id=781%3A5135&show-proto-sidebar=1&embed-host=share &hide-ui=1" loading="lazy" height="800" width="100%" frameborder="0" allowtransparency="true" allowfullscreen=""></iframe>
       </div>
     </section>
 

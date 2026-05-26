@@ -7,6 +7,9 @@
   <title>mint — Ayana Leelasena</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="case-study.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     /* ── mint brand overrides ── */
     :root {
@@ -102,10 +105,9 @@
       width: 100%;
       border-radius: 10px;
       display: block;
-      border: 1px solid #2a2a2a;
       object-fit: contain;
+      clip-path: inset(3px round 10px);
     }
-    [data-theme="light"] .mint-var-item__img { border-color: #e8e8e8; }
     @media (max-width: 768px) {
       .mint-var-grid { grid-template-columns: repeat(2, 1fr); }
     }
@@ -201,6 +203,52 @@
       border-radius: 100px;
       padding: 4px 14px;
     }
+
+    [data-theme="light"] .cs-hmw { padding: 20px 32px !important; max-width: 860px !important; display: flex; align-items: center; box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important; }
+    .cs-hmw__text { font-size: 15px !important; margin: 0 !important; padding: 0 !important; line-height: 1.5 !important; }
+    [data-theme="dark"] .mint-jump-btn { background: #89b4d4 !important; color: #111111 !important; }
+
+    /* ── Global overrides (both themes) ── */
+    :root { --font-heading: 'IBM Plex Sans', sans-serif; }
+    h1, h2, h3, h4, h5, h6,
+    .cs-section-title,
+    .cs-hero__title,
+    .mint-comp-subtitle,
+    .mint-learning-card__title,
+    .cs-more-work__title { font-family: 'IBM Plex Sans', sans-serif !important; }
+
+    /* Light mode text colors only */
+    [data-theme="light"] p,
+    [data-theme="light"] li,
+    [data-theme="light"] .cs-phase__intro,
+    [data-theme="light"] .cs-hmw__text,
+    [data-theme="light"] .mint-var-intro,
+    [data-theme="light"] .mint-ds-block__desc,
+    [data-theme="light"] .mint-learning-card__desc,
+    [data-theme="light"] .cs-more-work__desc { color: #171717 !important; }
+
+    /* Drop shadows — both themes */
+    .cs-finding, .cs-req, .cs-goal, .cs-stat,
+    .cs-direction, .cs-realization-step { box-shadow: 0 4px 16px rgba(0,0,0,0.18) !important; }
+
+    .mint-learning-card { box-shadow: 0 4px 16px rgba(0,0,0,0.18) !important; }
+    [data-theme="light"] .mint-learning-card { background: #ffffff !important; border-color: #e8e8e8 !important; }
+
+    .mint-figma-embed { box-shadow: 0 8px 32px rgba(0,0,0,0.25) !important; }
+    .mint-proto-row__img,
+    .mint-proto-video { box-shadow: 0 8px 32px rgba(0,0,0,0.25) !important; }
+    .mint-ds-block__img { box-shadow: 0 4px 16px rgba(0,0,0,0.18) !important; }
+    .cs-hero__video { box-shadow: 0 16px 48px rgba(0,0,0,0.35) !important; }
+    .cs-persona-card { box-shadow: 0 8px 32px rgba(0,0,0,0.25) !important; }
+    .cs-final-phase { box-shadow: 0 8px 32px rgba(0,0,0,0.25) !important; }
+
+    [data-theme="light"] .cs-design-system__img { box-shadow: 0 8px 32px rgba(0,0,0,0.10) !important; border: 1px solid #e8e8e8 !important; }
+    [data-theme="light"] .cs-persona-card { border: 1px solid #e8e8e8 !important; }
+
+    /* Separate connected method/finding boxes */
+    .cs-methods { border: none !important; overflow: visible !important; gap: 12px !important; }
+    .cs-method { box-shadow: 0 4px 16px rgba(0,0,0,0.18) !important; border-radius: 16px !important; }
+    [data-theme="light"] .cs-method { border: 1px solid #e8e8e8 !important; }
 
     /* ── Light / Dark mode grid ── */
     .mint-mode-grid {
@@ -376,6 +424,9 @@
       <div class="cs-hmw">
         <p class="cs-hmw__text">How might we create an all-in-one mobile app that <span class="cs-accent">streamlines music discovery, festival planning, and social connection</span> for EDM fans?</p>
       </div>
+      <div style="display: flex; justify-content: center; width: 100%; margin-top: 16px;">
+        <a href="#s-prototype" class="mint-jump-btn" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; background: #0d3a52; color: #ffffff; font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif; font-size: 14px; border-radius: 999px; text-decoration: none;">Jump to Live Prototype ↓</a>
+      </div>
     </section>
 
     <!-- 03 · Research -->
@@ -486,8 +537,6 @@
         <p class="mint-var-intro">To streamline theme switching and maintain visual consistency, I used design variables for colors, typography, spacing, and states. These variables made it easy to manage both light and dark modes, ensure accessibility, and scale the design system efficiently across screens and components.</p>
         <p class="mint-var-intro">Using variables made all of my screens responsive.</p>
 
-        <img src="assets/variables_mint.png" alt="mint design variables overview" class="mint-var-overview" />
-
         <div class="mint-var-grid">
           <div class="mint-var-item">
             <span class="mint-var-item__label">Application</span>
@@ -522,11 +571,15 @@
         <div class="mint-comp-grid">
           <div class="mint-var-item">
             <span class="mint-var-item__label">Buttons</span>
-            <img src="assets/buttons_mint.png" alt="mint button components" class="mint-var-item__img" />
+            <div style="padding: 24px; border-radius: 16px; border: 1px solid #2a2a2a; box-shadow: 0 4px 16px rgba(0,0,0,0.18);">
+              <img src="assets/buttons_mint.png" alt="mint button components" class="mint-var-item__img" />
+            </div>
           </div>
           <div class="mint-var-item">
             <span class="mint-var-item__label">Components</span>
-            <img src="assets/components_mint.png" alt="mint component library" class="mint-var-item__img" />
+            <div style="padding: 24px; border-radius: 16px; border: 1px solid #2a2a2a; box-shadow: 0 4px 16px rgba(0,0,0,0.18);">
+              <img src="assets/components_mint.png" alt="mint component library" class="mint-var-item__img" />
+            </div>
           </div>
         </div>
       </div>
@@ -560,11 +613,11 @@
         <div class="mint-mode-grid">
           <div class="mint-var-item">
             <span class="mint-var-item__label">Light Mode</span>
-            <img src="assets/Light Mode.png" alt="mint light mode mockups" class="mint-var-item__img" />
+            <img src="assets/Light Mode.png" alt="mint light mode mockups" class="mint-var-item__img mint-zoomable" style="cursor: zoom-in;" />
           </div>
           <div class="mint-var-item">
             <span class="mint-var-item__label">Dark Mode</span>
-            <img src="assets/Dark Mode.png" alt="mint dark mode mockups" class="mint-var-item__img" />
+            <img src="assets/Dark Mode.png" alt="mint dark mode mockups" class="mint-var-item__img mint-zoomable" style="cursor: zoom-in;" />
           </div>
         </div>
       </div>
@@ -575,9 +628,9 @@
       <div class="cs-section-header">
         <span class="cs-section-label">Prototyping</span>
         <h2 class="cs-section-title">Advanced Prototyping</h2>
+        <p class="cs-phase__intro">I used variables to allow conditional prototyping in my application for the onboarding experience.</p>
       </div>
       <div class="cs-body">
-        <p class="mint-var-intro">I used variables to allow conditional prototyping in my application for the onboarding experience.</p>
         <div class="mint-proto-row">
           <img src="assets/mint_advancedprootype.jpg" alt="mint advanced prototyping" class="mint-proto-row__img" />
           <video class="mint-proto-video mint-proto-row__video" autoplay loop muted playsinline>
@@ -698,6 +751,25 @@
         mobileMenu.classList.toggle('open');
       });
     }
+    // Lightbox for zoomable images
+    const lightbox = document.createElement('div');
+    lightbox.style.cssText = 'display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:9999;align-items:center;justify-content:center;cursor:zoom-out;padding:24px;box-sizing:border-box;';
+    const lightboxImg = document.createElement('img');
+    lightboxImg.style.cssText = 'max-width:100%;max-height:100%;border-radius:12px;object-fit:contain;';
+    lightbox.appendChild(lightboxImg);
+    document.body.appendChild(lightbox);
+
+    document.querySelectorAll('.mint-zoomable').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    lightbox.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+      document.body.style.overflow = '';
+    });
   </script>
 
 </body>

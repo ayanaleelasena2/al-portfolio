@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,8 +7,15 @@
   <title>Ctrl Z — Ayana Leelasena</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="case-study.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root { --cz-green: #25c896; --cz-green-light: #3eebb4; }
+    .cs-hero__details { display: grid !important; grid-template-columns: repeat(5, 1fr) !important; gap: 20px !important; }
+    .cs-detail { min-width: 0 !important; }
+    .cs-detail__value { font-size: 13px !important; word-break: break-word !important; }
+    .cs-detail__label { font-size: 10px !important; }
     .cs-section-label                             { color: var(--cz-green-light); }
     .cs-hmw                                       { margin-top: 24px; }
     #s-problem                                    { gap: 20px; }
@@ -21,6 +28,19 @@
     .cs-persona-card__col-title--frustrations     { color: var(--cz-green); }
     .cs-accent                                    { color: var(--cz-green-light); }
     .cs-realization-step__num                     { color: var(--cz-green-light); }
+    [data-theme="light"] .cs-realization-step__num {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 52px !important;
+      height: 52px !important;
+      min-width: 52px !important;
+      background: #ede9f7 !important;
+      border-radius: 50% !important;
+      color: #4a2d7a !important;
+      font-size: 17px !important;
+      font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif !important;
+    }
 
     /* ── Key Features grid ── */
     .cz-features-grid {
@@ -110,6 +130,52 @@
       border-color: #e0e0e0;
       border-left-color: var(--cz-green);
     }
+
+    /* ── Light mode global overrides ── */
+    [data-theme="light"] { --font-heading: 'IBM Plex Sans', sans-serif; }
+    [data-theme="light"] h1, [data-theme="light"] h2, [data-theme="light"] h3,
+    [data-theme="light"] h4, [data-theme="light"] h5, [data-theme="light"] h6,
+    [data-theme="light"] .cs-section-title,
+    [data-theme="light"] .cs-hero__title,
+    [data-theme="light"] .cz-feature-card__title,
+    [data-theme="light"] .cs-more-work__title { font-family: 'IBM Plex Sans', sans-serif !important; }
+
+    [data-theme="light"] p,
+    [data-theme="light"] li,
+    [data-theme="light"] .cs-phase__intro,
+    [data-theme="light"] .cs-hmw__text,
+    [data-theme="light"] .cz-feature-card__desc,
+    [data-theme="light"] .cz-winner-desc,
+    [data-theme="light"] .cz-winner-badge,
+    [data-theme="light"] .cs-more-work__desc { color: #171717 !important; }
+
+    /* Drop shadows + separate boxes */
+    [data-theme="light"] .cz-feature-card {
+      background: #ffffff !important;
+      border-color: #e8e8e8 !important;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important;
+    }
+    [data-theme="light"] .cz-impact-card {
+      background: #ffffff !important;
+      border-color: #e8e8e8 !important;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important;
+    }
+    [data-theme="light"] .cs-finding,
+    [data-theme="light"] .cs-learning,
+    [data-theme="light"] .cs-req,
+    [data-theme="light"] .cs-goal,
+    [data-theme="light"] .cs-stat,
+    [data-theme="light"] .cs-realization-step { box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important; background: #ffffff !important; }
+    [data-theme="light"] .cs-persona-card { box-shadow: 0 8px 32px rgba(0,0,0,0.10) !important; border: 1px solid #e8e8e8 !important; }
+    [data-theme="light"] .cs-hero__video { box-shadow: 0 16px 48px rgba(0,0,0,0.18) !important; }
+    [data-theme="light"] .cz-figma-embed { box-shadow: 0 8px 32px rgba(0,0,0,0.10) !important; }
+    [data-theme="light"] .cz-img { box-shadow: 0 8px 32px rgba(0,0,0,0.10) !important; }
+    [data-theme="light"] .cs-hmw { box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important; padding: 20px 32px !important; display: flex; align-items: center; }
+    [data-theme="light"] .cs-hmw__text { font-size: 15px !important; margin: 0 !important; padding: 0 !important; line-height: 1.5 !important; }
+
+    /* Separate connected boxes */
+    [data-theme="light"] .cs-methods { border: none !important; overflow: visible !important; gap: 12px !important; }
+    [data-theme="light"] .cs-method { box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important; border: 1px solid #e8e8e8 !important; border-radius: 16px !important; }
 
     /* ── Figma embed ── */
     .cz-figma-embed {
@@ -241,11 +307,11 @@
       <div class="cs-hero__details animate animate--3">
         <div class="cs-detail">
           <span class="cs-detail__label">Institution</span>
-          <span class="cs-detail__value">University of Michigan, School of Information</span>
+          <span class="cs-detail__value">University of Michigan</span>
         </div>
         <div class="cs-detail">
           <span class="cs-detail__label">Designathon</span>
-          <span class="cs-detail__value">Converge — FLUX (Figma Learning for UX)</span>
+          <span class="cs-detail__value">Converge — FLUX</span>
         </div>
         <div class="cs-detail">
           <span class="cs-detail__label">Time</span>
@@ -253,7 +319,7 @@
         </div>
         <div class="cs-detail">
           <span class="cs-detail__label">Team</span>
-          <span class="cs-detail__value">4 Members</span>
+          <span class="cs-detail__value">5 Members</span>
         </div>
         <div class="cs-detail">
           <span class="cs-detail__label">Tools</span>
@@ -285,6 +351,9 @@
         <p class="cs-phase__intro">In a world dominated by personalization algorithms, our choices—and even our joy—are increasingly filtered and predicted. This control stifles spontaneity and limits the possibility of unexpected, meaningful moments.</p>
         <div class="cs-hmw">
           <p class="cs-hmw__text">How might we create experiences that <span class="cs-accent">reject algorithmic influence</span> and instead embrace <span class="cs-accent">randomness, human spontaneity, and the thrill of the unknown?</span></p>
+        </div>
+        <div style="display: flex; justify-content: center; width: 100%; margin-top: 32px;">
+          <a href="#s-prototype" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; background: #0d3a52; color: #ffffff; font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif; font-size: 14px; border-radius: 999px; text-decoration: none;">Jump to Solution ↓</a>
         </div>
       </div>
     </section>
