@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,8 +7,39 @@
   <title>StackEval — Ayana Leelasena</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="case-study.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    :root { --se-purple: #9d8ec4; --se-purple-light: #c4b5fd; }
+    :root {
+      --se-purple: #9d8ec4;
+      --se-purple-light: #c4b5fd;
+    }
+
+    /* ── IBM Plex Sans for headings + quotes ── */
+    h1, h2, h3, h4, h5, h6,
+    .cs-section-title,
+    .cs-intro__hook p,
+    .cs-hero__title,
+    .cs-finding__title,
+    .cs-req__title,
+    .cs-method__title,
+    .cs-direction__label,
+    .cs-learning__title,
+    .cs-realization-step__title,
+    .cs-persona-card__name,
+    .cs-more-work__title,
+    .cs-quote__text              { font-family: 'IBM Plex Sans', sans-serif !important; }
+
+    /* ── BDO Grotesk for all body/paragraph text ── */
+    p, li, strong,
+    .cs-phase__intro,
+    .cs-hero__blurb,
+    .cs-interview-block__text,
+    .cs-finding__body p,
+    .cs-req__desc,
+    .cs-direction__text,
+    .cs-method__list li          { font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif !important; }
     .cs-persona-card__avatar                      { background: var(--se-purple); color: #fff; }
     .cs-persona-card__role                        { color: var(--se-purple-light); }
     .cs-persona-card__col-title--goals            { color: var(--se-purple-light); }
@@ -19,6 +50,318 @@
     .cs-interview-block,
     .cs-direction,
     .cs-req                                       { border-left: 3px solid var(--se-purple); }
+
+    /* ── Prototype video ── */
+    .se-proto-video {
+      width: 100%;
+      border-radius: 16px;
+      display: block;
+      border: 1px solid #e8e8e8;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10);
+      margin-top: 8px;
+    }
+
+    /* ── Jump to Final Solution button ── */
+    .se-jump-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      background: #0d3a52;
+      color: #ffffff;
+      font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .se-jump-btn:hover {
+      background: #1a5a7a;
+      transform: translateY(-1px);
+    }
+
+    /* ── Persona & journey map image grid ── */
+    .se-img-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .se-full-img {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+      border: 1px solid #2a2a2a;
+      cursor: zoom-in;
+      transition: opacity 0.2s ease;
+    }
+    .se-full-img:hover { opacity: 0.88; }
+    [data-theme="light"] .se-full-img {
+      border-color: #e8e8e8;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    }
+
+    /* ── Lightbox ── */
+    .se-lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 99999;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      backdrop-filter: blur(4px);
+    }
+    .se-lightbox.open { display: flex; }
+    .se-lightbox__inner {
+      position: relative;
+      overflow: auto;
+      max-width: 92vw;
+      max-height: 90vh;
+      border-radius: 12px;
+      cursor: zoom-in;
+    }
+    .se-lightbox__inner.zoomed {
+      cursor: zoom-out;
+      max-width: 92vw;
+      max-height: 90vh;
+    }
+    .se-lightbox__img {
+      display: block;
+      width: 90vw;
+      height: auto;
+      border-radius: 12px;
+      transition: width 0.3s ease;
+    }
+    .se-lightbox__inner.zoomed .se-lightbox__img {
+      width: 180vw;
+    }
+    .se-lightbox__close {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      background: rgba(255,255,255,0.15);
+      border: none;
+      color: #fff;
+      font-size: 24px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100000;
+      transition: background 0.2s ease;
+    }
+    .se-lightbox__close:hover { background: rgba(255,255,255,0.3); }
+    .se-lightbox__hint {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.5);
+      font-size: 12px;
+      pointer-events: none;
+    }
+    @media (max-width: 768px) {
+      .se-img-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Methods box: shadow + dividers ── */
+    [data-theme="light"] .cs-methods {
+      background: #ffffff;
+      border: 1px solid #e8e8e8;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      gap: 0;
+      max-width: 100%;
+    }
+    [data-theme="light"] .cs-method {
+      background: #ffffff;
+      border-bottom: 1px solid #eeeeee;
+    }
+    [data-theme="light"] .cs-method__title { font-weight: 600; }
+    [data-theme="light"] .cs-interview-block__title {
+      color: #111111;
+      font-size: 20px;
+      font-weight: 600;
+    }
+    [data-theme="light"] .cs-finding__header {
+      align-items: center;
+    }
+    [data-theme="light"] .cs-method:last-child {
+      border-bottom: none;
+    }
+
+    /* ── Separate cards for all grids ── */
+    [data-theme="light"] .cs-goals__grid,
+    [data-theme="light"] .cs-reqs__grid {
+      background: transparent;
+      border: none;
+      gap: 16px;
+      max-width: 100%;
+      overflow: visible;
+    }
+    [data-theme="light"] .cs-goal,
+    [data-theme="light"] .cs-req {
+      background: #ffffff;
+      border: 1px solid #e8e8e8;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+    }
+    [data-theme="light"] .cs-req {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    [data-theme="light"] .cs-req__number {
+      margin-bottom: 12px;
+    }
+    [data-theme="light"] .cs-req__title {
+      text-align: center;
+    }
+    [data-theme="light"] .cs-req__desc {
+      text-align: left;
+    }
+
+    /* ── A/B variation cards: stacked with drop shadow ── */
+    [data-theme="light"] .cs-variations__grid {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      overflow: visible;
+    }
+    [data-theme="light"] .cs-variations__grid--stacked {
+      flex-direction: column;
+    }
+    [data-theme="light"] .cs-variation {
+      flex: 1;
+      background: #f5f5f5;
+      border: 1px solid #e8e8e8;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10);
+      padding: 32px;
+    }
+
+    /* ── Stats boxes ── */
+    [data-theme="light"] .cs-intro__stats {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      gap: 16px;
+      max-width: 760px;
+      margin: 0;
+    }
+    [data-theme="light"] .cs-stat {
+      background: #ffffff;
+      border: 1px solid #e8e8e8;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      padding: 28px 24px;
+      align-items: center;
+      text-align: center;
+    }
+    [data-theme="light"] .cs-stat__number,
+    [data-theme="light"] .cs-finding__number,
+    [data-theme="light"] .cs-req__number,
+    [data-theme="light"] .cs-method__number,
+    [data-theme="light"] .cs-realization-step__num {
+      color: #0d3a52;
+      background: #dce8f5;
+      font-size: 14px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      padding-top: 0;
+    }
+    [data-theme="light"] .cs-stat__number {
+      font-size: 28px;
+      width: 64px;
+      height: 64px;
+    }
+    [data-theme="light"] .cs-goal__title {
+      color: #171717;
+      font-family: 'IBM Plex Sans', sans-serif !important;
+    }
+    [data-theme="light"] .cs-goal__number {
+      color: #0d3a52;
+      background: #dce8f5;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+    [data-theme="light"] .cs-stat__label {
+      font-size: 14px;
+      color: #555555;
+    }
+
+    /* ── Consistent grey body text for light mode ── */
+    [data-theme="light"] .cs-phase__intro,
+    [data-theme="light"] .cs-hero__blurb,
+    [data-theme="light"] .cs-intro__body p,
+    [data-theme="light"] .cs-accent,
+    [data-theme="light"] .cs-finding__body p,
+    [data-theme="light"] .cs-quote__text,
+    [data-theme="light"] .cs-interview-block__text,
+    [data-theme="light"] .cs-direction__text,
+    [data-theme="light"] .cs-req__desc,
+    [data-theme="light"] .cs-hmw__text,
+    [data-theme="light"] .cs-method__list li,
+    [data-theme="light"] .cs-learning__body,
+    [data-theme="light"] .cs-persona-card__quote,
+    [data-theme="light"] .cs-persona-card__item-desc,
+    [data-theme="light"] .cs-more-work__desc,
+    [data-theme="light"] .cs-priority__body,
+    [data-theme="light"] .cs-final-phase__body p   { color: #171717; }
+    [data-theme="light"] .cs-realization-block__body,
+    [data-theme="light"] .cs-learning__body         { color: #171717; }
+    [data-theme="light"] .cs-realization-block__title,
+    [data-theme="light"] .cs-learning__title        { color: #171717; }
+    [data-theme="light"] .cs-learning {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+      border-color: #e8e8e8;
+    }
+    [data-theme="light"] .cs-realization-item {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+    }
+    [data-theme="light"] .cs-realization-item__label { color: #171717; }
+    [data-theme="light"] .cs-realization-item__desc  { color: #171717; }
+    [data-theme="light"] .cs-method__list li,
+    [data-theme="light"] .cs-method__list li strong,
+    [data-theme="light"] .cs-method__list li span {
+      font-size: 15px !important;
+      color: #888888 !important;
+    }
+
+    [data-theme="light"] .cs-realization-steps {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+    }
+    [data-theme="light"] .cs-realization-step__title { color: #171717; }
+    [data-theme="light"] .cs-realization-step__desc  { color: #171717; }
+    [data-theme="light"] .cs-realization-block      { margin-bottom: 8px; }
+
+    /* ── Design system ── */
+    [data-theme="light"] .cs-design-system {
+      margin-top: 8px;
+    }
+    [data-theme="light"] .cs-design-system__img {
+      border-color: #e8e8e8;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10);
+    }
   </style>
 </head>
 <body>
@@ -93,22 +436,22 @@
             <span class="cs-stepper__label">Design Requirements</span>
           </a>
         </li>
+        <li class="cs-stepper__item" data-target="s-preference-testing">
+          <a href="#s-preference-testing" class="cs-stepper__link">
+            <span class="cs-stepper__num">07</span>
+            <span class="cs-stepper__label">Preference Testing</span>
+          </a>
+        </li>
         <li class="cs-stepper__item" data-target="s-usability">
           <a href="#s-usability" class="cs-stepper__link">
-            <span class="cs-stepper__num">07</span>
+            <span class="cs-stepper__num">08</span>
             <span class="cs-stepper__label">Usability Testing</span>
           </a>
         </li>
         <li class="cs-stepper__item" data-target="s-usability-findings">
           <a href="#s-usability-findings" class="cs-stepper__link">
-            <span class="cs-stepper__num">08</span>
-            <span class="cs-stepper__label">Testing Findings</span>
-          </a>
-        </li>
-        <li class="cs-stepper__item" data-target="s-final">
-          <a href="#s-final" class="cs-stepper__link">
             <span class="cs-stepper__num">09</span>
-            <span class="cs-stepper__label">Final Design</span>
+            <span class="cs-stepper__label">Testing Findings</span>
           </a>
         </li>
         <li class="cs-stepper__item" data-target="s-design-system">
@@ -117,15 +460,27 @@
             <span class="cs-stepper__label">Design System</span>
           </a>
         </li>
+        <li class="cs-stepper__item" data-target="s-final">
+          <a href="#s-final" class="cs-stepper__link">
+            <span class="cs-stepper__num">11</span>
+            <span class="cs-stepper__label">Final Design</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-prototype">
+          <a href="#s-prototype" class="cs-stepper__link">
+            <span class="cs-stepper__num">12</span>
+            <span class="cs-stepper__label">Prototype</span>
+          </a>
+        </li>
         <li class="cs-stepper__item" data-target="s-realization">
           <a href="#s-realization" class="cs-stepper__link">
-            <span class="cs-stepper__num">11</span>
+            <span class="cs-stepper__num">13</span>
             <span class="cs-stepper__label">Realization Plan</span>
           </a>
         </li>
         <li class="cs-stepper__item" data-target="s-reflection">
           <a href="#s-reflection" class="cs-stepper__link">
-            <span class="cs-stepper__num">12</span>
+            <span class="cs-stepper__num">14</span>
             <span class="cs-stepper__label">Reflection</span>
           </a>
         </li>
@@ -182,13 +537,13 @@
         <p>Developers don't evaluate LLMs with spreadsheets. They use intuition, experience, and task-specific reasoning, none of which existing tools support.</p>
       </div>
       <div class="cs-intro__body">
-        <p>StackEval is a decision-support platform built for <span class="cs-accent">Backboard.io</span> — an AI infrastructure company — that transforms informal, "vibes-based" model evaluation into a structured, repeatable workflow. Over a semester-long capstone, our team of five UX researchers and designers conducted <span class="cs-accent">5 semi-structured interviews</span>, <span class="cs-accent">preference testing with 28 participants</span>, and <span class="cs-accent">moderated usability testing with 6 practitioners</span> to understand how AI teams actually choose models in production.</p>
-        <p><span class="cs-accent">The result:</span> <span class="cs-accent">a four-phase evaluation workflow — Define Task, Define Metrics, Model Selection, and Run Evaluation —</span> that reduces cognitive load at every step while preserving the flexibility expert users demand.</p>
+        <p>StackEval is a decision-support platform built for <span class="cs-accent">Backboard.io</span>, an AI infrastructure company, that transforms informal, "vibes-based" model evaluation into a structured, repeatable workflow. Over a semester-long capstone, our team of five UX researchers and designers conducted <span class="cs-accent">5 semi-structured interviews</span>, <span class="cs-accent">preference testing with 28 participants</span>, and <span class="cs-accent">moderated usability testing with 6 practitioners</span> to understand how AI teams actually choose models in production.</p>
+        <p><span class="cs-accent">The result:</span> <span class="cs-accent">a four-phase evaluation workflow (Define Task, Define Metrics, Model Selection, and Run Evaluation)</span> that reduces cognitive load at every step while preserving the flexibility expert users demand.</p>
       </div>
       <div class="cs-intro__stats">
         <div class="cs-stat">
           <span class="cs-stat__number">5</span>
-          <span class="cs-stat__label">Expert Interviews</span>
+          <span class="cs-stat__label">User Interviews</span>
         </div>
         <div class="cs-stat">
           <span class="cs-stat__number">28</span>
@@ -202,6 +557,9 @@
           <span class="cs-stat__number">4</span>
           <span class="cs-stat__label">Phase Workflow</span>
         </div>
+      </div>
+      <div style="margin-top:32px;">
+        <a href="#s-final" class="se-jump-btn">Jump to Final Solution</a>
       </div>
     </section>
 
@@ -270,6 +628,25 @@
           </div>
         </div>
       </div>
+
+      <!-- Persona 1 + Journey Map 1 -->
+      <div class="cs-body">
+        <span class="cs-section-label">Persona &amp; Journey Map — 01</span>
+        <div class="se-img-grid">
+          <img src="assets/stackeval_persona1.jpg" alt="StackEval Persona 1" class="se-full-img" />
+          <img src="assets/stackeval_journeymap1.jpg" alt="StackEval Journey Map 1" class="se-full-img" />
+        </div>
+      </div>
+
+      <!-- Persona 2 + Journey Map 2 -->
+      <div class="cs-body">
+        <span class="cs-section-label">Persona &amp; Journey Map — 02</span>
+        <div class="se-img-grid">
+          <img src="assets/stackeval_persona2.jpg" alt="StackEval Persona 2" class="se-full-img" />
+          <img src="assets/stackeval_journeymap2.jpg" alt="StackEval Journey Map 2" class="se-full-img" />
+        </div>
+      </div>
+
     </section>
 
     <section class="cs-phase" id="s-interviews">
@@ -284,7 +661,6 @@
         <div class="cs-interview-block">
           <h3 class="cs-interview-block__title">Protocol & Analysis</h3>
           <p class="cs-interview-block__text">Each interview lasted ~45 minutes, conducted remotely with recording and notetaker support. <span class="cs-accent">We covered five areas: background and AI usage, a recent model evaluation walkthrough, the role of cost and latency, golden output usage, and how memory and context factor into model selection.</span></p>
-          <p class="cs-interview-block__text">After each interview, team members independently extracted single-insight observations onto a shared Miro board, then conducted collaborative affinity mapping. Clusters were split, merged, and renamed until each grouping was tied to direct evidence from multiple participants.</p>
         </div>
         <div class="cs-interview-block">
           <h3 class="cs-interview-block__title">Recruitment & Screening</h3>
@@ -403,7 +779,7 @@
         <div class="cs-req">
           <span class="cs-req__number">01</span>
           <h3 class="cs-req__title">Task and Evaluation Definition</h3>
-          <p class="cs-req__desc">Users want ways to include their own metrics to evaluate models in a way that is <span class="cs-accent">customized to their project and needs.</span> This structure should ideally be systematically implemented so that it can be repeated throughout the project and organizational needs.</p>
+          <p class="cs-req__desc">Users want ways to include their own metrics to evaluate models in a way that is <span class="cs-accent">customized to their project and needs.</span></p>
         </div>
         <div class="cs-req">
           <span class="cs-req__number">02</span>
@@ -439,6 +815,8 @@
           <img src="assets/sketch2.JPG" alt="Initial sketch 2" class="cs-sketch__img" />
           <img src="assets/sketch3.JPG" alt="Initial sketch 3" class="cs-sketch__img" />
         </div>
+
+        <h3 class="cs-priority__title" id="s-preference-testing" style="margin-top: 48px;">Preference Testing</h3>
 
         <h4 class="cs-variations__subtitle">Set Up Variations</h4>
 
@@ -598,6 +976,16 @@
       </div>
     </section>
 
+    <section class="cs-phase" id="s-design-system">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Design System</span>
+        <h2 class="cs-section-title">StackEval Design System</h2>
+      </div>
+      <div class="cs-design-system">
+        <img src="assets/Design_System_for_StackEval.png" alt="StackEval Design System" class="cs-design-system__img" />
+      </div>
+    </section>
+
     <section class="cs-phase" id="s-final">
       <div class="cs-section-header">
         <span class="cs-section-label">Final Design</span>
@@ -649,9 +1037,25 @@
         <img src="assets/phase4_mockup.png" alt="Phase 4: Run Evaluation" class="cs-final-phase__img" />
       </div>
 
-      <div class="cs-design-system" id="s-design-system">
-        <h3 class="cs-design-system__title">Design System</h3>
-        <img src="assets/Design_System_for_StackEval.png" alt="StackEval Design System" class="cs-design-system__img" />
+    </section>
+
+    <section class="cs-phase" id="s-prototype">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Prototype</span>
+        <h2 class="cs-section-title">Prototype Walkthrough</h2>
+        <p class="cs-phase__intro">A video walkthrough of the final StackEval experience — from defining a task to running an evaluation and comparing outputs across models.</p>
+      </div>
+      <video
+        src="assets/stackeval_prototype.mov"
+        class="se-proto-video"
+        autoplay
+        loop
+        muted
+        playsinline
+        controls
+      ></video>
+      <div style="margin-top: 24px;">
+        <a href="https://stackevalt.lovable.app" target="_blank" rel="noopener" class="se-jump-btn">View Live Prototype</a>
       </div>
     </section>
 
@@ -864,5 +1268,57 @@
       <p class="footer__copy">© 2026 Ayana Leelasena</p>
     </div>
   </footer>
+
+  <!-- Lightbox -->
+  <div class="se-lightbox" id="seLightbox">
+    <button class="se-lightbox__close" id="seLightboxClose">✕</button>
+    <div class="se-lightbox__inner" id="seLightboxInner">
+      <img class="se-lightbox__img" id="seLightboxImg" src="" alt="" />
+    </div>
+    <span class="se-lightbox__hint">Click image to zoom · Press Esc to close</span>
+  </div>
+
+  <script>
+    // Lightbox for zoomable images
+    const lightbox     = document.getElementById('seLightbox');
+    const lbImg        = document.getElementById('seLightboxImg');
+    const lbInner      = document.getElementById('seLightboxInner');
+    const lbClose      = document.getElementById('seLightboxClose');
+
+    // Make se-full-img AND the affinity map image clickable
+    const zoomables = document.querySelectorAll('.se-full-img, .cs-full-image__img');
+    zoomables.forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => {
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lbInner.classList.remove('zoomed');
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    // Toggle zoom on click
+    lbInner.addEventListener('click', () => {
+      lbInner.classList.toggle('zoomed');
+    });
+
+    // Close on button or backdrop
+    lbClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    // Close on Esc
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+      lbInner.classList.remove('zoomed');
+    }
+  </script>
 </body>
 </html>
