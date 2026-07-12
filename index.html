@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/png" href="assets/afia_logo.png" />
+  <link rel="icon" type="image/png" href="/assets/afia_logo.png" />
   <title>AL — Portfolio</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="/styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
+    .project-card__cover { will-change: filter, transform; transform: translateZ(0); transition: filter 0.2s ease, transform 0.25s ease !important; }
+    .project-card__info { transition: opacity 0.15s ease !important; }
     .hero__greeting, .hero__dot { font-family: 'IBM Plex Sans', sans-serif !important; font-weight: 400 !important; }
     .project-card__title { font-family: 'IBM Plex Sans', sans-serif !important; }
     .hero__text-sweep { animation-duration: 1.8s !important; }
@@ -63,13 +65,13 @@
 
   <header class="nav">
     <a href="/" class="nav__logo" aria-label="Home">
-      <img src="assets/afia_logo.png" alt="AL logo" class="nav__logo-img" />
+      <img src="/assets/afia_logo.png" alt="AL logo" class="nav__logo-img" />
     </a>
 
     <nav class="nav__links" aria-label="Primary navigation">
       <a href="#work" class="nav__link">Work</a>
-      <a href="about.html" class="nav__link">About</a>
-      <a href="playground.html" class="nav__link">Vibes</a>
+      <a href="/about/" class="nav__link">About</a>
+      <a href="/playground/" class="nav__link">Vibes</a>
       <a href="https://drive.google.com/file/d/1g7gjROStxXxsRz4DX33tyKrAW1EHBNSM/view?usp=sharing" class="nav__link nav__link--resume" target="_blank" rel="noopener">
         <span class="resume-bubbles">
           <span class="bubble bubble--lg"></span>
@@ -86,9 +88,9 @@
       <button class="nav__hamburger" id="navHamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
   </header>
   <div class="nav__mobile-menu" id="navMobileMenu">
-    <a href="index.html#work" class="nav__mobile-link">Work</a>
-    <a href="about.html" class="nav__mobile-link">About</a>
-    <a href="playground.html" class="nav__mobile-link">Vibes</a>
+    <a href="/#work" class="nav__mobile-link">Work</a>
+    <a href="/about/" class="nav__mobile-link">About</a>
+    <a href="/playground/" class="nav__mobile-link">Vibes</a>
     <a href="https://drive.google.com/file/d/1g7gjROStxXxsRz4DX33tyKrAW1EHBNSM/view?usp=sharing" class="nav__mobile-link" target="_blank" rel="noopener">Resume ↗</a>
   </div>
 
@@ -97,7 +99,7 @@
       <div class="hero__content">
         <h1 class="hero__greeting animate animate--1"><span class="hero__text-sweep">Hi I'm Ayana </span><span class="hero__dot animate animate--smiley">ヽ(•‿•)ノ</span></h1>
         <p class="hero__tagline animate animate--2">Driven by <span class="hero__emphasis">data informed decision making</span>, <span class="hero__emphasis">creative interaction</span> in my work, and a love for <span style="white-space:nowrap"><span class="hero__emphasis">thoughtful design</span>. <svg class="hero__heart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 30" aria-hidden="true"><path d="M16 27S2 18.5 2 9.5A7.5 7.5 0 0 1 16 5.93 7.5 7.5 0 0 1 30 9.5C30 18.5 16 27 16 27z" fill="#89b4d4"/><ellipse cx="10" cy="9" rx="3" ry="2" fill="white" opacity="0.3" transform="rotate(-30 10 9)"/></svg></span></p>
-        <p class="hero__bio animate animate--3">Currently doing contracted design work with <span class="hero__highlight">Oh Hi, Hello <img src="assets/ohhilogo.png" alt="" class="bio-logo" /></span>, graduated from the <span class="hero__highlight">University of Michigan <img src="assets/um_logo.jpg" alt="" class="bio-logo" /></span> in HCI and UX Design/Research, and was a <span class="hero__highlight">Figma Campus Leader <img src="assets/Figma-logo.png" alt="" class="bio-logo" /></span>.</p>
+        <p class="hero__bio animate animate--3">Currently doing contracted design work with <span class="hero__highlight">Oh Hi, Hello <img src="/assets/ohhilogo.png" alt="" class="bio-logo" /></span>, graduated from the <span class="hero__highlight">University of Michigan <img src="/assets/um_logo.jpg" alt="" class="bio-logo" /></span> in HCI and UX Design/Research, and was a <span class="hero__highlight">Figma Campus Leader <img src="/assets/Figma-logo.png" alt="" class="bio-logo" /></span>.</p>
       </div>
     </section>
 
@@ -111,52 +113,51 @@
 
         <article class="project-card project-card--featured" style="background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 50%, #0d2340 100%);">
           <div class="project-card__media">
-            <img src="assets/new_stackevalhome.png" alt="StackEval" class="project-card__cover" style="object-fit:contain; object-position: bottom;" />
+            <img src="/assets/new_stackevalhome.png" alt="StackEval" class="project-card__cover" style="object-fit:contain; object-position: bottom;" />
           </div>
           <div class="project-card__info">
             <div class="project-card__meta">
               <span class="project-card__client">
-                <img src="assets/backboard_io_logo.jpeg" alt="Backboard.io" class="project-card__client-logo" />
+                <img src="/assets/backboard_io_logo.jpeg" alt="Backboard.io" class="project-card__client-logo" />
                 Backboard.io
               </span>
             </div>
             <h3 class="project-card__title">StackEval</h3>
             <p class="project-card__desc">An LLM evaluation tool built for developers, helping teams systematically test, compare, and improve their AI stack through structured research and intuitive design.</p>
-            <a href="stackeval.html" class="project-card__link">View Case Study <span aria-hidden="true">→</span></a>
+            <a href="/stackeval/" class="project-card__link">View Case Study <span aria-hidden="true">→</span></a>
           </div>
         </article>
 
-        <article class="project-card">
+        <article class="project-card" style="background: linear-gradient(135deg, #0d2a5c 0%, #7a2c00 60%, #c95f1a 100%);">
           <div class="project-card__media">
-            <img src="assets/newhero_ufinance.png" alt="UFinance" class="project-card__cover" />
+            <img src="/assets/classification_cover.png" alt="Classification Module" class="project-card__cover" style="object-fit: cover; transform: scale(0.88); border-radius: 10px;" />
           </div>
           <div class="project-card__info">
             <div class="project-card__meta">
               <span class="project-card__client">
-                <img src="assets/ufinance_logo.png" alt="UFinance" class="project-card__client-logo" />
-                UFinance
+                <img src="/assets/copperhill2_logo.webp" alt="Copper Hill" class="project-card__client-logo" style="width: 150px; height: auto; margin-left: -16px;" />
               </span>
             </div>
-            <h3 class="project-card__title">UFinance</h3>
-            <p class="project-card__desc">A fintech iOS application designed to help students manage and budget their finances, built on a foundation of user research and design.</p>
-            <a href="ufinance.html" class="project-card__link">View Case Study <span aria-hidden="true">→</span></a>
+            <h3 class="project-card__title">Classification Module</h3>
+            <p class="project-card__desc">Improving global trade compliance software by unifying the classification process into a scalable, shipped AI-assisted platform.</p>
+            <a href="/copperhill/" class="project-card__link">View Case Study <span aria-hidden="true">→</span></a>
           </div>
         </article>
 
         <article class="project-card">
           <div class="project-card__media project-card__media--promega">
-            <img src="assets/promega_newhome2.png" alt="ProNect" class="project-card__cover" style="object-fit:contain;" />
+            <img src="/assets/promega_newhome2.png" alt="ProNect" class="project-card__cover" style="object-fit:contain;" />
           </div>
           <div class="project-card__info">
             <div class="project-card__meta">
               <span class="project-card__client">
-                <img src="assets/promega_logo.png" alt="Promega" class="project-card__client-logo" />
+                <img src="/assets/promega_logo.png" alt="Promega" class="project-card__client-logo" />
                 Promega
               </span>
             </div>
             <h3 class="project-card__title">ProNect™ Data Platform</h3>
             <p class="project-card__desc">Optimized cell assay workflows for life science researchers by designing an intuitive 384-well plate map experience.</p>
-            <a href="promega.html" class="project-card__link">View Case Study <span aria-hidden="true">→</span></a>
+            <a href="/promega/" class="project-card__link">View Case Study <span aria-hidden="true">→</span></a>
           </div>
         </article>
 
@@ -167,48 +168,48 @@
 
         <article class="project-card">
           <div class="project-card__media">
-            <img src="assets/newhero_glide.png" alt="GLIDE" class="project-card__cover" />
+            <img src="/assets/newhero_glide.png" alt="GLIDE" class="project-card__cover" />
           </div>
           <div class="project-card__info">
             <div class="project-card__meta">
               <span class="project-card__client">
-                <img src="assets/glide_logo.png" alt="GLIDE" class="project-card__client-logo" />
+                <img src="/assets/glide_logo.png" alt="GLIDE" class="project-card__client-logo" />
                 <strong>GLIDE</strong>
               </span>
             </div>
             <p class="project-card__desc">An iOS travel application designed to give you a calm, predictable travel experience — built on market research and intuitive design.</p>
-            <a href="glide.html" class="project-card__link">View Case Study <span aria-hidden="true">→</span></a>
+            <a href="/glide/" class="project-card__link">View Case Study <span aria-hidden="true">→</span></a>
           </div>
         </article>
 
         <article class="project-card">
           <div class="project-card__media">
-            <img src="assets/mint_finalhome.png" alt="Mint" class="project-card__cover" />
+            <img src="/assets/mint_finalhome.png" alt="Mint" class="project-card__cover" />
           </div>
           <div class="project-card__info">
             <div class="project-card__meta">
               <span class="project-card__client">
-                <img src="assets/mint_logo_cleaned-removebg-preview_1.png" alt="Mint" class="project-card__client-logo" />
+                <img src="/assets/mint_logo_cleaned-removebg-preview_1.png" alt="Mint" class="project-card__client-logo" />
               </span>
             </div>
             <p class="project-card__desc">Personal project showcasing skills with variables, components, design systems, and conditional prototyping in Figma.</p>
-            <a href="mint.html" class="project-card__link">View Case Study <span aria-hidden="true">→</span></a>
+            <a href="/mint/" class="project-card__link">View Case Study <span aria-hidden="true">→</span></a>
           </div>
         </article>
 
         <article class="project-card">
           <div class="project-card__media">
-            <img src="assets/ctrlz_home.png" alt="Ctrl Z" class="project-card__cover" />
+            <img src="/assets/newhero_ufinance.png" alt="UFinance" class="project-card__cover" />
           </div>
           <div class="project-card__info">
             <div class="project-card__meta">
               <span class="project-card__client">
-                <img src="assets/CtrlZ.png" alt="Ctrl Z" class="project-card__client-logo" />
-                <strong>Ctrl Z</strong>
+                <img src="/assets/ufinance_logo.png" alt="UFinance" class="project-card__client-logo" />
+                UFinance
               </span>
             </div>
-            <p class="project-card__desc">An anti-algorithm app designed in two hours at a designathon. Inspired by the desire to undo algorithmic control over daily life in a world dominated by personalization.</p>
-            <a href="ctrlz.html" class="project-card__link">View Case Study <span aria-hidden="true">→</span></a>
+            <p class="project-card__desc">A fintech app designed to help students manage and budget their finances, built on a foundation of user research and design.</p>
+            <a href="/ufinance/" class="project-card__link">View Case Study <span aria-hidden="true">→</span></a>
           </div>
         </article>
 

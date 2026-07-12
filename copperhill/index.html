@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/assets/afia_logo.png" />
+  <title>Classification Module — Ayana Leelasena</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/case-study.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --ch-orange: #c95f1a; --ch-blue: #0d2a5c; --ch-orange-light: #e07a3a; }
+
+    h1, h2, h3, h4, h5, h6 { font-family: 'IBM Plex Sans', sans-serif !important; font-weight: 400 !important; }
+
+    /* Accent colours */
+    .cs-section-label { color: var(--ch-orange-light); }
+    .cs-hmw,
+    .cs-finding,
+    .cs-learning { border-left: 3px solid var(--ch-orange); }
+    .cs-accent { color: var(--ch-orange-light); }
+
+    /* Tighter header-to-body gap */
+    .cs-phase { gap: 16px !important; }
+
+    /* Centre More Work with rest of page */
+    .cs-more-work { margin-left: 0 !important; }
+
+    /* Details row — 4 columns */
+    .cs-hero__details { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 20px !important; }
+    .cs-detail { min-width: 0 !important; }
+    .cs-detail__value { font-size: 13px !important; }
+    .cs-detail__label { font-size: 10px !important; }
+
+    /* Number circles */
+    [data-theme="light"] .cs-realization-step__num {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 52px !important;
+      height: 52px !important;
+      min-width: 52px !important;
+      background: #fdebd8 !important;
+      border-radius: 50% !important;
+      color: var(--ch-orange) !important;
+      font-size: 17px !important;
+      font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif !important;
+    }
+
+    /* Light mode overrides */
+    [data-theme="light"] .case-study { background: #ffffff; color: #171717; }
+    [data-theme="light"] .cs-hero__media { background: #ffffff !important; }
+    [data-theme="light"] .cs-hero__title,
+    [data-theme="light"] .cs-section-title,
+    [data-theme="light"] .cs-hero__blurb,
+    [data-theme="light"] .cs-phase__intro,
+    [data-theme="light"] .cs-hero__subtitle { color: #171717; }
+    [data-theme="light"] .cs-methods { border: none !important; overflow: visible !important; gap: 12px !important; }
+    [data-theme="light"] .cs-method {
+      background: #ffffff !important;
+      border: 1px solid #e8e8e8 !important;
+      border-radius: 16px !important;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important;
+    }
+    [data-theme="light"] .cs-method__title { color: #171717 !important; }
+    [data-theme="light"] .cs-method__body { color: #444444 !important; }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <a href="/" class="nav__logo" aria-label="Home">
+      <img src="/assets/afia_logo.png" alt="AL logo" class="nav__logo-img" />
+    </a>
+    <nav class="nav__links" aria-label="Primary navigation">
+      <a href="/#work" class="nav__link">Work</a>
+      <a href="/about/" class="nav__link">About</a>
+      <a href="/playground/" class="nav__link">Vibes</a>
+      <a href="https://drive.google.com/file/d/1g7gjROStxXxsRz4DX33tyKrAW1EHBNSM/view?usp=sharing" class="nav__link nav__link--resume" target="_blank" rel="noopener">
+        <span class="resume-bubbles">
+          <span class="bubble bubble--lg"></span>
+          <span class="bubble bubble--sm"></span>
+        </span>
+        Resume
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <span class="theme-toggle__thumb"></span>
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </nav>
+    <button class="nav__hamburger" id="navHamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </header>
+  <div class="nav__mobile-menu" id="navMobileMenu">
+    <a href="/#work" class="nav__mobile-link">Work</a>
+    <a href="/about/" class="nav__mobile-link">About</a>
+    <a href="/playground/" class="nav__mobile-link">Vibes</a>
+    <a href="https://drive.google.com/file/d/1g7gjROStxXxsRz4DX33tyKrAW1EHBNSM/view?usp=sharing" class="nav__mobile-link" target="_blank" rel="noopener">Resume ↗</a>
+  </div>
+
+  <main class="case-study">
+
+    <nav class="cs-stepper" aria-label="Case study navigation">
+      <ol class="cs-stepper__list">
+        <li class="cs-stepper__item" data-target="s-overview">
+          <a href="#s-overview" class="cs-stepper__link">
+            <span class="cs-stepper__num">01</span>
+            <span class="cs-stepper__label">Overview</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-research-main">
+          <a href="#s-research-main" class="cs-stepper__link">
+            <span class="cs-stepper__num">02</span>
+            <span class="cs-stepper__label">Research</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-requirements">
+          <a href="#s-requirements" class="cs-stepper__link">
+            <span class="cs-stepper__num">03</span>
+            <span class="cs-stepper__label">Design Requirements</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-modules">
+          <a href="#s-modules" class="cs-stepper__link">
+            <span class="cs-stepper__num">04</span>
+            <span class="cs-stepper__label">Workload Space</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-module-apply">
+          <a href="#s-module-apply" class="cs-stepper__link">
+            <span class="cs-stepper__num">05</span>
+            <span class="cs-stepper__label">Apply Classification</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-module-qa">
+          <a href="#s-module-qa" class="cs-stepper__link">
+            <span class="cs-stepper__num">06</span>
+            <span class="cs-stepper__label">Q&amp;A Module</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-impact">
+          <a href="#s-impact" class="cs-stepper__link">
+            <span class="cs-stepper__num">07</span>
+            <span class="cs-stepper__label">Impact</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-reflection">
+          <a href="#s-reflection" class="cs-stepper__link">
+            <span class="cs-stepper__num">08</span>
+            <span class="cs-stepper__label">Reflection</span>
+          </a>
+        </li>
+      </ol>
+    </nav>
+
+    <!-- 01 · Overview / Hero -->
+    <section class="cs-hero" id="s-overview">
+      <div class="cs-hero__content">
+        <h1 class="cs-hero__title animate animate--1">Classification Module</h1>
+        <p class="cs-hero__subtitle animate animate--3">Copper Hill</p>
+        <p class="cs-hero__blurb animate animate--3">Improving global trade compliance software by unifying the classification process into a scalable, AI-assisted platform for customs brokers and trade compliance teams.</p>
+        <div class="cs-hero__proto-wrap animate animate--3">
+          <a href="https://copperhill.com/platform/" target="_blank" rel="noopener" class="cs-hero__proto">
+            View Live Platform <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+      <div class="cs-hero__media animate animate--3">
+        <img src="/assets/classification_cover1.png" alt="Classification Module" class="cs-hero__video" style="object-fit: contain;" />
+      </div>
+    </section>
+
+    <hr class="cs-hero__rule" />
+
+    <div class="cs-hero__details-wrap">
+      <div class="cs-hero__details animate animate--3">
+        <div class="cs-detail">
+          <span class="cs-detail__label">Company</span>
+          <span class="cs-detail__value">Copper Hill</span>
+        </div>
+        <div class="cs-detail">
+          <span class="cs-detail__label">Role</span>
+          <span class="cs-detail__value">UX Design Intern</span>
+        </div>
+        <div class="cs-detail">
+          <span class="cs-detail__label">Timeline</span>
+          <span class="cs-detail__value">Winter – Spring 2025</span>
+        </div>
+        <div class="cs-detail">
+          <span class="cs-detail__label">Team</span>
+          <span class="cs-detail__value">Lead Product Designer/Manager + Intern</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Overview body section -->
+    <section class="cs-phase" id="s-overview-body">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Overview</span>
+        <h2 class="cs-section-title">Background</h2>
+      </div>
+      <div class="cs-body">
+        <p class="cs-phase__intro">I worked on the end-to-end design of Copper Hill's Classification module as part of the platform launch as an intern with my design manager. Analysts had been previously juggling Excel, Access databases, shared drives, and email threads. Copper Hill wanted centralized classification work, increase throughput with bulk actions and assistive AI, and make audits easy with built-in traceability. I joined my design manager on this project to work and refine the core features with him. It is currently shipped on Copper Hill's platform: <a href="https://copperhill.com/platform/" target="_blank" rel="noopener" style="color: var(--ch-orange);">copperhill.com/platform ↗</a></p>
+
+        <h3 style="font-size: 20px; margin: 40px 0 12px; color: #171717;">What is classification?</h3>
+        <p class="cs-phase__intro">Trade classification and origin is a series of requirements that must be met to clear customs and transport goods around the world. In order to bring goods into a foreign country, the owner of the goods must disclose relevant customs data and pay any required tariffs or duties.</p>
+        <p class="cs-phase__intro" style="margin-top: 20px; font-weight: 600;">Copper Hill's classification module enables organizations to manage product classifications with greater visibility, consistency, and control.</p>
+        <img src="/assets/trade_image.webp" alt="Trade classification overview" style="width: 100%; border-radius: 12px; margin-top: 32px; box-shadow: 0 8px 32px rgba(0,0,0,0.10);" />
+      </div>
+    </section>
+
+    <!-- Research -->
+    <section class="cs-phase" id="s-research-main">
+      <div class="cs-section-header" style="margin-bottom: 16px;">
+        <h2 class="cs-section-title">Research</h2>
+      </div>
+      <div class="cs-body">
+        <p class="cs-phase__intro">I came into the trade compliance space as a complete newcomer. Early in my internship I joined shadowing sessions and user interviews with classification analysts and managers, spoke with coworkers who used the software daily in the onsite office, and received an overview of the day-to-day life of analysts during onboarding. Seeing their work firsthand helped me quickly build context for the industry and its challenges.</p>
+
+        <h3 style="font-size: 18px; margin: 40px 0 20px; color: #171717;">Biggest user frustrations</h3>
+
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div class="cs-finding" style="padding: 20px 24px;">
+            <p style="margin: 0 0 4px; font-weight: 600; font-size: 14px; color: #171717;">Tool overload</p>
+            <p style="margin: 0; font-size: 14px; color: #444; line-height: 1.6;">Excel, Access databases, shared drives, and portals all in play — no single source of truth.</p>
+          </div>
+          <div class="cs-finding" style="padding: 20px 24px;">
+            <p style="margin: 0 0 4px; font-weight: 600; font-size: 14px; color: #171717;">Email bottlenecks</p>
+            <p style="margin: 0; font-size: 14px; color: #444; line-height: 1.6;">Clarifications with clients buried in long threads, making them hard to document and trace back.</p>
+          </div>
+          <div class="cs-finding" style="padding: 20px 24px;">
+            <p style="margin: 0 0 4px; font-weight: 600; font-size: 14px; color: #171717;">Reference gap</p>
+            <p style="margin: 0; font-size: 14px; color: #444; line-height: 1.6;">Constant back-and-forth to the HTS (Harmonized Tariff Schedule) website to look up the 10-digit codes used to categorize all merchandise imported into the United States.</p>
+          </div>
+        </div>
+
+        <p class="cs-phase__intro" style="margin-top: 36px;">These observations set the stage for our design goals: centralize classification in one platform, embed Q&amp;A directly into people's workloads, and integrate HTS reference content.</p>
+
+        <img src="/assets/user_persona_cp.png" alt="Copper Hill user persona" style="width: 100%; border-radius: 12px; margin-top: 40px; box-shadow: 0 8px 32px rgba(0,0,0,0.10);" />
+      </div>
+    </section>
+
+    <!-- Design Requirements -->
+    <section class="cs-phase" id="s-requirements">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Design Requirements</span>
+        <h2 class="cs-section-title">Defining the MVP</h2>
+      </div>
+      <div class="cs-body">
+        <p class="cs-phase__intro">We collaborated closely with the product owners to turn research insights into clear, prioritized requirements. The design team ran story-mapping workshops, wrote user stories and acceptance criteria, all aligning with stakeholders to define what belonged in the MVP versus what could be sequenced for later.</p>
+        <div style="position: relative; display: inline-block; width: 100%; margin-top: 32px;">
+          <img src="/assets/classification-simple-table-sm.png" alt="Design requirements definition" class="zoomable-img" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.10); cursor: zoom-in;" />
+          <button onclick="openLightbox('/assets/classification-simple-table-sm.png')" aria-label="Expand image" style="position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,0.55); border: none; border-radius: 6px; padding: 6px 10px; cursor: pointer; color: #fff; font-size: 13px; display: flex; align-items: center; gap: 5px; backdrop-filter: blur(4px);">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+            Expand
+          </button>
+        </div>
+        <p style="font-size: 12px; color: #888; margin-top: 10px; text-align: left;">Story mapping used to capture end-to-end workflows and define MVP.</p>
+      </div>
+    </section>
+
+    <!-- Modules -->
+    <section class="cs-phase" id="s-modules">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Module 01</span>
+        <h2 class="cs-section-title">Workload Space</h2>
+      </div>
+      <div class="cs-body">
+
+        <div style="margin-bottom: 64px;">
+
+          <p class="cs-phase__intro">We created a single page for analysts to see and act on their classification workload. This section features UI components to display clear statuses, priority, and due date cues to help decide what to tackle first, while robust filters and saved views surface what matters in the moment.</p>
+          <p class="cs-phase__intro" style="margin-top: 16px;">It also features an assistive AI Like Parts feature that nudges analysts to classify similar items together, turning one‑off tasks into efficient batches.</p>
+          <p class="cs-phase__intro" style="margin-top: 16px;">This matters because it is fewer context switches, faster throughput, and a consistent starting point for every classification analyst using the software.</p>
+
+          <!-- Feature list -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 32px;">
+            <div style="background: #f7f7f5; border-radius: 10px; padding: 18px 20px;">
+              <p style="margin: 0 0 4px; font-weight: 600; font-size: 13px; color: #171717;">1. Central list</p>
+              <p style="margin: 0; font-size: 13px; color: #555; line-height: 1.55;">All pending classifications in one place.</p>
+            </div>
+            <div style="background: #f7f7f5; border-radius: 10px; padding: 18px 20px;">
+              <p style="margin: 0 0 4px; font-weight: 600; font-size: 13px; color: #171717;">2. Status &amp; priority</p>
+              <p style="margin: 0; font-size: 13px; color: #555; line-height: 1.55;">Quick scan signals for triage.</p>
+            </div>
+            <div style="background: #f7f7f5; border-radius: 10px; padding: 18px 20px;">
+              <p style="margin: 0 0 4px; font-weight: 600; font-size: 13px; color: #171717;">3. Filtering &amp; saved filters</p>
+              <p style="margin: 0; font-size: 13px; color: #555; line-height: 1.55;">"My assignments", "High priority", client views.</p>
+            </div>
+            <div style="background: #fdebd8; border-radius: 10px; padding: 18px 20px;">
+              <p style="margin: 0 0 4px; font-weight: 600; font-size: 13px; color: var(--ch-orange);">4. AI assist — Like Parts</p>
+              <p style="margin: 0; font-size: 13px; color: #555; line-height: 1.55;">Suggests similar parts to batch classify next.</p>
+            </div>
+          </div>
+
+          <!-- Cover image -->
+          <div style="position: relative; display: inline-block; width: 100%; margin-top: 36px;">
+            <img src="/assets/classification_cover1.png" alt="Workload Space UI" class="zoomable-img" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.10); cursor: zoom-in;" />
+            <button onclick="openLightbox('/assets/classification_cover1.png')" aria-label="Expand image" style="position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,0.55); border: none; border-radius: 6px; padding: 6px 10px; cursor: pointer; color: #fff; font-size: 13px; display: flex; align-items: center; gap: 5px; backdrop-filter: blur(4px);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              Expand
+            </button>
+          </div>
+          <p style="font-size: 12px; color: #888; margin-top: 10px; text-align: left;">One list for all classification work: scan, sort, filter, and assign.</p>
+
+          <!-- Filters + Like Parts side by side -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 36px;">
+            <div>
+              <div style="position: relative;">
+                <img src="/assets/classification_filters.png" alt="Filtering and saved filters" class="zoomable-img" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.10); cursor: zoom-in;" />
+                <button onclick="openLightbox('/assets/classification_filters.png')" aria-label="Expand image" style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.55); border: none; border-radius: 6px; padding: 5px 9px; cursor: pointer; color: #fff; font-size: 12px; display: flex; align-items: center; gap: 5px; backdrop-filter: blur(4px);">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                  Expand
+                </button>
+              </div>
+              <p style="font-size: 12px; color: #888; margin-top: 10px; text-align: left;">Filtering &amp; Saved Filters: reuse filters to jump view the work that matters for every analyst's workflow.</p>
+            </div>
+            <div>
+              <div style="position: relative;">
+                <img src="/assets/classification_likeparts.png" alt="AI Like Parts feature" class="zoomable-img" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.10); cursor: zoom-in;" />
+                <button onclick="openLightbox('/assets/classification_likeparts.png')" aria-label="Expand image" style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.55); border: none; border-radius: 6px; padding: 5px 9px; cursor: pointer; color: #fff; font-size: 12px; display: flex; align-items: center; gap: 5px; backdrop-filter: blur(4px);">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                  Expand
+                </button>
+              </div>
+              <p style="font-size: 12px; color: #888; margin-top: 10px; text-align: left;">AI Like Parts: suggests similar items when a single part of a product is selected to encourage batch classification for analysts.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Module 02: Apply Classification -->
+    <section class="cs-phase" id="s-module-apply">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Module 02</span>
+        <h2 class="cs-section-title">Apply Classification</h2>
+      </div>
+      <div class="cs-body">
+        <p class="cs-phase__intro">The Apply page is an efficient, spreadsheet-like key-grid designed for a high-volume workload. Analysts arrive here with a filtered set of similar parts from the Workload view and can bulk-apply the same HTS and attributes in one pass.</p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 28px;">
+          <div style="background: #f7f7f5; border-radius: 10px; padding: 18px 20px;">
+            <p style="margin: 0 0 4px; font-weight: 600; font-size: 13px; color: #171717;">1. Bulk apply</p>
+            <p style="margin: 0; font-size: 13px; color: #555; line-height: 1.55;">Select many rows and apply one classification where appropriate.</p>
+          </div>
+          <div style="background: #f7f7f5; border-radius: 10px; padding: 18px 20px;">
+            <p style="margin: 0 0 4px; font-weight: 600; font-size: 13px; color: #171717;">2. HTS content inline</p>
+            <p style="margin: 0; font-size: 13px; color: #555; line-height: 1.55;">Official US HTS codes and notes appear as you type with no tab-switching required.</p>
+          </div>
+          <div style="background: #f7f7f5; border-radius: 10px; padding: 18px 20px;">
+            <p style="margin: 0 0 4px; font-weight: 600; font-size: 13px; color: #171717;">3. Insights suggestions</p>
+            <p style="margin: 0; font-size: 13px; color: #555; line-height: 1.55;">Propose likely HTS based on part numbers, descriptions, and prior patterns.</p>
+          </div>
+          <div style="background: #f7f7f5; border-radius: 10px; padding: 18px 20px;">
+            <p style="margin: 0 0 4px; font-weight: 600; font-size: 13px; color: #171717;">4. Guardrails &amp; audit</p>
+            <p style="margin: 0; font-size: 13px; color: #555; line-height: 1.55;">Structured inputs with key details captured automatically.</p>
+          </div>
+        </div>
+
+        <p class="cs-phase__intro" style="margin-top: 24px;">Users have full control throughout this process. They can accept suggestions, edit as needed, and move the batch forward.</p>
+
+        <!-- Apply image -->
+        <div style="position: relative; display: inline-block; width: 100%; margin-top: 36px;">
+          <img src="/assets/classification_apply.png" alt="Apply Classification key-grid" class="zoomable-img" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.10); cursor: zoom-in;" />
+          <button onclick="openLightbox('/assets/classification_apply.png')" aria-label="Expand image" style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.55); border: none; border-radius: 6px; padding: 5px 9px; cursor: pointer; color: #fff; font-size: 12px; display: flex; align-items: center; gap: 5px; backdrop-filter: blur(4px);">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+            Expand
+          </button>
+        </div>
+        <p style="font-size: 12px; color: #888; margin-top: 10px; text-align: left;">Key-grid built for efficiency: select rows, apply HTS, capture reason codes and notes.</p>
+
+        <!-- Content + Bulk apply side by side -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 36px;">
+          <div>
+            <div style="position: relative;">
+              <img src="/assets/classification_content.png" alt="HTS content inline" class="zoomable-img" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.10); cursor: zoom-in;" />
+              <button onclick="openLightbox('/assets/classification_content.png')" aria-label="Expand image" style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.55); border: none; border-radius: 6px; padding: 5px 9px; cursor: pointer; color: #fff; font-size: 12px; display: flex; align-items: center; gap: 5px; backdrop-filter: blur(4px);">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                Expand
+              </button>
+            </div>
+            <p style="font-size: 12px; color: #888; margin-top: 10px; text-align: left;">HTS content inline: official US (and other countries soon) HTS codes and notes appear as you type with no tab-switching required.</p>
+          </div>
+          <div>
+            <div style="position: relative;">
+              <img src="/assets/classification_bulkapply.png" alt="Bulk apply" class="zoomable-img" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.10); cursor: zoom-in;" />
+              <button onclick="openLightbox('/assets/classification_bulkapply.png')" aria-label="Expand image" style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.55); border: none; border-radius: 6px; padding: 5px 9px; cursor: pointer; color: #fff; font-size: 12px; display: flex; align-items: center; gap: 5px; backdrop-filter: blur(4px);">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                Expand
+              </button>
+            </div>
+            <p style="font-size: 12px; color: #888; margin-top: 10px; text-align: left;">Bulk apply: classify as many similar parts at once to drive speed and consistency.</p>
+          </div>
+        </div>
+
+        <!-- Insights image -->
+        <div style="position: relative; display: inline-block; width: 100%; margin-top: 36px;">
+          <img src="/assets/classification_insights.png" alt="Suggested HTS Insights" class="zoomable-img" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.10); cursor: zoom-in;" />
+          <button onclick="openLightbox('/assets/classification_insights.png')" aria-label="Expand image" style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.55); border: none; border-radius: 6px; padding: 5px 9px; cursor: pointer; color: #fff; font-size: 12px; display: flex; align-items: center; gap: 5px; backdrop-filter: blur(4px);">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+            Expand
+          </button>
+        </div>
+        <p style="font-size: 12px; color: #888; margin-top: 10px; text-align: left;">Suggested HTS (Insights): predictions based on part data with confidence indicators. However, analysts stay in control by accepting, rejecting, or refining these suggestions.</p>
+      </div>
+    </section>
+
+    <!-- Module 03: Q&A -->
+    <section class="cs-phase" id="s-module-qa">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Module 03</span>
+        <h2 class="cs-section-title">Q&amp;A Module</h2>
+      </div>
+      <div class="cs-body">
+        <p class="cs-phase__intro">Clarifications used to live in shared email inboxes: always getting lost, hard to track, impossible to search, and easy to lose. We first tried embedding Q&amp;A directly into the Apply screen, but analyst feedback showed the need for a dedicated space for questions and answers about products. Q&amp;A is now its own feature, with a screen for managing questions end-to-end.</p>
+        <p class="cs-phase__intro" style="margin-top: 16px;">Analysts can add questions, select reusable questions from a vetted catalog, and send clarifications to technical contacts via a simple portal. And while Q&amp;A has its own screen, analysts can still pop open a Q&amp;A side panel inside the Apply Classification module to keep clarifications close to their work.</p>
+
+        <!-- Q&A main image -->
+        <div style="position: relative; display: inline-block; width: 100%; margin-top: 36px;">
+          <img src="/assets/classification_qa.png" alt="Q&A workspace" class="zoomable-img" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.10); cursor: zoom-in;" />
+          <button onclick="openLightbox('/assets/classification_qa.png')" aria-label="Expand image" style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.55); border: none; border-radius: 6px; padding: 5px 9px; cursor: pointer; color: #fff; font-size: 12px; display: flex; align-items: center; gap: 5px; backdrop-filter: blur(4px);">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+            Expand
+          </button>
+        </div>
+        <p style="font-size: 12px; color: #888; margin-top: 10px; text-align: left;">A dedicated Q&amp;A workspace, including add, route, search, and resolve clarifications all in one place.</p>
+
+        <!-- Catalog + Flyout side by side -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 36px;">
+          <div>
+            <div style="position: relative;">
+              <img src="/assets/classification_qacatalog.png" alt="Question Catalog" class="zoomable-img" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.10); cursor: zoom-in;" />
+              <button onclick="openLightbox('/assets/classification_qacatalog.png')" aria-label="Expand image" style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.55); border: none; border-radius: 6px; padding: 5px 9px; cursor: pointer; color: #fff; font-size: 12px; display: flex; align-items: center; gap: 5px; backdrop-filter: blur(4px);">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                Expand
+              </button>
+            </div>
+            <p style="font-size: 12px; color: #888; margin-top: 10px; text-align: left;">Question Catalog: vetted templates from senior analysts for common clarifications.</p>
+          </div>
+          <div>
+            <div style="position: relative;">
+              <img src="/assets/classification_qaflyout.png" alt="Q&A Flyout" class="zoomable-img" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.10); cursor: zoom-in;" />
+              <button onclick="openLightbox('/assets/classification_qaflyout.png')" aria-label="Expand image" style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.55); border: none; border-radius: 6px; padding: 5px 9px; cursor: pointer; color: #fff; font-size: 12px; display: flex; align-items: center; gap: 5px; backdrop-filter: blur(4px);">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                Expand
+              </button>
+            </div>
+            <p style="font-size: 12px; color: #888; margin-top: 10px; text-align: left;">Q&amp;A Flyout: view and manage clarifications without leaving the Apply Classification module.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Impact -->
+    <section class="cs-phase" id="s-impact">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Impact</span>
+        <h2 class="cs-section-title">Results</h2>
+      </div>
+      <div class="cs-body">
+
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="background: #f7f7f5; border-radius: 12px; padding: 24px 28px;">
+            <p style="margin: 0 0 6px; font-weight: 600; font-size: 15px; color: #171717;">90% of clients migrated from Access &amp; email</p>
+            <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">Within the first release window, over 90% of Copper Hill's client base had already migrated into the centralized system.</p>
+          </div>
+          <div style="background: #f7f7f5; border-radius: 12px; padding: 24px 28px;">
+            <p style="margin: 0 0 6px; font-weight: 600; font-size: 15px; color: #171717;">Efficiency</p>
+            <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">Classification teams working faster and with fewer handoffs.</p>
+          </div>
+          <div style="background: #f7f7f5; border-radius: 12px; padding: 24px 28px;">
+            <p style="margin: 0 0 6px; font-weight: 600; font-size: 15px; color: #171717;">Less use of email</p>
+            <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">Clarifications centralized in Q&amp;A with searchable history.</p>
+          </div>
+          <div style="background: #f7f7f5; border-radius: 12px; padding: 24px 28px;">
+            <p style="margin: 0 0 6px; font-weight: 600; font-size: 15px; color: #171717;">Visibility</p>
+            <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.6;">Q&amp;A analytics dashboard gives managers &amp; clients real insights.</p>
+          </div>
+        </div>
+
+        <div style="position: relative; display: inline-block; width: 100%; margin-top: 40px;">
+          <img src="/assets/classification_metrics3.png" alt="Q&A analytics metrics" class="zoomable-img" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.10); cursor: zoom-in;" />
+          <button onclick="openLightbox('/assets/classification_metrics3.png')" aria-label="Expand image" style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.55); border: none; border-radius: 6px; padding: 5px 9px; cursor: pointer; color: #fff; font-size: 12px; display: flex; align-items: center; gap: 5px; backdrop-filter: blur(4px);">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+            Expand
+          </button>
+        </div>
+        <p style="font-size: 12px; color: #888; margin-top: 10px; text-align: left;">Managers and clients can track questions, responses, and resolution trends directly in the platform.</p>
+
+      </div>
+    </section>
+
+    <!-- Reflection -->
+    <section class="cs-phase" id="s-reflection">
+      <div class="cs-section-header">
+        <h2 class="cs-section-title">Reflection</h2>
+      </div>
+      <div class="cs-body">
+        <p class="cs-phase__intro">Overall, rolling on as an intern I genuinely knew nothing about the industry. However, through onboarding, shadowing, and interviewing analysts was essential for learning the industry, Copper Hill's users, and their frustrations and pain points. My design manager made sure to make time for me to sit down with product owners to fully understand the platform as a whole and to, especially, make sense of the classification module.</p>
+
+        <p class="cs-phase__intro" style="margin-top: 20px;">Whether it was figuring out how to best represent nested data tables, metrics through pie charts, progress indicators, or high volumes of data — the most challenging part for me was the Q&amp;A submodule. Bringing Q&amp;A into the platform required more than UI design, because it meant reshaping habits with better routing, notifications, and templates for analysts to use. One lesson I learnt from my design manager was the importance of involving stakeholders and operations early and often. Through regular demos and feedback loops during the iterative design process we realized Q&amp;A needed its own page instead of living on the Apply Classification page.</p>
+
+        <p class="cs-phase__intro" style="margin-top: 20px;">While I no longer work at Copper Hill, I think the introduction of more AI usage in their software could be really exciting and help significantly in other areas outside of just suggested parts. It is important to recognize users may remain skeptical of adopting AI usage into their workflow, so the value of faster classification needs to be presented clearly.</p>
+
+        <p class="cs-phase__intro" style="margin-top: 20px;">This was just some of the work I contributed during my time at Copper Hill, but the classification module was definitely a highlight of my experience and I think one of the most valuable modules on their shipped platform!</p>
+      </div>
+    </section>
+
+    <!-- More Work -->
+    <section class="cs-phase cs-more-work">
+      <h2 class="cs-more-work__heading">More Work</h2>
+      <div class="cs-more-work__grid" style="justify-content: center;">
+        <a href="/stackeval/" class="cs-more-work__card">
+          <img src="/assets/new_stackevalhome.png" alt="StackEval" class="cs-more-work__img" style="object-fit:contain;" />
+          <div class="cs-more-work__body">
+            <span class="cs-more-work__tag">UX Research · AI Tools</span>
+            <h3 class="cs-more-work__title">StackEval</h3>
+            <p class="cs-more-work__desc">An LLM evaluation tool built for developers, helping teams systematically test, compare, and improve their AI stack.</p>
+            <span class="cs-more-work__arrow">↗</span>
+          </div>
+        </a>
+        <a href="/glide/" class="cs-more-work__card">
+          <img src="/assets/newhero_glide.png" alt="GLIDE" class="cs-more-work__img" />
+          <div class="cs-more-work__body">
+            <span class="cs-more-work__tag">UX Design · Travel</span>
+            <h3 class="cs-more-work__title">GLIDE</h3>
+            <p class="cs-more-work__desc">An iOS travel app designed to give you a calm, predictable travel experience built on market research and intuitive design.</p>
+            <span class="cs-more-work__arrow">↗</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p class="footer__tagline">Yay! Thanks for checking out my work. Say hi! <span class="footer__emoji">(＊๑˘◡˘)</span></p>
+    <div class="footer__links">
+      <a href="mailto:ayanal@umich.edu" class="footer__link">ayanal@umich.edu</a>
+      <a href="https://www.linkedin.com/in/ayana-leelasena/" target="_blank" rel="noopener" class="footer__link">LinkedIn ↗</a>
+      <p class="footer__copy">© 2026 Ayana Leelasena</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      const html = document.documentElement;
+      html.setAttribute('data-theme', html.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
+    });
+
+    // Stepper active state
+    const stepperItems = document.querySelectorAll('.cs-stepper__item');
+    const sections = document.querySelectorAll('section[id]');
+    const stepObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          stepperItems.forEach(item => {
+            item.classList.toggle('active', item.dataset.target === entry.target.id);
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+    sections.forEach(s => stepObserver.observe(s));
+
+    const hamburger = document.getElementById('navHamburger');
+    const mobileMenu = document.getElementById('navMobileMenu');
+    if (hamburger && mobileMenu) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+        document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+      });
+      mobileMenu.querySelectorAll('.nav__mobile-link').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('open');
+          mobileMenu.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+  </script>
+
+  <!-- Lightbox -->
+  <div id="lightbox" onclick="closeLightbox()" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:9999; align-items:center; justify-content:center; cursor:zoom-out; padding:24px;">
+    <img id="lightbox-img" src="" alt="" style="max-width:92vw; max-height:90vh; border-radius:10px; box-shadow:0 24px 80px rgba(0,0,0,0.5); object-fit:contain;" />
+    <button onclick="closeLightbox()" aria-label="Close" style="position:fixed; top:20px; right:24px; background:rgba(255,255,255,0.15); border:none; border-radius:50%; width:40px; height:40px; cursor:pointer; color:#fff; font-size:20px; display:flex; align-items:center; justify-content:center;">✕</button>
+  </div>
+  <script>
+    function openLightbox(src) {
+      const lb = document.getElementById('lightbox');
+      document.getElementById('lightbox-img').src = src;
+      lb.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+    document.querySelectorAll('.zoomable-img').forEach(img => img.addEventListener('click', () => openLightbox(img.src)));
+  </script>
+</body>
+</html>
