@@ -178,6 +178,70 @@
       .se-img-grid { grid-template-columns: 1fr; }
     }
 
+    /* ── Design requirements: full-width vertical accordion ── */
+    .se-reqs--full {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 12px !important;
+      max-width: 100% !important;
+    }
+    .se-reqs--full .cs-req {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      text-align: left !important;
+      padding: 0 !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+      cursor: pointer !important;
+    }
+    .se-req__header {
+      display: flex;
+      align-items: center;
+      padding: 20px 28px;
+      gap: 20px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .se-reqs--full .cs-req__number {
+      margin-bottom: 0 !important;
+      margin-right: 0 !important;
+      flex-shrink: 0;
+    }
+    .se-reqs--full .cs-req__title {
+      text-align: left !important;
+      margin: 0 !important;
+      font-size: 18px !important;
+      flex: 1;
+    }
+    .se-req__chevron {
+      font-size: 20px;
+      font-weight: 300;
+      color: var(--se-purple);
+      flex-shrink: 0;
+      line-height: 1;
+      transition: transform 0.25s ease;
+      font-family: 'IBM Plex Sans', sans-serif;
+    }
+    .se-req--accordion.open .se-req__chevron {
+      transform: rotate(45deg);
+    }
+    .se-req__body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      padding: 0 28px;
+      box-sizing: border-box;
+    }
+    .se-req--accordion.open .se-req__body {
+      max-height: 200px;
+      padding: 0 28px 20px;
+    }
+    .se-req__body .cs-req__desc {
+      margin: 0;
+      text-align: left !important;
+    }
+
     /* ── Methods box: shadow + dividers ── */
     [data-theme="light"] .cs-methods {
       background: #ffffff;
@@ -442,72 +506,36 @@
         <li class="cs-stepper__item" data-target="s-research">
           <a href="#s-research" class="cs-stepper__link">
             <span class="cs-stepper__num">03</span>
-            <span class="cs-stepper__label">Exploratory Research</span>
-          </a>
-        </li>
-        <li class="cs-stepper__item" data-target="s-interviews">
-          <a href="#s-interviews" class="cs-stepper__link">
-            <span class="cs-stepper__num">04</span>
-            <span class="cs-stepper__label">User Interviews</span>
-          </a>
-        </li>
-        <li class="cs-stepper__item" data-target="s-interview-findings">
-          <a href="#s-interview-findings" class="cs-stepper__link">
-            <span class="cs-stepper__num">05</span>
-            <span class="cs-stepper__label">Interview Findings</span>
-          </a>
-        </li>
-        <li class="cs-stepper__item" data-target="s-design-req">
-          <a href="#s-design-req" class="cs-stepper__link">
-            <span class="cs-stepper__num">06</span>
-            <span class="cs-stepper__label">Design Requirements</span>
-          </a>
-        </li>
-        <li class="cs-stepper__item" data-target="s-preference-testing">
-          <a href="#s-preference-testing" class="cs-stepper__link">
-            <span class="cs-stepper__num">07</span>
-            <span class="cs-stepper__label">Preference Testing</span>
-          </a>
-        </li>
-        <li class="cs-stepper__item" data-target="s-usability">
-          <a href="#s-usability" class="cs-stepper__link">
-            <span class="cs-stepper__num">08</span>
-            <span class="cs-stepper__label">Usability Testing</span>
-          </a>
-        </li>
-        <li class="cs-stepper__item" data-target="s-usability-findings">
-          <a href="#s-usability-findings" class="cs-stepper__link">
-            <span class="cs-stepper__num">09</span>
-            <span class="cs-stepper__label">Testing Findings</span>
+            <span class="cs-stepper__label">Research</span>
           </a>
         </li>
         <li class="cs-stepper__item" data-target="s-design-system">
           <a href="#s-design-system" class="cs-stepper__link">
-            <span class="cs-stepper__num">10</span>
+            <span class="cs-stepper__num">04</span>
             <span class="cs-stepper__label">Design System</span>
           </a>
         </li>
         <li class="cs-stepper__item" data-target="s-final">
           <a href="#s-final" class="cs-stepper__link">
-            <span class="cs-stepper__num">11</span>
+            <span class="cs-stepper__num">05</span>
             <span class="cs-stepper__label">Final Design</span>
           </a>
         </li>
         <li class="cs-stepper__item" data-target="s-prototype">
           <a href="#s-prototype" class="cs-stepper__link">
-            <span class="cs-stepper__num">12</span>
+            <span class="cs-stepper__num">06</span>
             <span class="cs-stepper__label">Prototype</span>
           </a>
         </li>
         <li class="cs-stepper__item" data-target="s-realization">
           <a href="#s-realization" class="cs-stepper__link">
-            <span class="cs-stepper__num">13</span>
-            <span class="cs-stepper__label">Realization Plan</span>
+            <span class="cs-stepper__num">07</span>
+            <span class="cs-stepper__label">Next Steps</span>
           </a>
         </li>
         <li class="cs-stepper__item" data-target="s-reflection">
           <a href="#s-reflection" class="cs-stepper__link">
-            <span class="cs-stepper__num">14</span>
+            <span class="cs-stepper__num">08</span>
             <span class="cs-stepper__label">Reflection</span>
           </a>
         </li>
@@ -564,28 +592,11 @@
         <p>Developers don't evaluate LLMs with spreadsheets. They use intuition, experience, and task-specific reasoning, none of which existing tools support.</p>
       </div>
       <div class="cs-intro__body">
-        <p>StackEval is a decision-support platform built for <span class="cs-accent">Backboard.io</span>, an AI infrastructure company, that transforms informal, "vibes-based" model evaluation into a structured, repeatable workflow. Over a semester-long capstone, our team of five UX researchers and designers conducted <span class="cs-accent">5 semi-structured interviews</span>, <span class="cs-accent">preference testing with 28 participants</span>, and <span class="cs-accent">moderated usability testing with 6 practitioners</span> to understand how AI teams actually choose models in production.</p>
-        <p><span class="cs-accent">The result:</span> <span class="cs-accent">a four-phase evaluation workflow (Define Task, Define Metrics, Model Selection, and Run Evaluation)</span> that reduces cognitive load at every step while preserving the flexibility expert users demand.</p>
+        <p>StackEval is a decision-support platform built for <span class="cs-accent">Backboard.io</span>, an AI infrastructure company, that transforms informal, "vibes-based" model evaluation into a structured, repeatable workflow.</p>
+        <p>A team of five UX researchers and designers set out to understand how AI teams actually choose models in production.</p>
+        <p><strong>The result: a four-phase evaluation workflow for developers (Define Task, Define Metrics, Model Selection, and Run Evaluation) that reduces cognitive load at every step while preserving the flexibility expert users demand.</strong></p>
       </div>
-      <div class="cs-intro__stats">
-        <div class="cs-stat">
-          <span class="cs-stat__number">5</span>
-          <span class="cs-stat__label">User Interviews</span>
-        </div>
-        <div class="cs-stat">
-          <span class="cs-stat__number">28</span>
-          <span class="cs-stat__label">Preference Test Participants</span>
-        </div>
-        <div class="cs-stat">
-          <span class="cs-stat__number">6</span>
-          <span class="cs-stat__label">Usability Test Sessions</span>
-        </div>
-        <div class="cs-stat">
-          <span class="cs-stat__number">4</span>
-          <span class="cs-stat__label">Phase Workflow</span>
-        </div>
-      </div>
-      <div style="margin-top:32px;">
+<div style="margin-top:32px;">
         <div style="display: flex; justify-content: center; width: 100%; margin-top: -16px;">
           <a href="#s-final" class="se-jump-btn">Jump to Final Solution ↓</a>
         </div>
@@ -601,27 +612,25 @@
         <div class="cs-goal">
           <span class="cs-goal__number">01</span>
           <h3 class="cs-goal__title">Design a structured, repeatable evaluation workflow.</h3>
-          <p class="cs-goal__desc">Build a decision-support environment that supports repeatable comparison, interpretable trade-offs, and calibrated trust within real development workflows.</p>
         </div>
         <div class="cs-goal">
           <span class="cs-goal__number">02</span>
           <h3 class="cs-goal__title">Ground the design in real practitioner workflows.</h3>
-          <p class="cs-goal__desc">Research two core personas, a senior developer and a founding engineer, to surface deep, actionable insights rather than surface-level usability fixes.</p>
         </div>
         <div class="cs-goal">
           <span class="cs-goal__number">03</span>
           <h3 class="cs-goal__title">Bridge expert intuition and systematic evaluation.</h3>
-          <p class="cs-goal__desc">Translate how developers actually evaluate models under real constraints into concrete UX and product recommendations for StackEval.</p>
         </div>
       </div>
     </section>
 
     <section class="cs-phase" id="s-research">
       <div class="cs-section-header">
-        <span class="cs-section-label">Phase 1</span>
-        <h2 class="cs-section-title">Exploratory Research</h2>
+        <span class="cs-section-label">Research</span>
+        <h2 class="cs-section-title">Research</h2>
         <p class="cs-phase__intro">Before shaping any design direction, we examined how LLM evaluation works in practice, where StackEval fell short, and how practitioners reason about model choices under real constraints.</p>
       </div>
+
       <div class="cs-methods">
         <div class="cs-method">
           <span class="cs-method__number">01</span>
@@ -658,29 +667,9 @@
         </div>
       </div>
 
-      <!-- Persona 1 + Journey Map 1 -->
-      <div class="cs-body">
-        <span class="cs-section-label">Persona &amp; Journey Map — 01</span>
-        <div class="se-img-grid">
-          <img src="/assets/stackeval_persona1.jpg" alt="StackEval Persona 1" class="se-full-img" />
-          <img src="/assets/stackeval_journeymap1.jpg" alt="StackEval Journey Map 1" class="se-full-img" />
-        </div>
-      </div>
-
-      <!-- Persona 2 + Journey Map 2 -->
-      <div class="cs-body">
-        <span class="cs-section-label">Persona &amp; Journey Map — 02</span>
-        <div class="se-img-grid">
-          <img src="/assets/stackeval_persona2.jpg" alt="StackEval Persona 2" class="se-full-img" />
-          <img src="/assets/stackeval_journeymap2.jpg" alt="StackEval Journey Map 2" class="se-full-img" />
-        </div>
-      </div>
-
-    </section>
-
-    <section class="cs-phase" id="s-interviews">
-      <div class="cs-section-header">
-        <h2 class="cs-section-title">User Interviews</h2>
+      <!-- User Interviews -->
+      <div class="cs-section-header" style="margin-top: 48px;">
+        <span class="cs-section-label">User Interviews</span>
         <p class="cs-phase__intro"><span class="cs-accent">Five semi-structured interviews with practitioners who actively use LLMs in professional settings</span>, designed to surface goals, decision-making processes, pain points, and the informal evaluation frameworks developers rely on in practice.</p>
       </div>
 
@@ -701,11 +690,10 @@
         <img src="/assets/higher_res_miro.jpg" alt="Affinity mapping on Miro board" class="cs-full-image__img" />
         <p class="cs-full-image__caption">Affinity mapping across five participant interviews</p>
       </div>
-    </section>
 
-    <section class="cs-phase" id="s-interview-findings">
-      <div class="cs-section-header">
-        <h2 class="cs-section-title">User Interview Findings</h2>
+      <!-- Interview Findings -->
+      <div class="cs-section-header" style="margin-top: 48px;">
+        <span class="cs-section-label">Interview Findings</span>
         <p class="cs-phase__intro">Three core themes emerged from affinity mapping across five practitioner interviews.</p>
       </div>
 
@@ -715,8 +703,8 @@
           <h3 class="cs-finding__title">Developers have built a real evaluation system, but it lives entirely in their heads.</h3>
         </div>
         <div class="cs-finding__body">
-          <p>Across every interview, participants demonstrated <span class="cs-accent">sophisticated evaluation instincts</span>, yet almost none of it was written down, shared, or repeatable. Traditional metrics — <span class="cs-accent">BLEU, ROUGE, and F1</span> — were consistently dismissed as artifacts of a previous era, when model tasks were narrow and outputs could be compared to a correct label. Once work becomes generative, <span class="cs-accent">there is no single correct string to measure against.</span></p>
-          <p>Golden outputs carried the same problem. In real development, codebases evolve, requirements shift, and what counts as good depends on context. What replaced both was a <span class="cs-accent">task-based mental model</span>, where participants matched specific models to specific jobs based on accumulated experience. The consequence: <span class="cs-accent">this knowledge does not accumulate.</span> When a developer leaves a team or a model updates, the mental model disappears with them.</p>
+          <p>Every participant had sharp instincts for evaluation, but almost none of it was written down, shared, or repeatable. Nobody trusted the old metrics. BLEU, ROUGE, F1: those made sense when tasks were narrow and you could check outputs against a correct label. But once the work is generative, there's no single right answer to measure against.</p>
+          <p>Golden outputs ran into the same wall. Codebases change, requirements shift, and whether something is good depends on the situation. So people fell back on a task-based mental model instead, matching certain models to certain jobs based on what they'd picked up over time. <strong>The catch is that none of it sticks. When someone leaves the team or a model gets updated, that knowledge walks out the door with them.</strong></p>
         </div>
         <div class="cs-finding__quotes">
           <div class="cs-quote">
@@ -744,8 +732,8 @@
           <h3 class="cs-finding__title">A model's output is only as good as its ability to demonstrate contextual match.</h3>
         </div>
         <div class="cs-finding__body">
-          <p>Models are judged not only on the quality of their output but on <span class="cs-accent">whether they work in the correct context</span> — whether they understand the codebase, follow the user's reasoning style, and iterate without getting stuck. A model that produces logically correct answers but <span class="cs-accent">misinterprets context is a worse fit</span> than one that is slightly less verbose but maintains and works from the correct information.</p>
-          <p>Trust in evaluation depended more on <span class="cs-accent">how a model behaves throughout the process</span> than on final scores. Developers care about <span class="cs-accent">transparency into the model's reasoning and contextual indicators</span> — that is what builds confidence in what the model produces.</p>
+          <p>Models get judged on more than just output quality. What matters is whether they fit the context: do they understand the codebase, follow how the user thinks, and keep iterating without getting stuck? A model that gives logically correct answers but misreads the context is a worse fit than one that's a little less polished but actually holds onto the right information and works from it.</p>
+          <p><strong>Trust came down to how a model behaves along the way, not its final scores. Developers want to see the model's reasoning and the signals that it's tracking context, and that's what makes them confident in what it produces.</strong></p>
         </div>
         <div class="cs-finding__quotes">
           <div class="cs-quote">
@@ -773,8 +761,8 @@
           <h3 class="cs-finding__title">Defaulting to familiar models limits exposure to better alternatives.</h3>
         </div>
         <div class="cs-finding__body">
-          <p>Model selection is driven by <span class="cs-accent">brand loyalty and community consensus</span>, not systematic comparison. Developers build detailed mental models of trade-offs, but only within a small set of models they already know. The cost of evaluating something unfamiliar — in time, money, and cognitive load — <span class="cs-accent">makes sticking with what's trusted the rational default.</span></p>
-          <p>With over <span class="cs-accent">17,000 models in Backboard.io's catalog</span>, this default is expensive. <span class="cs-accent">Better-fit models never get considered</span>, and the same handful of providers get chosen repeatedly regardless of whether they're the best match for the task. Participants described quickly trying new models when they launched, but <span class="cs-accent">true comparative evaluation was rare.</span></p>
+          <p>Model selection comes down to brand loyalty and whatever the community is saying, not any real comparison. Developers build out detailed mental models of the trade-offs, but only for the handful of models they already know. Trying something unfamiliar costs time, money, and mental energy, so sticking with what you trust is just the rational move.</p>
+          <p>With over 17,000 models in Backboard.io's catalog, that default gets expensive. Better-fit models never get a look, and the same few providers keep winning out whether or not they're right for the job. People said they'd quickly poke at new models when they dropped, but <strong>actually comparing them head to head almost never happened.</strong></p>
         </div>
         <div class="cs-finding__quotes">
           <div class="cs-quote">
@@ -795,37 +783,56 @@
           </div>
         </div>
       </div>
-    </section>
 
-    <section class="cs-phase" id="s-design-req">
-      <div class="cs-section-header">
-        <span class="cs-section-label">Phase 2</span>
-        <h2 class="cs-section-title">Generative Design Requirements</h2>
+      <!-- Design Requirements -->
+      <div class="cs-section-header" style="margin-top: 48px;">
+        <span class="cs-section-label">Design Requirements</span>
         <p class="cs-phase__intro">Our exploratory findings translated into a clear set of design requirements organized around four areas.</p>
       </div>
 
-      <div class="cs-reqs__grid">
-        <div class="cs-req">
-          <span class="cs-req__number">01</span>
-          <h3 class="cs-req__title">Task and Evaluation Definition</h3>
-          <p class="cs-req__desc">Users want ways to include their own metrics to evaluate models in a way that is <span class="cs-accent">customized to their project and needs.</span></p>
+      <div class="cs-reqs__grid se-reqs--full">
+        <div class="cs-req se-req--accordion">
+          <div class="se-req__header">
+            <span class="cs-req__number">01</span>
+            <h3 class="cs-req__title">Task and Evaluation Definition</h3>
+            <span class="se-req__chevron">+</span>
+          </div>
+          <div class="se-req__body">
+            <p class="cs-req__desc">Users want ways to include their own metrics to evaluate models in a way that is <span class="cs-accent">customized to their project and needs.</span></p>
+          </div>
         </div>
-        <div class="cs-req">
-          <span class="cs-req__number">02</span>
-          <h3 class="cs-req__title">Model Recommendation</h3>
-          <p class="cs-req__desc">The system should <span class="cs-accent">encourage model discovery</span> through personalized and tailored model recommendations that fit the users' goals, project needs, and success criteria.</p>
+        <div class="cs-req se-req--accordion">
+          <div class="se-req__header">
+            <span class="cs-req__number">02</span>
+            <h3 class="cs-req__title">Model Recommendation</h3>
+            <span class="se-req__chevron">+</span>
+          </div>
+          <div class="se-req__body">
+            <p class="cs-req__desc">The system should <span class="cs-accent">encourage model discovery</span> through personalized and tailored model recommendations that fit the users' goals, project needs, and success criteria.</p>
+          </div>
         </div>
-        <div class="cs-req">
-          <span class="cs-req__number">03</span>
-          <h3 class="cs-req__title">Model Selection</h3>
-          <p class="cs-req__desc">Users need the ability to <span class="cs-accent">search and select the models that they need</span> from the 17,000+ model inventory.</p>
+        <div class="cs-req se-req--accordion">
+          <div class="se-req__header">
+            <span class="cs-req__number">03</span>
+            <h3 class="cs-req__title">Model Selection</h3>
+            <span class="se-req__chevron">+</span>
+          </div>
+          <div class="se-req__body">
+            <p class="cs-req__desc">Users need the ability to <span class="cs-accent">search and select the models that they need</span> from the 17,000+ model inventory.</p>
+          </div>
         </div>
-        <div class="cs-req">
-          <span class="cs-req__number">04</span>
-          <h3 class="cs-req__title">Output Comparison</h3>
-          <p class="cs-req__desc">Results need to be <span class="cs-accent">scannable within and between models</span> with surfaced metrics.</p>
+        <div class="cs-req se-req--accordion">
+          <div class="se-req__header">
+            <span class="cs-req__number">04</span>
+            <h3 class="cs-req__title">Output Comparison</h3>
+            <span class="se-req__chevron">+</span>
+          </div>
+          <div class="se-req__body">
+            <p class="cs-req__desc">Results need to be <span class="cs-accent">scannable within and between models</span> with surfaced metrics.</p>
+          </div>
         </div>
       </div>
+
       <div class="cs-priority">
         <h3 class="cs-priority__title">Priority Matrix</h3>
         <p class="cs-priority__body">We mapped these requirements onto a prioritization matrix across user value and implementation effort, identifying <span class="cs-accent">quick wins like multi-model selection and scannable output comparison</span> as MVP priorities, and <span class="cs-accent">strategic priorities like custom metric input and personalized model suggestions</span> as high-value features requiring deeper design investment.</p>
@@ -834,118 +841,64 @@
         </div>
       </div>
 
-      <div class="cs-design-variations">
-        <h3 class="cs-priority__title">Design Variations</h3>
-        <p class="cs-priority__body">From here, we moved on to brainstorming designs for a system that fit users' goals, alleviated pain points, and fit seamlessly into their workflows determined by preference testing.</p>
-
-        <h4 class="cs-variations__subtitle">Initial Sketches</h4>
-        <div class="cs-sketch">
-          <img src="/assets/sketch1.jpeg" alt="Initial sketch 1" class="cs-sketch__img" />
-          <img src="/assets/sketch2.JPG" alt="Initial sketch 2" class="cs-sketch__img" />
-          <img src="/assets/sketch3.JPG" alt="Initial sketch 3" class="cs-sketch__img" />
-        </div>
-
-        <h3 class="cs-priority__title" id="s-preference-testing" style="margin-top: 48px;">Preference Testing</h3>
-
-        <h4 class="cs-variations__subtitle">Set Up Variations</h4>
-
-        <div class="cs-variations__grid">
-          <div class="cs-variation">
-            <div class="cs-variation__header">
-              <span class="cs-variation__label">Version A</span>
-              <span class="cs-variation__pref cs-variation__pref--winner">Preferred by 71%</span>
-            </div>
-            <h5 class="cs-variation__title">Sequential Layout</h5>
-            <img src="/assets/version_a_sequential_layout.png" alt="Version A: Sequential Layout" class="cs-variation__img" />
-          </div>
-          <div class="cs-variation">
-            <div class="cs-variation__header">
-              <span class="cs-variation__label">Version B</span>
-              <span class="cs-variation__pref">Preferred by 29%</span>
-            </div>
-            <h5 class="cs-variation__title">Pop-out Modals</h5>
-            <img src="/assets/versionB_popout.png" alt="Version B: Pop-out Modals" class="cs-variation__img" />
-          </div>
-        </div>
-
-        <p class="cs-priority__body">Participants valued its <span class="cs-accent">step-by-step structure, reduced clutter, and simplified navigation</span> of complex information. The sidebar layout tended to feel overwhelming, with important interactions getting lost in the interface. A notable nuance emerged: a subset of participants identified Layout A as easier to understand while still selecting Layout B as the one they would prefer to use, suggesting that <span class="cs-accent">experienced users valued the efficiency of having everything on one page</span> despite the clarity advantage of sequential steps. This feedback led us to implement <span class="cs-accent">default settings for each step</span> so expert users could pass through quickly, and opened broader conversations about saving configurations and creating presets.</p>
-
-        <h4 class="cs-variations__subtitle">Output Variations</h4>
-
-        <div class="cs-variations__grid cs-variations__grid--stacked">
-          <div class="cs-variation">
-            <div class="cs-variation__header">
-              <span class="cs-variation__label">Version A</span>
-              <span class="cs-variation__pref">Preferred by 9%</span>
-            </div>
-            <h5 class="cs-variation__title">Sequential Layout</h5>
-            <img src="/assets/version_a_output.png" alt="Version A: Sequential Layout" class="cs-variation__img" />
-          </div>
-          <div class="cs-variation">
-            <div class="cs-variation__header">
-              <span class="cs-variation__label">Version B</span>
-              <span class="cs-variation__pref cs-variation__pref--winner">Preferred by 59%</span>
-            </div>
-            <h5 class="cs-variation__title">Row-Focused Layout</h5>
-            <img src="/assets/Version_B_Output.png" alt="Version B: Row-Focused Layout" class="cs-variation__img" />
-          </div>
-          <div class="cs-variation">
-            <div class="cs-variation__header">
-              <span class="cs-variation__label">Version C</span>
-              <span class="cs-variation__pref">Preferred by 32%</span>
-            </div>
-            <h5 class="cs-variation__title">Synchronized Grid</h5>
-            <img src="/assets/Version_C_Output.png" alt="Version C: Synchronized Grid" class="cs-variation__img" />
-          </div>
-        </div>
-
-        <p class="cs-priority__body">Participants found the <span class="cs-accent">side-by-side comparison of Layouts B and C more intuitive</span> than vertical scanning, and specifically valued <span class="cs-accent">Layout B's filters and expandable rows</span> for managing information density. The emphasis on clarity stemmed from the use of <span class="cs-accent">gestalt grouping principles and left-to-right readability.</span></p>
-      </div>
-    </section>
-
-    <section class="cs-phase" id="s-usability">
-      <div class="cs-section-header">
-        <span class="cs-section-label">Phase 2 · Evaluation</span>
-        <h2 class="cs-section-title">Usability Testing</h2>
-        <p class="cs-phase__intro">With the sequential setup and row-focused output layouts selected, we built a <span class="cs-accent">high-fidelity interactive prototype</span> and conducted moderated usability testing with <span class="cs-accent">six participants</span>. All had established experience with LLM evaluation, including use of industry tools like LangChain and custom evaluation frameworks.</p>
+      <!-- Preference Testing -->
+      <div class="cs-section-header" style="margin-top: 48px;">
+        <span class="cs-section-label">Preference Testing</span>
+        <p class="cs-phase__intro">From here, we brainstormed designs and ran preference testing with 28 participants to determine which layout approaches best fit user workflows.</p>
       </div>
 
-      <img src="/assets/usability_testing_participants.png" alt="Usability testing participants" class="cs-interview-img" />
-
-      <div class="cs-usability__lower">
-        <div class="cs-methods">
-          <div class="cs-method">
-            <span class="cs-method__number">01</span>
-            <div class="cs-method__content">
-              <h3 class="cs-method__title">Protocol and Analysis</h3>
-              <ul class="cs-method__list">
-                <li>Two core tasks mirroring preference testing: <span class="cs-accent">evaluation set-up and evaluation output</span>. Participants were first given a scenario to set up the context behind their task.</li>
-                <li>Participants were asked to <span class="cs-accent">set up their evaluation and select 3 models to compare.</span></li>
-                <li>Follow-up questions after both tasks gauged <span class="cs-accent">confidence levels, expectations, frustrations, and what was most useful</span> about the platform.</li>
-                <li>Live note-taking completed through a <span class="cs-accent">rainbow spreadsheet</span> to capture overall actions and patterns, with direct quotations and observations logged separately.</li>
-                <li>The rainbow spreadsheet acted as the foundation for <span class="cs-accent">qualitative thematic analysis</span>, visualizing patterns across participants and informing top-down analysis of the affinity map.</li>
-              </ul>
-            </div>
+      <h4 class="cs-variations__subtitle">Set Up Variations</h4>
+      <div class="cs-variations__grid">
+        <div class="cs-variation">
+          <div class="cs-variation__header">
+            <span class="cs-variation__label">Version A</span>
+            <span class="cs-variation__pref cs-variation__pref--winner">Preferred by 71%</span>
           </div>
-          <div class="cs-method">
-            <span class="cs-method__number">02</span>
-            <div class="cs-method__content">
-              <h3 class="cs-method__title">Recruitment and Screening</h3>
-              <ul class="cs-method__list">
-                <li>Participants were recruited through professional networks and the <span class="cs-accent">University of Michigan PhD candidate network.</span></li>
-                <li>All participants had established, hands-on experience with LLM evaluation tools and workflows.</li>
-              </ul>
-            </div>
-          </div>
+          <h5 class="cs-variation__title">Sequential Layout</h5>
+          <img src="/assets/version_a_sequential_layout.png" alt="Version A: Sequential Layout" class="cs-variation__img" />
         </div>
-        <img src="/assets/usabilitytesting_Table.png" alt="Participant experience table" class="cs-usability__table" />
+        <div class="cs-variation">
+          <div class="cs-variation__header">
+            <span class="cs-variation__label">Version B</span>
+            <span class="cs-variation__pref">Preferred by 29%</span>
+          </div>
+          <h5 class="cs-variation__title">Pop-out Modals</h5>
+          <img src="/assets/versionB_popout.png" alt="Version B: Pop-out Modals" class="cs-variation__img" />
+        </div>
       </div>
-    </section>
 
-    <section class="cs-phase" id="s-usability-findings">
-      <div class="cs-section-header">
-        <h2 class="cs-section-title">Usability Testing Findings</h2>
-        <p class="cs-phase__intro">Four core themes emerged from moderated sessions with six practitioners across technical skill levels.</p>
+      <h4 class="cs-variations__subtitle">Output Variations</h4>
+      <div class="cs-variations__grid cs-variations__grid--stacked">
+        <div class="cs-variation">
+          <div class="cs-variation__header">
+            <span class="cs-variation__label">Version A</span>
+            <span class="cs-variation__pref">Preferred by 9%</span>
+          </div>
+          <h5 class="cs-variation__title">Sequential Layout</h5>
+          <img src="/assets/version_a_output.png" alt="Version A: Sequential Layout" class="cs-variation__img" />
+        </div>
+        <div class="cs-variation">
+          <div class="cs-variation__header">
+            <span class="cs-variation__label">Version B</span>
+            <span class="cs-variation__pref cs-variation__pref--winner">Preferred by 59%</span>
+          </div>
+          <h5 class="cs-variation__title">Row-Focused Layout</h5>
+          <img src="/assets/Version_B_Output.png" alt="Version B: Row-Focused Layout" class="cs-variation__img" />
+        </div>
+        <div class="cs-variation">
+          <div class="cs-variation__header">
+            <span class="cs-variation__label">Version C</span>
+            <span class="cs-variation__pref">Preferred by 32%</span>
+          </div>
+          <h5 class="cs-variation__title">Synchronized Grid</h5>
+          <img src="/assets/Version_C_Output.png" alt="Version C: Synchronized Grid" class="cs-variation__img" />
+        </div>
+      </div>
+
+      <!-- Usability Testing Findings -->
+      <div class="cs-section-header" style="margin-top: 48px;">
+        <span class="cs-section-label">Usability Testing Findings</span>
+        <p class="cs-phase__intro">With layouts selected, we built a high-fidelity prototype and ran moderated usability testing with six practitioners. Four core themes emerged.</p>
       </div>
 
       <div class="cs-finding">
@@ -1003,6 +956,7 @@
           <p class="cs-direction__text">Added an <span class="cs-accent">export feature in CSV, JSON, and text report formats</span>, with refined color and CTA placement to surface the most decision-relevant information.</p>
         </div>
       </div>
+
     </section>
 
     <section class="cs-phase" id="s-design-system">
@@ -1348,6 +1302,38 @@
       document.body.style.overflow = '';
       lbInner.classList.remove('zoomed');
     }
+
+    // Accordion: design requirement cards (inline-style driven for reliable specificity)
+    document.querySelectorAll('.se-req--accordion').forEach(card => {
+      const body = card.querySelector('.se-req__body');
+      const chevron = card.querySelector('.se-req__chevron');
+      body.style.maxHeight = '0px';
+      body.style.paddingBottom = '0';
+      body.style.overflow = 'hidden';
+      body.style.transition = 'max-height 0.3s ease, padding 0.3s ease';
+
+      card.addEventListener('click', () => {
+        const isOpen = card.dataset.open === 'true';
+
+        document.querySelectorAll('.se-req--accordion').forEach(c => {
+          c.dataset.open = 'false';
+          const b = c.querySelector('.se-req__body');
+          const ch = c.querySelector('.se-req__chevron');
+          b.style.maxHeight = '0px';
+          b.style.paddingBottom = '0';
+          ch.style.transform = 'rotate(0deg)';
+          c.classList.remove('open');
+        });
+
+        if (!isOpen) {
+          card.dataset.open = 'true';
+          card.classList.add('open');
+          body.style.maxHeight = body.scrollHeight + 40 + 'px';
+          body.style.paddingBottom = '20px';
+          chevron.style.transform = 'rotate(45deg)';
+        }
+      });
+    });
   </script>
 </body>
 </html>
