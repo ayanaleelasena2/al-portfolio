@@ -282,6 +282,8 @@
   </style>
 </head>
 <body>
+<div class="scroll-progress" id="scrollProgress"></div>
+
 
   <header class="nav">
     <a href="/" class="nav__logo" aria-label="Home">
@@ -772,5 +774,18 @@
     });
   </script>
 
+  <script>
+    (function() {
+      var bar = document.getElementById('scrollProgress');
+      function update() {
+        var scrollTop = window.scrollY || document.documentElement.scrollTop;
+        var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        bar.style.width = pct + '%';
+      }
+      window.addEventListener('scroll', update, { passive: true });
+      update();
+    })();
+  </script>
 </body>
 </html>
