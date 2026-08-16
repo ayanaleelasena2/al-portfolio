@@ -1340,6 +1340,9 @@
   </script>
   <script>
     (function() {
+      var style = document.createElement('style');
+      style.textContent = '#scrollProgress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, #4a9eff, #7b6ff7); z-index: 9999; pointer-events: none; transition: width 0.08s linear; }';
+      document.head.appendChild(style);
       var bar = document.getElementById('scrollProgress');
       function update() {
         var scrollTop = window.scrollY || document.documentElement.scrollTop;
