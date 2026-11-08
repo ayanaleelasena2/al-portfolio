@@ -506,7 +506,7 @@ main {
 .theme-toggle__icon--sun { color: #555555; }
 .theme-toggle__icon--moon { color: #ffffff; }
 
-[data-theme="light"] .theme-toggle__icon--sun { color: #111111; }
+[data-theme="light"] .theme-toggle__icon--sun { color: #ffffff; }
 [data-theme="light"] .theme-toggle__icon--moon { color: #aaaaaa; }
 
 /* ── Light Mode ── */
@@ -579,7 +579,7 @@ html[data-theme="light"] {
 [data-theme="light"] .theme-toggle { border-color: #0d3a52; }
 [data-theme="light"] .theme-toggle__thumb { background: #0d3a52; }
 [data-theme="light"] .theme-toggle__icon--moon { color: #0d3a52; }
-[data-theme="light"] .theme-toggle__icon--sun { color: #111111; }
+[data-theme="light"] .theme-toggle__icon--sun { color: #ffffff; }
 
 /* ── About ── */
 

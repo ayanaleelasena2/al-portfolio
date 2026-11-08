@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/assets/afia_logo.png" />
+  <title>Email Design System | Ayana Leelasena</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/case-study.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --eds-blue: #1a6faf;
+      --eds-blue-light: #5ba4d4;
+    }
+
+    h1, h2, h3, h4, h5, h6,
+    .cs-section-title,
+    .cs-intro__hook p,
+    .cs-hero__title,
+    .cs-finding__title,
+    .cs-req__title,
+    .cs-method__title,
+    .cs-direction__label,
+    .cs-learning__title,
+    .cs-realization-step__title,
+    .cs-persona-card__name,
+    .cs-more-work__title,
+    .cs-quote__text              { font-family: 'IBM Plex Sans', sans-serif !important; }
+
+    p, li, strong,
+    .cs-phase__intro,
+    .cs-hero__blurb,
+    .cs-interview-block__text,
+    .cs-finding__body p,
+    .cs-req__desc,
+    .cs-direction__text,
+    .cs-method__list li          { font-family: 'BDO Grotesk Medium', 'BDO Grotesk', sans-serif !important; }
+
+    .cs-section-label            { color: var(--eds-blue-light); }
+    .cs-hero__media              { background: transparent !important; }
+    .cs-method__number           { background: transparent !important; }
+    .eds-box {
+      background: #1e1e1e;
+      border-radius: 16px;
+      padding: 32px;
+    }
+    [data-theme="light"] .eds-box {
+      background: #ffffff;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    }
+    .eds-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(89, 148, 196, 0.18);
+      color: #89b4d4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+    [data-theme="light"] .eds-num {
+      background: rgba(13, 58, 82, 0.1);
+      color: #0d3a52;
+    }
+    .eds-expand-wrap {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+      padding: 12px;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, z-index 0s;
+      cursor: zoom-in;
+      position: relative;
+      z-index: 1;
+    }
+    .eds-expand-wrap:hover {
+      transform: scale(1.04);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      z-index: 10;
+    }
+    .eds-expand-wrap img {
+      width: 100%;
+      height: 140px;
+      object-fit: contain;
+      display: block;
+      border-radius: 6px;
+    }
+    .eds-expand-wrap img[style*="height: auto"] {
+      height: auto;
+    }
+    /* Lightbox */
+    #eds-lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0,0,0,0.82);
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    #eds-lightbox.open { display: flex; }
+    #eds-lightbox-inner {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+      max-width: 88vw;
+      max-height: 90vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    #eds-lightbox img {
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 6px;
+      pointer-events: none;
+      display: block;
+    }
+    #eds-lightbox-close {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      background: rgba(255,255,255,0.15);
+      border: none;
+      color: #fff;
+      font-size: 28px;
+      line-height: 1;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #s-process { gap: 24px; }
+    .cs-hmw,
+    .cs-finding,
+    .cs-interview-block,
+    .cs-direction,
+    .cs-req                      { border-left: 3px solid var(--eds-blue); }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+
+  <header class="nav">
+    <a href="/" class="nav__logo" aria-label="Home">
+      <img src="/assets/afia_logo.png" alt="AL logo" class="nav__logo-img" />
+    </a>
+    <nav class="nav__links" aria-label="Primary navigation">
+      <a href="/#work" class="nav__link">Work</a>
+      <a href="/about/" class="nav__link">About</a>
+      <a href="https://drive.google.com/file/d/1g7gjROStxXxsRz4DX33tyKrAW1EHBNSM/view?usp=sharing" class="nav__link nav__link--resume" target="_blank" rel="noopener">
+        <span class="resume-bubbles">
+          <span class="bubble bubble--lg"></span>
+          <span class="bubble bubble--sm"></span>
+        </span>
+        Resume
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <span class="theme-toggle__thumb"></span>
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </nav>
+    <button class="nav__hamburger" id="navHamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </header>
+  <div class="nav__mobile-menu" id="navMobileMenu">
+    <a href="/#work" class="nav__mobile-link">Work</a>
+    <a href="/about/" class="nav__mobile-link">About</a>
+    <a href="https://drive.google.com/file/d/1g7gjROStxXxsRz4DX33tyKrAW1EHBNSM/view?usp=sharing" class="nav__mobile-link" target="_blank" rel="noopener">Resume ↗</a>
+  </div>
+
+  <main class="case-study">
+
+    <nav class="cs-stepper" aria-label="Case study navigation">
+      <ol class="cs-stepper__list">
+        <li class="cs-stepper__item" data-target="s-overview">
+          <a href="#s-overview" class="cs-stepper__link">
+            <span class="cs-stepper__num">01</span>
+            <span class="cs-stepper__label">Overview</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-context">
+          <a href="#s-context" class="cs-stepper__link">
+            <span class="cs-stepper__num">02</span>
+            <span class="cs-stepper__label">Context</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-process">
+          <a href="#s-process" class="cs-stepper__link">
+            <span class="cs-stepper__num">03</span>
+            <span class="cs-stepper__label">Process</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-reflection">
+          <a href="#s-reflection" class="cs-stepper__link">
+            <span class="cs-stepper__num">04</span>
+            <span class="cs-stepper__label">Reflection</span>
+          </a>
+        </li>
+        <li class="cs-stepper__item" data-target="s-outcomes">
+          <a href="#s-outcomes" class="cs-stepper__link">
+            <span class="cs-stepper__num">05</span>
+            <span class="cs-stepper__label">Outcomes</span>
+          </a>
+        </li>
+      </ol>
+    </nav>
+
+    <section class="cs-hero" id="s-overview">
+      <div class="cs-hero__content">
+        <h1 class="cs-hero__title animate animate--1">Email Design System</h1>
+        <p class="cs-hero__subtitle animate animate--3">Brand new email design system built for a tier 1 financial company covering a wide range of email templates sent externally throughout the firm.</p>
+      </div>
+      <div class="cs-hero__media animate animate--3">
+        <img src="/assets/ds_cover.png" alt="Email Design System cover" class="cs-hero__video" />
+      </div>
+    </section>
+
+    <hr class="cs-hero__rule" />
+
+    <div class="cs-hero__details-wrap">
+      <div class="cs-hero__details animate animate--3">
+        <div class="cs-detail">
+          <span class="cs-detail__label">Agency</span>
+          <span class="cs-detail__value">Oh Hi, Hello</span>
+        </div>
+        <div class="cs-detail">
+          <span class="cs-detail__label">Client</span>
+          <span class="cs-detail__value">Tier 1 Financial Company</span>
+        </div>
+        <div class="cs-detail">
+          <span class="cs-detail__label">Role</span>
+          <span class="cs-detail__value">Product Designer, team of 2</span>
+        </div>
+        <div class="cs-detail">
+          <span class="cs-detail__label">Timeline</span>
+          <span class="cs-detail__value">2025 to 2026</span>
+        </div>
+        <div class="cs-detail">
+          <span class="cs-detail__label">Deliverables</span>
+          <span class="cs-detail__value">100+ Components, Figma Specs, Annotation Docs</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="cs-intro" id="s-intro">
+      <div class="cs-intro__hook animate animate--1">
+        <p>A brand new email design system built from scratch for a Tier 1 Financial Company as part of a firm-wide brand refresh, covering hundreds of different email templates sent externally.</p>
+      </div>
+      <div class="cs-intro__body">
+        <p>Stakeholders wanted a new email design system that matched their new brand guidelines as part of a brand refresh for all marketing in the firm.</p>
+        <p>The system had to be technically capable across different EMSs (electronic mail systems) including Outlook and Gmail, and built for both desktop and mobile formats.</p>
+      </div>
+      <div style="margin-top: 12px; background: #ffffff; border-radius: 16px; box-shadow: 0 8px 40px rgba(0,0,0,0.18); padding: 24px; display: flex; justify-content: center;">
+        <img src="/assets/eds_group3.png" alt="Email Design System overview" style="max-height: 480px; object-fit: contain; width: 100%; display: block;" />
+      </div>
+      <p style="margin-top: 6px; font-size: 14px; color: var(--text-secondary, #999); font-family: 'BDO Grotesk Medium', sans-serif; text-align: left;">Featured components out of our extensive library.</p>
+    </section>
+
+<section class="cs-phase" id="s-process">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Process</span>
+        <h2 class="cs-section-title">How We Built It</h2>
+        <p class="cs-phase__intro">The process was iterative and grounded in the existing email landscape before anything new was designed.</p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 24px; margin-top: 12px;">
+        <div class="eds-box">
+          <div class="cs-method" style="border: none; padding: 0; background: transparent;">
+            <div class="eds-num">01</div>
+            <div class="cs-method__content">
+              <h3 class="cs-method__title">Auditing Existing Templates</h3>
+              <ul class="cs-method__list">
+                <li>Dissected existing templates into <span class="cs-accent">elements and components</span></li>
+                <li>Component list evolved frequently throughout the project</li>
+              </ul>
+            </div>
+          </div>
+          <div style="margin-top: 24px; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.15); padding: 16px;">
+            <img src="/assets/eds_old_email_template.png" alt="Old email template" style="width: 100%; height: auto; display: block; border-radius: 8px;" />
+          </div>
+        </div>
+        <div class="eds-box">
+          <div class="cs-method" style="border: none; padding: 0; background: transparent;">
+            <div class="eds-num">02</div>
+            <div class="cs-method__content">
+              <h3 class="cs-method__title">Base Layer: Color and Typography</h3>
+              <ul class="cs-method__list">
+                <li>Established <span class="cs-accent">color and type tokens</span> aligned to new brand guidelines</li>
+                <li>Both iterated frequently as the brand refresh evolved</li>
+                <li>Late requirement: typography expanded to support <span class="cs-accent">Asian language fonts</span></li>
+              </ul>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 24px;">
+            <div style="background: #ffffff; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.15); padding: 16px;">
+              <img src="/assets/eds_color_palette.png" alt="Color Palette" style="width: 100%; height: auto; display: block; border-radius: 8px;" />
+            </div>
+            <div style="background: #ffffff; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.15); padding: 16px;">
+              <img src="/assets/eds_typestack.png" alt="Type Stack" style="width: 100%; height: auto; display: block; border-radius: 8px;" />
+            </div>
+            <div style="background: #ffffff; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.15); padding: 16px;">
+              <img src="/assets/eds_asian_fonts.png" alt="Asian Language Fonts" style="width: 100%; height: auto; display: block; border-radius: 8px;" />
+            </div>
+          </div>
+        </div>
+        <div class="eds-box">
+          <div class="cs-method" style="border: none; padding: 0; background: transparent;">
+            <div class="eds-num">03</div>
+            <div class="cs-method__content">
+              <h3 class="cs-method__title">Grid and Spacing</h3>
+              <ul class="cs-method__list">
+                <li>Defined <span class="cs-accent">grid structures</span> to ensure consistent layout across all email templates</li>
+                <li>Established <span class="cs-accent">spacing and padding tokens</span> for uniform rhythm throughout components</li>
+              </ul>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 24px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div style="background: #ffffff; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.15); padding: 16px;">
+                <img src="/assets/eds_grid.png" alt="Grid" style="width: 100%; height: auto; display: block; border-radius: 8px;" />
+              </div>
+              <div style="background: #ffffff; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.15); padding: 16px;">
+                <img src="/assets/eds_spacing.png" alt="Spacing" style="width: 100%; height: auto; display: block; border-radius: 8px;" />
+              </div>
+            </div>
+            <div style="background: #ffffff; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.15); padding: 16px;">
+              <img src="/assets/eds_padding.png" alt="Padding" style="width: 100%; height: auto; display: block; border-radius: 8px;" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-section-header" style="margin-top: 56px;">
+        <h2 class="cs-section-title">Elements</h2>
+        <p class="cs-phase__intro">Elements are the smaller, reusable parts that make up larger components. Each element was designed to work independently and compose cleanly across all template types. Here are just a few from our extensive library. Hover to zoom on elements.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 12px;">
+        <div class="eds-expand-wrap"><img src="/assets/eds_element_-_badge.png" alt="Badge element" /></div>
+        <div class="eds-expand-wrap"><img src="/assets/eds_element_-_feature.png" alt="Feature element" /></div>
+        <div class="eds-expand-wrap"><img src="/assets/eds_element_-_key_takeaway.png" alt="Key Takeaway element" /></div>
+        <div class="eds-expand-wrap"><img src="/assets/eds_element_-_person.png" alt="Person element" /></div>
+        <div class="eds-expand-wrap"><img src="/assets/eds_element_-_small_link.png" alt="Small Link element" /></div>
+        <div class="eds-expand-wrap"><img src="/assets/eds_element_-_webcast_series_block.png" alt="Webcast Series Block element" /></div>
+      </div>
+
+      <div class="cs-section-header" style="margin-top: 56px;">
+        <h2 class="cs-section-title">Buttons</h2>
+        <p class="cs-phase__intro">Buttons were originally designed with teal as the action color. When the brand refresh updated and teal was removed from the color library entirely, we had to pause and work directly with stakeholders to align on a new action color. The decision landed on a very dark navy blue. Something this seemingly small held up design decisions and blocked further component work, making it one of the more frustrating obstacles early in the process.</p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 12px;">
+        <div class="eds-expand-wrap" style="height: auto;">
+          <img src="/assets/button_element.png" alt="Button element variations" style="width: 100%; height: auto; object-fit: contain;" />
+        </div>
+        <div class="eds-expand-wrap" style="height: auto;">
+          <img src="/assets/button_component.png" alt="Button component" style="width: 100%; height: auto; object-fit: contain;" />
+        </div>
+      </div>
+
+      <div class="cs-section-header" style="margin-top: 56px;">
+        <h2 class="cs-section-title">Component Library</h2>
+        <p class="cs-phase__intro">From there we started building out our extensive component library, annotating each component with strict guidance for engineers but also for marketers on content. Here is a screenshot of a huge chunk of our master components and then below certain components along with their Figma annotations. Hover to zoom on components.</p>
+      </div>
+
+      <div class="eds-expand-wrap" style="height: auto; margin-top: 12px;">
+        <img src="/assets/eds_master_components.jpg" alt="Master Components" style="width: 100%; height: auto; object-fit: contain;" />
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 16px; align-items: start;">
+        <div class="eds-expand-wrap" style="height: auto;"><img src="/assets/eds_comp_event_hero.png" alt="Event Hero Component" style="width: 100%; height: auto; object-fit: contain;" /></div>
+        <div class="eds-expand-wrap" style="height: auto;"><img src="/assets/eds_comp_formula.png" alt="Formula Component" style="width: 100%; height: auto; object-fit: contain;" /></div>
+        <div class="eds-expand-wrap" style="height: auto;"><img src="/assets/eds_comp_fund_hero.png" alt="Fund Hero Component" style="width: 100%; height: auto; object-fit: contain;" /></div>
+        <div class="eds-expand-wrap" style="height: auto;"><img src="/assets/eds_comp_campaign_hero.png" alt="Campaign Hero Component" style="width: 100%; height: auto; object-fit: contain;" /></div>
+        <div class="eds-expand-wrap" style="height: auto;"><img src="/assets/eds_comp_bulleted_list.png" alt="Bulleted List Component" style="width: 100%; height: auto; object-fit: contain;" /></div>
+        <div class="eds-expand-wrap" style="height: auto;"><img src="/assets/eds_comp_event_details.png" alt="Event Details Component" style="width: 100%; height: auto; object-fit: contain;" /></div>
+        <div class="eds-expand-wrap" style="height: auto;"><img src="/assets/eds_comp_fund_card.png" alt="Fund Card Component" style="width: 100%; height: auto; object-fit: contain;" /></div>
+        <div class="eds-expand-wrap" style="height: auto;"><img src="/assets/eds_comp_data_table.png" alt="Data Table Component" style="width: 100%; height: auto; object-fit: contain;" /></div>
+      </div>
+
+      <div class="cs-section-header" style="margin-top: 56px;">
+        <h2 class="cs-section-title">Templates</h2>
+        <p class="cs-phase__intro">After we created a huge part of our design system we started creating email templates that we would need to review with stakeholders across the company. We needed to get a clear list of requirements and use previous emails to help us form the new design from our system. These covered a range of use cases across event invitations, newsletters, webcasts, and general purpose formats. Click to expand.</p>
+      </div>
+
+      <div style="margin-top: 12px;">
+        <div class="eds-expand-wrap" style="height: auto;">
+          <img src="/assets/eds_tmpl_webcast_invitation.png" alt="Webcast Invitation Template" style="width: 100%; height: auto; object-fit: contain;" />
+        </div>
+        <p class="cs-phase__intro" style="margin-top: 20px;">An example of an online event invitation email template with production guidance annotations for engineers and content guidance annotations for marketers.</p>
+      </div>
+    </section>
+
+    <section class="cs-phase" id="s-reflection">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Reflection</span>
+        <h2 class="cs-section-title">What I Took Away</h2>
+        <p class="cs-phase__intro">This project taught me what it truly means to build a full-scale design system from the ground up, but more than that, it sharpened how I navigate stakeholder relationships and manage evolving expectations. This has never been a linear process. Requirements shifted, new requests surfaced mid-flight, and priorities changed, all of which required constant adaptation and clear communication.</p>
+        <p class="cs-phase__intro" style="margin-top: 16px;">Now that we are approaching the final stretch, it is genuinely impressive to look back at how much we accomplished and the scale of transformation from where their email program started. The evolution speaks for itself.</p>
+        <p class="cs-phase__intro" style="margin-top: 16px;">One of the most valuable lessons I took from this project is that great design work does not begin and end with execution. You cannot always wait to be told what is needed next. The designers who stand out are the ones who stay curious, ask the right questions before they are asked, and proactively surface what a client actually needs rather than what they initially say they want. That mindset is what elevates a deliverable from technically correct to genuinely right.</p>
+      </div>
+    </section>
+
+    <section class="cs-phase" id="s-outcomes">
+      <div class="cs-section-header">
+        <span class="cs-section-label">Outcomes</span>
+        <h2 class="cs-section-title">Where We Are Now</h2>
+        <p class="cs-phase__intro">This design system is currently being developed into modules for marketing teams to use and form email templates from. It is currently all being developed internally at the bank by AI. Therefore, all of our annotations and labeling had to be extra clear and precise, so AI systems and MCPs can develop our designs without room for interpretation. We are currently doing QA to work through all of this right now with engineers directly. The hope is to launch the new wave of emails by January 2027. Once these emails are published I will update this page with more documentation and images of our work.</p>
+      </div>
+    </section>
+
+
+  </main>
+
+  <script>
+    // Theme toggle
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    html.setAttribute('data-theme', 'light');
+    toggle.addEventListener('click', () => {
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+
+    // Mobile menu
+    const hamburger = document.getElementById('navHamburger');
+    const mobileMenu = document.getElementById('navMobileMenu');
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open');
+    });
+
+    // Stepper active state
+    const sections = document.querySelectorAll('section[id]');
+    const stepItems = document.querySelectorAll('.cs-stepper__item');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          stepItems.forEach(item => item.classList.remove('active'));
+          const active = document.querySelector(`.cs-stepper__item[data-target="${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    sections.forEach(s => observer.observe(s));
+  </script>
+  <script>
+    (function() {
+      var style = document.createElement('style');
+      style.textContent = '#scrollProgress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, #4a9eff, #7b6ff7); z-index: 9999; pointer-events: none; transition: width 0.08s linear; }';
+      document.head.appendChild(style);
+      var bar = document.getElementById('scrollProgress');
+      function update() {
+        var scrollTop = window.scrollY || document.documentElement.scrollTop;
+        var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        bar.style.width = pct + '%';
+      }
+      window.addEventListener('scroll', update, { passive: true });
+      update();
+    })();
+  </script>
+
+  <!-- Lightbox -->
+  <div id="eds-lightbox" role="dialog" aria-modal="true">
+    <button id="eds-lightbox-close" aria-label="Close">&#x2715;</button>
+    <div id="eds-lightbox-inner">
+      <img id="eds-lightbox-img" src="" alt="" />
+    </div>
+  </div>
+  <script>
+    (function() {
+      var lb = document.getElementById('eds-lightbox');
+      var lbImg = document.getElementById('eds-lightbox-img');
+      var lbClose = document.getElementById('eds-lightbox-close');
+
+      function open(src, alt) {
+        lbImg.src = src;
+        lbImg.alt = alt;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+      function close() {
+        lb.classList.remove('open');
+        document.body.style.overflow = '';
+        lbImg.src = '';
+      }
+
+      document.querySelectorAll('.eds-expand-wrap').forEach(function(wrap) {
+        wrap.addEventListener('click', function() {
+          var img = wrap.querySelector('img');
+          if (img) open(img.src, img.alt);
+        });
+      });
+
+      lbClose.addEventListener('click', function(e) { e.stopPropagation(); close(); });
+      lb.addEventListener('click', close);
+      document.getElementById('eds-lightbox-inner').addEventListener('click', function(e) { e.stopPropagation(); });
+      document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close(); });
+    })();
+  </script>
+</body>
+</html>
